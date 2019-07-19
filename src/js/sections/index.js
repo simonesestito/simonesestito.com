@@ -3,4 +3,4 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-import './sections';
+export * from './card';

@@ -3,7 +3,7 @@ My personal portfolio website. Hosted at https://simonesestito.com
 
 ## License
 
-    Personal Portfolio
+    simonesestito.com Portfolio
     Copyright (C) 2019 Simone Sestito
 
     This program is free software: you can redistribute it and/or modify

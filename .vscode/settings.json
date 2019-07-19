@@ -1,0 +1,19 @@
+{
+    "fileHeaderComment.parameter":{
+        "*":{
+            "commentbegin": "/*",
+            "commentprefix": " *",
+            "commentend": " */",
+            "name": "Simone Sestito",
+            "project": "simonesestito.com"
+        }
+    },
+    "fileHeaderComment.template":{
+        "*":[
+            "${commentbegin}",
+            "${commentprefix} This file is part of ${project}",
+            "${commentprefix} Copyright (C) ${year} ${name}",
+            "${commentend}"
+        ]
+    }
+}
