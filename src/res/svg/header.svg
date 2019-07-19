@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 1920 471.55487"
+   version="1.1"
+   id="svg34"
+   sodipodi:docname="header.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   width="1920"
+   height="471.55487">
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="961"
+     id="namedview36"
+     showgrid="false"
+     inkscape:zoom="1.203125"
+     inkscape:cx="477.18695"
+     inkscape:cy="270.77042"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Immagine_header"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs28">
+    <clipPath
+       id="clip-path">
+      <rect
+         width="1920"
+         height="471.556"
+         id="rect25"
+         x="0"
+         y="0"
+         style="fill:none" />
+    </clipPath>
+  </defs>
+  <g
+     id="Immagine_header"
+     data-name="Immagine header"
+     clip-path="url(#clip-path)">
+    <path
+       id="Path_1"
+       data-name="Path 1"
+       d="M 1090.634,340.5 C 693.95311,533.315 218.47005,496.181 -5.9146942,340.5 V 52 H 1920.057 v 183.766 c 0,0 -432.7432,-88.074 -829.423,104.734 z"
+       inkscape:connector-curvature="0"
+       style="fill:#64b5f6" />
+    <g
+       id="Group_1"
+       data-name="Group 1"
+       transform="scale(1.0011491,1)">
+      <path
+         id="Path_2"
+         data-name="Path 2"
+         d="M 1035.948,285.756 C 633.975,482.1 289.961,475.648 0,345.418 V 1 h 1918 v 184.135 c 0,0 -480.085,-95.724 -882.052,100.621 z"
+         transform="translate(0,-1)"
+         inkscape:connector-curvature="0"
+         style="fill:#2196f3" />
+    </g>
+  </g>
+</svg>

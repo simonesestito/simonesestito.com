@@ -1,0 +1,27 @@
+#main {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    background-color: $colorSurface;
+    .header {
+        width: 100%;
+        height: 30vh;
+        background-image: url(/res/svg/header.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+    }
+    .content {
+        margin-top: 15vh;
+        .title {
+            margin: 0;
+        }
+        * {
+            display: inline-block;
+        }
+        .cta {
+            margin-top: 28px;
+        }
+    }
+}

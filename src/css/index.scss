@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+/* Colors */
+
+$colorSurface: #fafafa;
+$colorBackground: #f0f0f0;
+$colorAccent: #2196F3;
+$colorTextOnAccent: #ffffff;
+
+/* Fonts size */
+
+$fontTitleSize: 2.8em;
+$fontSubtitleSize: 1.2em;
+$fontButtonSize: 1.2em;
+
+/* Other dimensions */
+
+$buttonRadius: 32px;
+
+/* Durations */
+
+$transitionDuration: 0.3s;
+
+/* Shadows */
+
+@mixin lightShadow($x: 0,
+$y: 3px) {
+    box-shadow: $x $y 3px rgba(0, 0, 0, 0.2);
+}
+
+@mixin hardShadow($x: 0,
+$y: 4px) {
+    box-shadow: $x $y 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Style body element */
+
+body {
+    background: $colorBackground;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@import './sections/main.scss';
+@import './layout.scss';
+@import './fonts.scss';
+@import './components.scss';

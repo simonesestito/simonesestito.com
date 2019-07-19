@@ -1,0 +1,19 @@
+/* App defined components */
+
+button.cta {
+    background-color: $colorAccent;
+    border: none;
+    border-radius: $buttonRadius;
+    text-transform: uppercase;
+    color: $colorTextOnAccent;
+    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+    font-weight: bold;
+    @include lightShadow;
+    cursor: pointer;
+    transition-duration: $transitionDuration;
+    font-size: $fontButtonSize;
+}
+
+button.cta:hover {
+    @include hardShadow;
+}
