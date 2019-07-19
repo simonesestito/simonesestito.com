@@ -1,5 +1,6 @@
 {
     "name": "simonesestito.com",
+    "private": true,
     "version": "1.0.0",
     "description": "Personal Portfolio Website",
     "author": "Simone Sestito",
@@ -17,8 +18,8 @@
         "clean": "shx rm -rf dist/ .cache/",
         "prebuild": "npm run clean",
         "build": "parcel build src/index.html --no-source-maps",
-        "prepublish": "npm run build",
-        "publish": "firebase deploy",
+        "predeploy": "npm run build",
+        "deploy": "firebase deploy",
         "preprod": "npm run build",
         "prod": "firebase serve --only hosting"
     },
