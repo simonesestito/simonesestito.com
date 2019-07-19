@@ -1,0 +1,18 @@
+{
+    "name": "simonesestito.com",
+    "version": "1.0.0",
+    "description": "Personal Portfolio Website",
+    "author": "Simone Sestito",
+    "license": "AGPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/simonesestito/simonesestito.com/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/simonesestito/simonesestito.com.git"
+    },
+    "homepage": "https://simonesestito.com",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
