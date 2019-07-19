@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /* Colors */
 
@@ -16,6 +17,10 @@ $fontButtonSize: 1.2em;
 /* Other dimensions */
 
 $buttonRadius: 32px;
+$containerCardRadius: 24px;
+$maxWidthContainer: 1024px;
+$cardHeight: 10vh;
+$cardMinMargin: 16px;
 
 /* Durations */
 
@@ -26,6 +31,11 @@ $transitionDuration: 0.3s;
 @mixin lightShadow($x: 0,
 $y: 3px) {
     box-shadow: $x $y 3px rgba(0, 0, 0, 0.2);
+}
+
+@mixin mediumShadow($x: 0,
+$y: 3px) {
+    box-shadow: $x $y 6px rgba(0, 0, 0, 0.3)
 }
 
 @mixin hardShadow($x: 0,
@@ -42,7 +52,8 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-@import './sections/main.scss';
 @import './layout.scss';
 @import './fonts.scss';
 @import './components.scss';
+@import './sections/main.scss';
+@import './sections/card.scss';

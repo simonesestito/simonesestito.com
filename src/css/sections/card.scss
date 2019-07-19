@@ -1,0 +1,27 @@
+.wrapper-card {
+    /* Wrapper required to add minimum margin to card */
+    margin-left: $cardMinMargin;
+    margin-right: $cardMinMargin;
+    .content-card {
+        max-width: $maxWidthContainer;
+        min-height: $cardHeight;
+        background: white;
+        margin: calc(100vh - #{$cardHeight}) auto 0 auto;
+        @include mediumShadow(0, -3px);
+        border-top-left-radius: $containerCardRadius;
+        border-top-right-radius: $containerCardRadius;
+        #card-arrow {
+            display: block;
+            width: 100%;
+            line-height: $cardHeight;
+            font-size: $fontTitleSize;
+            text-align: center;
+            color: black;
+            cursor: pointer;
+        }
+    }
+}
+
+.container {
+    max-width: $maxWidthContainer;
+}
