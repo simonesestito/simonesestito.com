@@ -6,11 +6,6 @@
 
 /* Layout related styles */
 
-.half-right {
-    max-width: 50%;
-    margin-left: 50%;
-}
-
 .right {
     margin-right: 0;
     margin-left: auto;
@@ -18,4 +13,23 @@
 
 .full-height {
     height: 100vh;
+}
+
+@media only screen and (min-width: $mobileMaxWidth) {
+    .desktop-half-right {
+        max-width: 50%;
+        margin-left: 50%;
+    }
+}
+
+@media only screen and (max-width: $mobileMaxWidth) {
+    .desktop-half-right {
+        margin-left: $contentMargin;
+        margin-right: $contentMargin;
+    }
+    .mobile-vertical-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

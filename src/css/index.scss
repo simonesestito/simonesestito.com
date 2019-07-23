@@ -19,17 +19,33 @@ $fontTitleSize: 2.8em;
 $fontSubtitleSize: 1.2em;
 $fontButtonSize: 1.2em;
 
+/* Durations */
+
+$transitionDuration: 0.3s;
+
 /* Other dimensions */
 
 $buttonRadius: 32px;
 $containerCardRadius: 24px;
 $maxWidthContainer: 1024px;
 $cardHeight: 10vh;
-$cardMinMargin: 16px;
+$contentMargin: 16px;
+$mobileMaxWidth: 768px;
 
-/* Durations */
+/* Responsive variables */
 
-$transitionDuration: 0.3s;
+:root {
+    /* Desktop */
+    --headerHeight: 30vh;
+    --mainContentMargin: 15vh;
+    /**/
+    @media only screen and (max-width: $mobileMaxWidth) {
+        /* Mobile */
+        --headerHeight: 20vh;
+        --mainContentMargin: 5vh;
+    }
+}
+
 
 /* Shadows */
 

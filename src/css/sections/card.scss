@@ -5,8 +5,8 @@
 
 .wrapper-card {
     /* Wrapper required to add minimum margin to card */
-    margin-left: $cardMinMargin;
-    margin-right: $cardMinMargin;
+    margin-left: $contentMargin;
+    margin-right: $contentMargin;
     .content-card {
         max-width: $maxWidthContainer;
         min-height: $cardHeight;

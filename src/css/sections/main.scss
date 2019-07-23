@@ -11,14 +11,17 @@
     background-color: $colorSurface;
     .header {
         width: 100%;
-        height: 30vh;
+        height: var(--headerHeight);
         background-image: url(/res/svg/header.svg);
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
     }
+    .mobile-vertical-center {
+        height: calc(100vh - #{$cardHeight} - var(--headerHeight));
+    }
     .content {
-        margin-top: 15vh;
+        margin-top: var(--mainContentMargin);
         .title {
             margin: 0;
         }
