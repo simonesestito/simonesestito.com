@@ -38,11 +38,13 @@ $mobileMaxWidth: 768px;
     /* Desktop */
     --headerHeight: 30vh;
     --mainContentMargin: 15vh;
+    --cardMarginTop: calc(100vh - #{$cardHeight});
     /**/
     @media only screen and (max-width: $mobileMaxWidth) {
         /* Mobile */
         --headerHeight: 20vh;
         --mainContentMargin: 5vh;
+        --cardMarginTop: calc(100vh - #{$cardHeight} - 48px);
     }
 }
 

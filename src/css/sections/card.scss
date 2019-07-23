@@ -11,7 +11,7 @@
         max-width: $maxWidthContainer;
         min-height: $cardHeight;
         background: white;
-        margin: calc(100vh - #{$cardHeight}) auto 0 auto;
+        margin: var(--cardMarginTop) auto 0 auto;
         @include mediumShadow(0, -3px);
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
