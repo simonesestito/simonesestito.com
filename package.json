@@ -27,6 +27,7 @@
         "firebase-tools": "^7.1.1",
         "parcel-bundler": "^1.12.3",
         "parcel-plugin-imagemin": "^3.0.0",
+        "postcss-css-variables": "^0.13.0",
         "sass": "^1.22.7",
         "shx": "^0.3.2"
     },
