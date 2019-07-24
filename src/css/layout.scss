@@ -15,8 +15,10 @@
     height: 100vh;
 }
 
-section.page-section {
-    min-height: 100vh;
+#viewport {
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
 }
 
 @media only screen and (min-width: $mobileMaxWidth) {

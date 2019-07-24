@@ -13,3 +13,12 @@ import * as ScrollMagic from 'scrollmagic';
 export const scrollMagicController = (() => {
     return new ScrollMagic.Controller();
 })();
+
+export function vh(n) {
+    var unit = vh.unit || (vh.unit = (() => {
+        var vhDiv = document.getElementById("viewport");
+        return vhDiv.clientHeight / 100.0;
+    })());
+
+    return n * unit;
+}

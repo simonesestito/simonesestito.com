@@ -1,0 +1,40 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+
+/* Section generic styles */
+
+$sectionHeaderHeight: 56px;
+$sectionHeaderShadowHeight: 16px;
+$sectionHeaderShadowWidth: $maxWidthContainer;
+section.page-section {
+    min-height: 100vh;
+    h2.section-header {
+        width: 100%;
+        height: $sectionHeaderHeight;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: $sectionHeaderHeight;
+        /* Underlining shadow */
+        &::after {
+            content: '\00a0';
+            width: inherit;
+            background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            background-size: 100% $sectionHeaderShadowHeight;
+            background-repeat: no-repeat;
+            float: left;
+        }
+    }
+    .section-content {
+        margin-top: $sectionHeaderShadowHeight;
+    }
+}
+
+
+/* Section specific styles */
+
+@import './sections/main.scss';
+@import './sections/card.scss';
