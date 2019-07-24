@@ -1,3 +1,8 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
 // Required plugin imports
 import 'gsap/ScrollToPlugin';
 import 'gsap/CSSPlugin';
