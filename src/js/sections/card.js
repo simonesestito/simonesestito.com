@@ -22,7 +22,7 @@ const timeline = new TimelineLite()
 new ScrollMagic.Scene({
         triggerElement: "#card-arrow",
         triggerHook: 0.8,
-        duration: window.innerHeight - document.getElementById("card-arrow").clientHeight
+        duration: () => window.innerHeight - document.getElementById("card-arrow").clientHeight
     })
     .setTween(timeline)
     .addTo(scrollMagicController);
