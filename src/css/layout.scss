@@ -15,6 +15,10 @@
     height: 100vh;
 }
 
+section.page-section {
+    min-height: 100vh;
+}
+
 @media only screen and (min-width: $mobileMaxWidth) {
     .desktop-half-right {
         max-width: 50%;
