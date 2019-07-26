@@ -16,7 +16,7 @@ sectionHeaders.forEach(header => {
             triggerHook: 0,
             duration: section.clientHeight - vh(100)
         })
-        .setPin(section, {
+        .setPin(header, {
             pushFollowers: false
         })
         .addTo(scrollMagicController);
