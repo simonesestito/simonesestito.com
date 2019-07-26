@@ -16,7 +16,6 @@ document.getElementById('card-arrow').addEventListener('click', () => {
 // Fade effect on scroll up
 const timeline = new TimelineLite()
     .to("#main", 2, { opacity: 0 }, 0.8)
-    .to("body", 2, { backgroundColor: "#fafafa" }, 0.8)
     .to(".content-card", 1, { boxShadow: "0px 0px 0px 0px" }, 1.8);
 
 new ScrollMagic.Scene({
