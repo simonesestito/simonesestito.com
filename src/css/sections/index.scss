@@ -33,6 +33,11 @@ section.page-section {
     }
 }
 
+.container {
+    margin-top: var(--mainContentMarginTop);
+    max-width: $maxWidthContainer;
+}
+
 
 /* Section specific styles */
 

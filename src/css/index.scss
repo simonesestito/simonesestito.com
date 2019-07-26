@@ -37,13 +37,15 @@ $mobileMaxWidth: 768px;
 :root {
     /* Desktop */
     --headerHeight: 30vh;
-    --mainContentMargin: 15vh;
+    --mainContentMarginLR: 15vh;
+    --mainContentMarginTop: 0;
     --cardMarginTop: calc(100vh - #{$cardHeight});
     /**/
     @media only screen and (max-width: $mobileMaxWidth) {
         /* Mobile */
         --headerHeight: 20vh;
-        --mainContentMargin: 5vh;
+        --mainContentMarginLR: 5vh;
+        --mainContentMarginTop: 48px;
         --cardMarginTop: calc(100vh - #{$cardHeight} - 48px);
     }
 }
