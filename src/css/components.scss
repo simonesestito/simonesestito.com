@@ -18,8 +18,19 @@ button.cta {
     cursor: pointer;
     transition-duration: $transitionDuration;
     font-size: $fontButtonSize;
+    &:hover {
+        @include hardShadow;
+    }
 }
 
-button.cta:hover {
-    @include hardShadow;
+.icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    svg {
+        width: 2em;
+        height: 2em;
+        margin: auto;
+    }
 }

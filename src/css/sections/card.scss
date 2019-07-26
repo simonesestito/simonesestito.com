@@ -16,13 +16,9 @@
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
         #card-arrow {
-            display: block;
             width: 100%;
-            line-height: $cardHeight;
-            font-size: $fontTitleSize;
-            text-align: center;
-            color: black;
-            cursor: pointer;
+            height: $cardHeight;
+            margin: 0;
         }
     }
 }
