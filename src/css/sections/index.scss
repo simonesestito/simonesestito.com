@@ -6,9 +6,7 @@
 
 /* Section generic styles */
 
-$sectionHeaderHeight: 56px;
-$sectionHeaderShadowHeight: 48px;
-$sectionHeaderShadowWidth: $maxWidthContainer;
+$sectionHeaderHeight: 64px;
 section.page-section {
     min-height: 100vh;
     h2.section-header {
@@ -18,20 +16,7 @@ section.page-section {
         text-transform: uppercase;
         margin: 0;
         line-height: $sectionHeaderHeight;
-        background: $colorBackground;
-        /* Underlining shadow */
-        &::after {
-            content: '\00a0';
-            width: inherit;
-            height: $sectionHeaderShadowHeight;
-            background-image: linear-gradient($colorBackground 50%, rgba($colorBackground, 0));
-            background-size: 100% $sectionHeaderShadowHeight;
-            background-repeat: no-repeat;
-            float: left;
-        }
-    }
-    .section-content {
-        margin-top: $sectionHeaderShadowHeight;
+        background: linear-gradient($colorBackground 75%, rgba($colorBackground, 0));
     }
 }
 
