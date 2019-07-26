@@ -17,7 +17,7 @@ export const scrollMagicController = (() => {
 export function vh(n) {
     var unit = vh.unit || (vh.unit = (() => {
         var vhDiv = document.getElementById("viewport");
-        return vhDiv.clientHeight / 100.0;
+        return vhDiv.clientHeight / 90.0;
     })());
 
     return n * unit;
