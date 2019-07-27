@@ -12,7 +12,7 @@
     .header {
         width: 100%;
         height: var(--headerHeight);
-        background-image: url(/res/svg/header.svg);
+        background-image: inline("header.svg");
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: cover;
