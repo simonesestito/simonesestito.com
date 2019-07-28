@@ -4,9 +4,6 @@ module.exports = {
             basePath: 'src/',
             loadPaths: ['res/svg/']
         }),
-        require('postcss-css-variables'),
-        require('cssnano')({
-            preset: 'default'
-        })
+        require('postcss-css-variables')
     ]
 }
