@@ -14,7 +14,7 @@ sectionHeaders.forEach(header => {
     new ScrollMagic.Scene({
             triggerElement: section,
             triggerHook: 0,
-            duration: section.offsetHeight - vh(100)
+            duration: () => section.offsetHeight - vh(100)
         })
         .setPin(header, {
             pushFollowers: false

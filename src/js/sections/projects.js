@@ -15,7 +15,7 @@ const firstAppScreenshot = phoneFrame.getElementsByClassName('app-screenshot')[0
 new ScrollMagic.Scene({
         triggerElement: section,
         triggerHook: 0,
-        duration: section.offsetHeight - vh(100)
+        duration: () => section.offsetHeight - vh(100)
     })
     .setPin(phoneFrame, {
         pushFollowers: false
