@@ -7,6 +7,12 @@ import { scrollMagicController } from '../utils';
 import { TweenLite } from 'gsap/TweenLite';
 import * as ScrollMagic from 'scrollmagic';
 import { TimelineLite } from 'gsap/TimelineLite';
+import { Circ } from 'gsap';
+
+// Effect on page loading
+window.addEventListener('load', () => {
+    TweenLite.fromTo('.wrapper-card', .8, { paddingTop: '300px' }, { paddingTop: 0, ease: Circ.easeOut });
+});
 
 // Scroll up on click
 document.getElementById('card-arrow').addEventListener('click', () => {
@@ -29,7 +35,6 @@ new ScrollMagic.Scene({
     .setTween(timeline)
     .on("progress", e => {
         const { progress, scrollDirection } = e;
-        console.log({ progress, scrollDirection });
 
         if (lastScrollTimeout !== null) {
             clearTimeout(lastScrollTimeout);
