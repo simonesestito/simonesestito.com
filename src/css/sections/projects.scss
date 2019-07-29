@@ -24,13 +24,13 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
             height: $phoneContainerHeight;
         }
         #qs {
-            @include phoneFrameLayer("/res/img/test_screen.png");
+            @include phoneFrameLayer("/res/img/qs_app_screenshot.webp");
         }
         .black-icons {
             @include phoneFrameLayer("/res/img/phone_black_icons.png");
         }
         .phone-frame {
-            background: inline("phone_mockup.svg") no-repeat top center;
+            @include phoneFrameLayer("/res/img/phone_mockup.webp");
         }
     }
     .phone-apps {
