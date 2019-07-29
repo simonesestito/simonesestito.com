@@ -10,21 +10,32 @@
 
 $phoneContainerWidth: 400px;
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
-#projects {
+#projects .section-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
     .phone-container {
-        display: inline-block;
         position: relative;
         height: $phoneContainerHeight;
         width: $phoneContainerWidth;
         &>* {
             position: absolute;
-            top: 0;
-            margin-top: 0;
+            margin: 0 auto;
             width: $phoneContainerWidth;
             height: $phoneContainerHeight;
         }
+        .app-screenshot {
+            opacity: 0;
+        }
         #qs {
-            @include phoneFrameLayer("/res/img/qs_app_screenshot.webp");
+            @include phoneFrameLayer("/res/img/screenshots/qs.webp");
+        }
+        #wallapp {
+            @include phoneFrameLayer("/res/img/screenshots/wallapp.webp");
+        }
+        #escape_earth {
+            @include phoneFrameLayer("/res/img/screenshots/escape_earth.webp");
         }
         .black-icons {
             @include phoneFrameLayer("/res/img/phone_black_icons.png");
@@ -49,7 +60,7 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
                 // Don't scroll to the next section instantly,
                 // keep a little margin at the bottom of the last item
                 // to allow the user to keep scrolling a bit.
-                margin-bottom: $phoneContainerHeight;
+                margin-bottom: calc(#{$phoneContainerHeight} / 2);
             }
         }
     }
