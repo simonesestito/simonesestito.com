@@ -1,0 +1,56 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+@mixin phoneFrameLayer($file) {
+    background: url($file) no-repeat top center;
+    background-size: auto $phoneContainerHeight;
+}
+
+$phoneContainerWidth: 400px;
+$phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
+#projects {
+    .phone-container {
+        display: inline-block;
+        position: relative;
+        height: $phoneContainerHeight;
+        width: $phoneContainerWidth;
+        &>* {
+            position: absolute;
+            top: 0;
+            margin-top: 0;
+            width: $phoneContainerWidth;
+            height: $phoneContainerHeight;
+        }
+        #qs {
+            @include phoneFrameLayer("/res/img/test_screen.png");
+        }
+        .black-icons {
+            @include phoneFrameLayer("/res/img/phone_black_icons.png");
+        }
+        .phone-frame {
+            background: inline("phone_mockup.svg") no-repeat top center;
+        }
+    }
+    .phone-apps {
+        display: inline-block;
+        margin-left: 64px;
+        .phone-app {
+            display: inline-flex;
+            vertical-align: top;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: $phoneContainerHeight;
+            width: 100%;
+            &:last-of-type {
+                // Don't scroll to the next section instantly,
+                // keep a little margin at the bottom of the last item
+                // to allow the user to keep scrolling a bit.
+                margin-bottom: $phoneContainerHeight;
+            }
+        }
+    }
+}

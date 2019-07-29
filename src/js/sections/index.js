@@ -14,7 +14,7 @@ sectionHeaders.forEach(header => {
     new ScrollMagic.Scene({
             triggerElement: section,
             triggerHook: 0,
-            duration: section.clientHeight - vh(100)
+            duration: section.offsetHeight - vh(100)
         })
         .setPin(header, {
             pushFollowers: false
@@ -24,3 +24,4 @@ sectionHeaders.forEach(header => {
 
 export * from './card';
 export * from './main';
+export * from './projects';

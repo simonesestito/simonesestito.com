@@ -6,7 +6,6 @@
 
 /* Section generic styles */
 
-$sectionHeaderHeight: 64px;
 section.page-section {
     min-height: 100vh;
     h2.section-header {
@@ -30,3 +29,4 @@ section.page-section {
 
 @import './sections/main.scss';
 @import './sections/card.scss';
+@import './sections/projects.scss';

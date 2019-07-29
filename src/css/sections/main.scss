@@ -12,10 +12,7 @@
     .header {
         width: 100%;
         height: var(--headerHeight);
-        background-image: inline("header.svg");
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: cover;
+        @include svgCover("header.svg", $position: bottom);
     }
     .mobile-vertical-center {
         height: calc(100vh - #{$cardHeight} - var(--headerHeight));
