@@ -19,6 +19,11 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
         position: relative;
         height: $phoneContainerHeight;
         width: $phoneContainerWidth;
+        @media screen and (max-width: $mobileMaxWidth) {
+            // Put half of phone frame out of the screen on mobile
+            margin-left: $phoneContainerWidth / (-2);
+            overflow: hidden;
+        }
         &>* {
             position: absolute;
             margin: 0 auto;
@@ -46,7 +51,6 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
     }
     .phone-apps {
         display: inline-block;
-        margin-left: 64px;
         .phone-app {
             display: inline-flex;
             vertical-align: top;
@@ -62,6 +66,10 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
                 // to allow the user to keep scrolling a bit.
                 margin-bottom: calc(#{$phoneContainerHeight} / 2);
             }
+        }
+        @media screen and (min-width: $mobileMaxWidth) {
+            // Margin left on phone apps list only on desktop
+            margin-left: 64px;
         }
     }
 }
