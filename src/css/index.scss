@@ -19,32 +19,32 @@ $fontButtonSize: 1.2em;
 
 /* Durations */
 
-$transitionDuration: 0.3s;
+$transitionDuration: 0.3s; // Used for button.cta on hover effect
 
 /* Other dimensions */
 
 $buttonRadius: 32px;
 $containerCardRadius: 24px;
 $maxWidthContainer: 1024px;
-$cardHeight: 10vh;
-$contentMargin: 16px;
-$mobileMaxWidth: 768px;
+$cardHeight: 10vh; // The height of the visible part of card
+$contentMargin: 16px; // Content minimum lateral margin
+$mobileMaxWidth: 768px; // max-width breakpoint in CSS media query
 
 /* Responsive variables */
 
 :root {
     /* Desktop */
-    --headerHeight: 30vh;
-    --mainContentMarginLR: 15vh;
-    --mainContentMarginTop: 0;
-    --cardMarginTop: calc(100vh - #{$cardHeight});
+    --headerHeight: 30vh; // Header image height
+    --mainContentMarginTop: 15vh; // Margin between #main header SVG and #main .content
+    --cardContainerMarginTop: 0; // Margin between card arrow and real card content
+    --cardMarginTop: calc(100vh - #{$cardHeight}); // The margin top of the card
     /**/
     @media only screen and (max-width: $mobileMaxWidth) {
         /* Mobile */
         --headerHeight: 20vh;
-        --mainContentMarginLR: 5vh;
-        --mainContentMarginTop: 48px;
-        --cardMarginTop: calc(100vh - #{$cardHeight} - 48px);
+        --mainContentMarginTop: 0;
+        --cardContainerMarginTop: 48px; // 48px = mobile address bar height
+        --cardMarginTop: calc(100vh - #{$cardHeight} - var(--cardContainerMarginTop));
     }
 }
 

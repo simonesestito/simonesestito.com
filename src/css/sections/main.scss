@@ -21,7 +21,7 @@
         height: calc(100vh - #{$cardHeight} - var(--headerHeight));
     }
     .content {
-        margin-top: var(--mainContentMarginLR);
+        margin-top: var(--mainContentMarginTop);
         .title {
             margin: 0;
         }
