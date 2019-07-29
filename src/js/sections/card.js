@@ -11,7 +11,7 @@ import { Circ } from 'gsap';
 
 // Effect on page loading
 window.addEventListener('load', () => {
-    TweenLite.fromTo('.wrapper-card', .8, { paddingTop: '300px' }, { paddingTop: 0, ease: Circ.easeOut });
+    TweenLite.to('.wrapper-card', .8, { paddingTop: 0, ease: Circ.easeOut });
 });
 
 // Scroll up on click
