@@ -4,72 +4,82 @@
  */
 
 @mixin phoneFrameLayer($file) {
-    background: url($file) no-repeat top center;
+    background: url($file) no-repeat;
+    background-position: var(--phoneBackgroundPosition);
     background-size: auto $phoneContainerHeight;
 }
 
-$phoneContainerWidth: 400px;
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
-#projects .section-content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    .phone-container {
-        position: relative;
-        height: $phoneContainerHeight;
-        width: $phoneContainerWidth;
-        @media screen and (max-width: $mobileMaxWidth) {
-            // Put half of phone frame out of the screen on mobile
-            margin-left: $phoneContainerWidth / (-2);
-            overflow: hidden;
-        }
-        &>* {
-            position: absolute;
-            margin: 0 auto;
-            width: $phoneContainerWidth;
-            height: $phoneContainerHeight;
-        }
-        .app-screenshot {
-            opacity: 0;
-        }
-        #qs {
-            @include phoneFrameLayer("/res/img/screenshots/qs.webp");
-        }
-        #wallapp {
-            @include phoneFrameLayer("/res/img/screenshots/wallapp.webp");
-        }
-        #escape_earth {
-            @include phoneFrameLayer("/res/img/screenshots/escape_earth.webp");
-        }
-        .black-icons {
-            @include phoneFrameLayer("/res/img/phone_black_icons.png");
-        }
-        .phone-frame {
-            @include phoneFrameLayer("/res/img/phone_mockup.webp");
+#projects {
+    --phoneContainerWidth: 40vw;
+    --phoneBackgroundPosition: top center;
+    @media screen and (max-width: $mobileMaxWidth) {
+        /* Mobile-only */
+        --phoneContainerWidth: 40vw;
+        --phoneBackgroundPosition: center right;
+        .section-content>[data-scrollmagic-pin-spacer] {
+            // ScrollMagic pin of phone-container
+            min-width: 0 !important;
         }
     }
-    .phone-apps {
-        display: inline-block;
-        .phone-app {
-            display: inline-flex;
-            vertical-align: top;
-            align-items: flex-start;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-direction: column;
+    .section-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        .phone-container {
+            position: relative;
             height: $phoneContainerHeight;
-            width: 100%;
-            &:last-of-type {
-                // Don't scroll to the next section instantly,
-                // keep a little margin at the bottom of the last item
-                // to allow the user to keep scrolling a bit.
-                margin-bottom: calc(#{$phoneContainerHeight} / 2);
+            width: var(--phoneContainerWidth);
+            &>* {
+                position: absolute;
+                margin: 0 auto;
+                width: inherit;
+                height: $phoneContainerHeight;
+                @media screen and (max-width: $mobileMaxWidth) {
+                    // Put half of phone frame out of the screen on mobile
+                    transform: translateX(-50%);
+                    overflow-x: hidden;
+                }
+            }
+            .app-screenshot {
+                opacity: 0;
+            }
+            #qs {
+                @include phoneFrameLayer("/res/img/screenshots/qs.webp");
+            }
+            #wallapp {
+                @include phoneFrameLayer("/res/img/screenshots/wallapp.webp");
+            }
+            #escape_earth {
+                @include phoneFrameLayer("/res/img/screenshots/escape_earth.webp");
+            }
+            .black-icons {
+                @include phoneFrameLayer("/res/img/phone_black_icons.png");
+            }
+            .phone-frame {
+                @include phoneFrameLayer("/res/img/phone_mockup.webp");
             }
         }
-        @media screen and (min-width: $mobileMaxWidth) {
-            // Margin left on phone apps list only on desktop
+        .phone-apps {
+            display: inline-block;
             margin-left: 64px;
+            .phone-app {
+                display: inline-flex;
+                vertical-align: top;
+                align-items: flex-start;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+                height: $phoneContainerHeight;
+                width: 100%;
+                &:last-of-type {
+                    // Don't scroll to the next section instantly,
+                    // keep a little margin at the bottom of the last item
+                    // to allow the user to keep scrolling a bit.
+                    margin-bottom: calc(#{$phoneContainerHeight} / 2);
+                }
+            }
         }
     }
 }
