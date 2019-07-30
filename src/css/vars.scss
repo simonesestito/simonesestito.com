@@ -1,0 +1,49 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+
+/* Colors */
+
+$colorBackground: #fafafa;
+$colorAccent: #2196F3;
+$colorTextOnAccent: #ffffff;
+
+/* Fonts size */
+
+$fontTitleSize: 2.8em;
+$fontSubtitleSize: 1.2em;
+$fontButtonSize: 1.2em;
+
+/* Durations */
+
+$transitionDuration: 0.3s; // Used for button.cta on hover effect
+
+/* Other dimensions */
+
+$buttonRadius: 32px;
+$containerCardRadius: 24px;
+$maxWidthContainer: 1024px;
+$sectionHeaderHeight: 64px; // Title of each section inside card container
+$cardHeight: 10vh; // The height of the visible part of card
+$contentMargin: 16px; // Content minimum lateral margin
+$mobileMaxWidth: 768px; // max-width breakpoint in CSS media query
+
+/* Responsive variables */
+
+:root {
+    /* Desktop */
+    --headerHeight: 30vh; // Header image height
+    --mainContentMarginTop: 15vh; // Margin between #main header SVG and #main .content
+    --cardContainerMarginTop: 0; // Margin between card arrow and real card content
+    --cardMarginTop: calc(100vh - #{$cardHeight}); // The margin top of the card
+    /**/
+    @include mobileOnly() {
+        /* Mobile */
+        --headerHeight: 20vh;
+        --mainContentMarginTop: 0;
+        --cardContainerMarginTop: 48px; // 48px = mobile address bar height
+        --cardMarginTop: calc(100vh - #{$cardHeight} - var(--cardContainerMarginTop));
+    }
+}

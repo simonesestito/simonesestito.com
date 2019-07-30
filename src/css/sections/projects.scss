@@ -7,8 +7,10 @@
     background: url($file) no-repeat fixed;
     background-position: var(--phoneBackgroundPosition);
     background-size: auto $phoneContainerHeight;
-    @media only screen and (min-width: $mobileMaxWidth) and (orientation: portrait) {
-        background-size: var(--phoneContainerWidth) auto;
+    @include desktopOnly() {
+        @media screen and (orientation: portrait) {
+            background-size: var(--phoneContainerWidth) auto;
+        }
     }
 }
 
@@ -17,7 +19,7 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
     --phoneContainerWidth: 30vw;
     --phoneBackgroundPosition: center center;
     --appsListMargin: 64px;
-    @media screen and (max-width: $mobileMaxWidth) {
+    @include mobileOnly() {
         /* Mobile-only */
         --phoneContainerWidth: 40vw;
         --phoneBackgroundPosition: right;

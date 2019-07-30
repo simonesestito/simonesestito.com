@@ -38,19 +38,14 @@ u {
     display: inline;
 }
 
-@mixin svgCover($svg, $position: center) {
-    background: inline($svg) no-repeat $position;
-    background-size: cover;
-}
-
-@media only screen and (min-width: $mobileMaxWidth) {
+@include desktopOnly() {
     .desktop-half-right {
         max-width: 50%;
         margin-left: 50%;
     }
 }
 
-@media only screen and (max-width: $mobileMaxWidth) {
+@include mobileOnly() {
     .desktop-half-right {
         margin-left: $contentMargin;
         margin-right: $contentMargin;
