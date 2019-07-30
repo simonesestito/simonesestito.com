@@ -4,19 +4,24 @@
  */
 
 @mixin phoneFrameLayer($file) {
-    background: url($file) no-repeat;
+    background: url($file) no-repeat fixed;
     background-position: var(--phoneBackgroundPosition);
     background-size: auto $phoneContainerHeight;
+    @media only screen and (min-width: $mobileMaxWidth) and (orientation: portrait) {
+        background-size: var(--phoneContainerWidth) auto;
+    }
 }
 
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
 #projects {
-    --phoneContainerWidth: 40vw;
-    --phoneBackgroundPosition: top center;
+    --phoneContainerWidth: 30vw;
+    --phoneBackgroundPosition: center center;
+    --appsListMargin: 64px;
     @media screen and (max-width: $mobileMaxWidth) {
         /* Mobile-only */
         --phoneContainerWidth: 40vw;
-        --phoneBackgroundPosition: center right;
+        --phoneBackgroundPosition: right;
+        --appsListMargin: var(--phoneContainerWidth);
         .section-content>[data-scrollmagic-pin-spacer] {
             // ScrollMagic pin of phone-container
             min-width: 0 !important;
@@ -34,13 +39,8 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
             &>* {
                 position: absolute;
                 margin: 0 auto;
-                width: inherit;
+                width: var(--phoneContainerWidth);
                 height: $phoneContainerHeight;
-                @media screen and (max-width: $mobileMaxWidth) {
-                    // Put half of phone frame out of the screen on mobile
-                    transform: translateX(-50%);
-                    overflow-x: hidden;
-                }
             }
             .app-screenshot {
                 opacity: 0;
@@ -62,7 +62,7 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
             }
         }
         .phone-apps {
-            margin-left: 64px;
+            margin-left: var(--appsListMargin);
             .phone-app {
                 display: flex;
                 vertical-align: top;
