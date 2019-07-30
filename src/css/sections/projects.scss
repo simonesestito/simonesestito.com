@@ -62,10 +62,9 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
             }
         }
         .phone-apps {
-            display: inline-block;
             margin-left: 64px;
             .phone-app {
-                display: inline-flex;
+                display: flex;
                 vertical-align: top;
                 align-items: flex-start;
                 justify-content: center;
