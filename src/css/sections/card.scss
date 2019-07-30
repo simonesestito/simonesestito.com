@@ -4,9 +4,6 @@
  */
 
 .wrapper-card {
-    /* Wrapper required to add minimum margin to card */
-    margin-left: $contentMargin;
-    margin-right: $contentMargin;
     padding-top: 300px; // Padding top set to 0 on page load animation via JS
     .content-card {
         max-width: $maxWidthContainer;
