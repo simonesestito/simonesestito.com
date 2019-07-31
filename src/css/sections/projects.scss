@@ -4,32 +4,22 @@
  */
 
 @mixin phoneFrameLayer($file) {
-    background-repeat: no-repeat;
     @include webpBackground($file, '.png');
-    background-position: var(--phoneBackgroundPosition);
-    background-size: auto $phoneContainerHeight;
-    @include desktopOnly() {
-        @media screen and (orientation: portrait) {
-            background-size: var(--phoneContainerWidth) auto;
-        }
-    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
+$phoneContainerWidth: 40vw;
+$phoneContainerMaxWidth: 400px;
+$appListMargin: 32px;
 #projects {
-    --phoneContainerWidth: 400px;
-    --phoneBackgroundPosition: center top;
-    --appsListMargin: 64px;
-    @include mobileOnly() {
-        /* Mobile-only */
-        --phoneContainerWidth: 30vw;
-        --phoneBackgroundPosition: right;
-        --appsListMargin: 24px;
-    }
     .section-content {
         &>[data-scrollmagic-pin-spacer] {
-            width: var(--phoneContainerWidth) !important;
-            min-width: var(--phoneContainerWidth) !important;
+            width: $phoneContainerWidth !important;
+            max-width: $phoneContainerMaxWidth !important;
+            height: $phoneContainerHeight !important;
         }
         display: flex;
         flex-direction: row;
@@ -37,12 +27,14 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
         justify-content: space-between;
         .phone-container {
             position: relative;
+            width: $phoneContainerWidth;
+            max-width: $phoneContainerMaxWidth;
             height: $phoneContainerHeight;
-            width: var(--phoneContainerWidth);
             &>* {
                 position: absolute;
                 margin: 0 auto;
-                width: var(--phoneContainerWidth);
+                width: $phoneContainerWidth;
+                max-width: $phoneContainerMaxWidth;
                 height: $phoneContainerHeight;
             }
             .app-screenshot {
@@ -62,7 +54,7 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
             }
         }
         .phone-apps {
-            margin-left: var(--appsListMargin);
+            margin-left: $appListMargin;
             .phone-app {
                 display: flex;
                 vertical-align: top;
