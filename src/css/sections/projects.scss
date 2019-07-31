@@ -13,7 +13,7 @@
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
 $phoneContainerWidth: 40vw;
 $phoneContainerMaxWidth: 400px;
-$appListMargin: 32px;
+$appListMargin: 12px;
 #projects {
     .section-content {
         &>[data-scrollmagic-pin-spacer] {
@@ -54,7 +54,7 @@ $appListMargin: 32px;
             }
         }
         .phone-apps {
-            margin-left: $appListMargin;
+            margin: 0 $appListMargin;
             margin-bottom: calc(#{$phoneContainerHeight} / 2);
             .phone-app {
                 display: flex;
