@@ -55,6 +55,7 @@ $appListMargin: 32px;
         }
         .phone-apps {
             margin-left: $appListMargin;
+            margin-bottom: calc(#{$phoneContainerHeight} / 2);
             .phone-app {
                 display: flex;
                 vertical-align: top;
@@ -64,12 +65,6 @@ $appListMargin: 32px;
                 flex-direction: column;
                 height: $phoneContainerHeight;
                 width: 100%;
-                &:last-of-type {
-                    // Don't scroll to the next section instantly,
-                    // keep a little margin at the bottom of the last item
-                    // to allow the user to keep scrolling a bit.
-                    margin-bottom: calc(#{$phoneContainerHeight} / 2);
-                }
             }
         }
     }
