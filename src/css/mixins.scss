@@ -21,6 +21,21 @@
 }
 
 
+/**
+ * $imgFile must be without any extension
+ * $defExt is the default file extension (with dot)
+ */
+
+@mixin webpBackground($imgFile, $defExt: '.png') {
+    body.webp & {
+        background-image: url(#{$imgFile}.webp);
+    }
+    body.no-webp & {
+        background-image: url(#{$imgFile}#{$defExt});
+    }
+}
+
+
 /* Shadows */
 
 @mixin lightShadow($x: 0, $y: 3px) {

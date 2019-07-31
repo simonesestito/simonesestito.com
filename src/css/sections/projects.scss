@@ -5,6 +5,7 @@
 
 @mixin phoneFrameLayer($file) {
     background-repeat: no-repeat;
+    @include webpBackground($file, '.png');
     background-position: var(--phoneBackgroundPosition);
     background-size: auto $phoneContainerHeight;
     @include desktopOnly() {
@@ -48,19 +49,16 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
                 opacity: 0;
             }
             #qs {
-                @include phoneFrameLayer("/res/img/screenshots/qs.webp");
+                @include phoneFrameLayer("/res/img/screenshots/qs");
             }
             #wallapp {
-                @include phoneFrameLayer("/res/img/screenshots/wallapp.webp");
+                @include phoneFrameLayer("/res/img/screenshots/wallapp");
             }
             #escape_earth {
-                @include phoneFrameLayer("/res/img/screenshots/escape_earth.webp");
-            }
-            .black-icons {
-                @include phoneFrameLayer("/res/img/phone_black_icons.png");
+                @include phoneFrameLayer("/res/img/screenshots/escape_earth");
             }
             .phone-frame {
-                @include phoneFrameLayer("/res/img/phone_mockup.webp");
+                @include phoneFrameLayer("/res/img/phone_mockup");
             }
         }
         .phone-apps {
