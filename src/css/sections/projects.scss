@@ -22,15 +22,15 @@ $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
     --appsListMargin: 64px;
     @include mobileOnly() {
         /* Mobile-only */
-        --phoneContainerWidth: 40vw;
+        --phoneContainerWidth: 30vw;
         --phoneBackgroundPosition: right;
-        --appsListMargin: var(--phoneContainerWidth);
-        .section-content>[data-scrollmagic-pin-spacer] {
-            // ScrollMagic pin of phone-container
-            min-width: 0 !important;
-        }
+        --appsListMargin: 24px;
     }
     .section-content {
+        &>[data-scrollmagic-pin-spacer] {
+            width: var(--phoneContainerWidth) !important;
+            min-width: var(--phoneContainerWidth) !important;
+        }
         display: flex;
         flex-direction: row;
         width: 100%;
