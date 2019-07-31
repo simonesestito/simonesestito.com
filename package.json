@@ -31,6 +31,7 @@
         "postcss-assets": "^5.0.0",
         "postcss-css-variables": "^0.13.0",
         "posthtml-svg-inline": "^1.0.0",
+        "posthtml-webp": "^1.1.0",
         "sass": "^1.22.7",
         "shx": "^0.3.2"
     },
