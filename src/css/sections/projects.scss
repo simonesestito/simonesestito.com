@@ -3,13 +3,6 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-@mixin phoneFrameLayer($file) {
-    @include webpBackground($file, '.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
 $phoneContainerWidth: 40vw;
 $phoneContainerMaxWidth: 400px;
@@ -30,27 +23,30 @@ $appListMargin: 12px;
             width: $phoneContainerWidth;
             max-width: $phoneContainerMaxWidth;
             height: $phoneContainerHeight;
-            &>* {
+            .phone-layer {
                 position: absolute;
                 margin: 0 auto;
                 width: $phoneContainerWidth;
                 max-width: $phoneContainerMaxWidth;
                 height: $phoneContainerHeight;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
             }
             .app-screenshot {
                 opacity: 0;
             }
             #qs {
-                @include phoneFrameLayer("/res/img/screenshots/qs");
+                @include webpBackground('/res/img/screenshots/qs', '.png');
             }
             #wallapp {
-                @include phoneFrameLayer("/res/img/screenshots/wallapp");
+                @include webpBackground('/res/img/screenshots/wallapp', '.png');
             }
             #escape_earth {
-                @include phoneFrameLayer("/res/img/screenshots/escape_earth");
+                @include webpBackground('/res/img/screenshots/escape_earth', '.png');
             }
             .phone-frame {
-                @include phoneFrameLayer("/res/img/phone_mockup");
+                background-image: inline('res/svg/phone_mockup.svg');
             }
         }
         .phone-apps {
