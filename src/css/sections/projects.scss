@@ -4,7 +4,7 @@
  */
 
 @mixin phoneFrameLayer($file) {
-    background: url($file) no-repeat fixed;
+    background-repeat: no-repeat;
     background-position: var(--phoneBackgroundPosition);
     background-size: auto $phoneContainerHeight;
     @include desktopOnly() {
@@ -16,8 +16,8 @@
 
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
 #projects {
-    --phoneContainerWidth: 30vw;
-    --phoneBackgroundPosition: center center;
+    --phoneContainerWidth: 400px;
+    --phoneBackgroundPosition: center top;
     --appsListMargin: 64px;
     @include mobileOnly() {
         /* Mobile-only */
