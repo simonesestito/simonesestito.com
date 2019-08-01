@@ -24,7 +24,7 @@ module.exports = bundler => {
             if (fs.existsSync(outputSwFile)) {
                 fs.unlinkSync(outputSwFile);
             }
-            return void console.log('Service Worker disabled in debug mode');
+            return;
         }
 
         const toCacheFiles = [
