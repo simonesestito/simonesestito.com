@@ -1,0 +1,13 @@
+{
+    "name": "parcel-plugin-generate-sw",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Parcel Plugin to generate custom-made SW",
+    "main": "index.js",
+    "author": "Simone Sestito",
+    "license": "AGPL-3.0",
+    "homepage": "https://github.com/simonesestito/simonesestito.com/tree/master/plugins/parcel-plugin-generate-sw",
+    "dependencies": {
+        "uglify-es": "github:mishoo/UglifyJS2#harmony"
+    }
+}
