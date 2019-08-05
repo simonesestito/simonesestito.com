@@ -63,5 +63,19 @@ $appListMargin: 12px;
                 width: 100%;
             }
         }
+        .download-app-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.chip {
+    &.chip-play-store {
+        @include chipColor(#0D9128);
+    }
+    &.chip-github {
+        @include chipColor(#0D0D0D);
     }
 }

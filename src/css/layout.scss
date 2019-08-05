@@ -38,6 +38,15 @@ u {
     display: inline;
 }
 
+// Useful for .chips in Skills section
+.center-children {
+    margin: 0 auto;
+    text-align: center;
+    &>* {
+        display: inline-block;
+    }
+}
+
 @include desktopOnly() {
     .desktop-half-right {
         max-width: 50%;

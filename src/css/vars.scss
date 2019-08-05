@@ -9,6 +9,7 @@
 $colorBackground: #fafafa;
 $colorAccent: #2196F3;
 $colorTextOnAccent: #ffffff;
+$colorGreenPlayStore: #0D9128;
 
 /* Fonts size */
 
@@ -23,6 +24,11 @@ $transitionDuration: 0.3s; // Used for button.cta on hover effect
 /* Other dimensions */
 
 $buttonRadius: 32px;
+$chipRadius: 24px;
+$chipIcon: 24px;
+$chipPaddingHorizontal: 10px;
+$chipPaddingVertical: 6px;
+$chipMargin: 6px;
 $containerCardRadius: 24px;
 $maxWidthContainer: 1024px;
 $sectionHeaderHeight: 64px; // Title of each section inside card container
