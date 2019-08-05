@@ -3,7 +3,7 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-import { vh, scrollMagicController } from "../utils";
+import { scrollMagicController } from "../utils";
 import * as ScrollMagic from 'scrollmagic';
 import TweenLite from "gsap/TweenLite";
 
@@ -13,16 +13,6 @@ const sectionContent = section.getElementsByClassName('section-content')[0];
 const phoneFrame = sectionContent.getElementsByClassName('phone-container')[0];
 const appScreenshots = phoneFrame.getElementsByClassName('app-screenshot');
 const appTexts = sectionContent.getElementsByClassName('phone-app');
-
-new ScrollMagic.Scene({
-        triggerElement: phoneFrame,
-        triggerHook: .15,
-        duration: () => section.offsetHeight - vh(100)
-    })
-    .setPin(phoneFrame, {
-        pushFollowers: false
-    })
-    .addTo(scrollMagicController);
 
 // Change app screenshot based on current scroll position
 for (let i = 0; i < appTexts.length; i++) {
