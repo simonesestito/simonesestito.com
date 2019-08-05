@@ -88,3 +88,21 @@ button.cta {
         fill: $color;
     }
 }
+
+.typewriter:after {
+    content: "|";
+    font-weight: bold;
+    animation: blink 500ms ease infinite alternate;
+    color: #606060;
+}
+
+@keyframes blink {
+    0%,
+    20% {
+        opacity: 1;
+    }
+    30%,
+    100% {
+        opacity: 0;
+    }
+}
