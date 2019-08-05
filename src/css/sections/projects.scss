@@ -6,22 +6,21 @@
 $phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
 $phoneContainerWidth: 40vw;
 $phoneContainerMaxWidth: 400px;
-$appListMargin: 12px;
+$appListMargin: 16px;
 #projects {
     .section-content {
-        &>[data-scrollmagic-pin-spacer] {
-            width: $phoneContainerWidth !important;
-            max-width: $phoneContainerMaxWidth !important;
-            height: $phoneContainerHeight !important;
-        }
         display: flex;
         flex-direction: row;
-        width: 100%;
         justify-content: space-between;
+        width: 100%;
         .phone-container {
-            position: relative;
+            position: -webkit-sticky;
+            position: sticky;
+            top: $sectionHeaderHeight;
+            align-self: flex-start;
             width: $phoneContainerWidth;
             max-width: $phoneContainerMaxWidth;
+            margin: $sectionHeaderHeight 0;
             height: $phoneContainerHeight;
             .phone-layer {
                 position: absolute;
@@ -35,6 +34,11 @@ $appListMargin: 12px;
             }
             .app-screenshot {
                 opacity: 0;
+                transition-duration: 500ms;
+                transition-property: opacity;
+                &.visible {
+                    opacity: 1;
+                }
             }
             #qs {
                 @include webpBackground('/res/img/screenshots/qs', '.png');
@@ -50,17 +54,16 @@ $appListMargin: 12px;
             }
         }
         .phone-apps {
-            margin: 0 $appListMargin;
-            margin-bottom: calc(#{$phoneContainerHeight} / 2);
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1;
+            padding-left: $appListMargin;
             .phone-app {
                 display: flex;
-                vertical-align: top;
-                align-items: flex-start;
                 justify-content: center;
-                flex-wrap: wrap;
                 flex-direction: column;
                 height: $phoneContainerHeight;
-                width: 100%;
             }
         }
         .download-app-title {

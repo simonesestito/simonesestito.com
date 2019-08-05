@@ -11,17 +11,20 @@ section.page-section {
     h2.section-header {
         width: 100%;
         height: $sectionHeaderHeight;
+        position: sticky;
+        top: 0;
         text-align: center;
         text-transform: uppercase;
         margin: 0;
         line-height: $sectionHeaderHeight;
         background: linear-gradient($colorBackground 75%, rgba($colorBackground, 0));
+        z-index: 10;
     }
-}
-
-.container {
-    margin-top: var(--cardContainerMarginTop);
-    max-width: $maxWidthContainer;
+    .section-content {
+        max-width: $maxWidthContainer;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
