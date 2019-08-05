@@ -41,6 +41,7 @@
     "dependencies": {
         "gsap": "^2.1.3",
         "scrollmagic": "^2.0.7",
+        "smoothscroll-polyfill": "^0.4.4",
         "supports-webp": "^2.0.1"
     },
     "assetsPath": "src/res/assets"

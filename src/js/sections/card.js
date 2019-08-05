@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 
 // Scroll up on click
 document.getElementById('card-arrow').addEventListener('click', () => {
-    TweenLite.to(window, 0.5, { scrollTo: '#content' });
+    document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Fade effect on scroll up
