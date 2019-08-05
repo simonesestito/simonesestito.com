@@ -9,25 +9,42 @@ import * as ScrollMagic from 'scrollmagic';
 import { TimelineLite } from 'gsap/TimelineLite';
 import { Circ } from 'gsap';
 
+const cardArrow = document.getElementById('card-arrow');
+
 // Effect on page loading
 window.addEventListener('load', () => {
     TweenLite.to('.wrapper-card', .8, { paddingTop: 0, ease: Circ.easeOut });
 });
 
 // Scroll up on click
-document.getElementById('card-arrow').addEventListener('click', () => {
+cardArrow.addEventListener('click', () => {
     document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
 });
 
-// Fade effect on scroll up
-const timeline = new TimelineLite()
-    .to("#main", 2, { opacity: 0 }, 0.8)
-    .to(".content-card", 1, { boxShadow: "0px 0px 0px 0px" }, 1.8);
+// Effect on card scroll up
+const main = document.getElementById('main');
+const contentCard = document.getElementsByClassName('content-card')[0];
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(() => {
+        const scrollTop = cardArrow.getBoundingClientRect().top;
+        // Start animation when scrollTop is <= threshold
+        const threshold = 150.0;
 
-new ScrollMagic.Scene({
-        triggerElement: "#card-arrow",
-        triggerHook: 0.8,
-        duration: () => window.innerHeight - document.getElementById("card-arrow").clientHeight
-    })
-    .setTween(timeline)
-    .addTo(scrollMagicController);
+        let progress; // Must be between 1 and 0
+        if (scrollTop > threshold)
+            progress = 1;
+        else if (scrollTop < 0)
+            progress = 0;
+        else
+            progress = scrollTop / threshold;
+
+        // Set #main opacity
+        main.style.opacity = progress;
+
+        // Set content-card box shadow
+        const y = -3 * progress;
+        const blur = 6 * progress;
+        const alpha = 0.3 * progress;
+        contentCard.style.boxShadow = `0 ${y}px ${blur}px rgba(0,0,0,${alpha})`;
+    });
+}, { passive: true });

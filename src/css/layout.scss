@@ -6,6 +6,11 @@
 
 /* Layout related styles */
 
+.container {
+    margin-top: var(--cardContainerMarginTop);
+    max-width: $maxWidthContainer;
+}
+
 .right {
     margin-right: 0;
     margin-left: auto;

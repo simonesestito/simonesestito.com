@@ -10,9 +10,9 @@
         min-height: $cardHeight;
         background: $colorBackground;
         margin: var(--cardMarginTop) auto 0 auto;
-        @include mediumShadow(0, -3px);
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
+        box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3); // Animated in JS
         #card-arrow {
             width: 100%;
             height: $cardHeight;

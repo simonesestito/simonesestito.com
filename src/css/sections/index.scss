@@ -20,11 +20,11 @@ section.page-section {
         background: linear-gradient($colorBackground 75%, rgba($colorBackground, 0));
         z-index: 10;
     }
-}
-
-.container {
-    margin-top: var(--cardContainerMarginTop);
-    max-width: $maxWidthContainer;
+    .section-content {
+        max-width: $maxWidthContainer;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
