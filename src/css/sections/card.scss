@@ -13,6 +13,7 @@
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
         box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3); // Animated in JS
+        will-change: box-shadow;
         #card-arrow {
             width: 100%;
             height: $cardHeight;
