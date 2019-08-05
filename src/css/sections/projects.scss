@@ -34,6 +34,11 @@ $appListMargin: 16px;
             }
             .app-screenshot {
                 opacity: 0;
+                transition-duration: 500ms;
+                transition-property: opacity;
+                &.visible {
+                    opacity: 1;
+                }
             }
             #qs {
                 @include webpBackground('/res/img/screenshots/qs', '.png');
