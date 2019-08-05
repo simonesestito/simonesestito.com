@@ -4,7 +4,7 @@
  */
 
 .wrapper-card {
-    padding-top: 300px; // Padding top set to 0 on page load animation via JS
+    animation: cardArrowUp 0.8s ease-out;
     .content-card {
         max-width: $maxWidthContainer;
         min-height: $cardHeight;
@@ -18,5 +18,14 @@
             height: $cardHeight;
             margin: 0;
         }
+    }
+}
+
+@keyframes cardArrowUp {
+    from {
+        padding-top: $cardHeight;
+    }
+    to {
+        padding-top: 0;
     }
 }

@@ -3,18 +3,7 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-import { scrollMagicController } from '../utils';
-import { TweenLite } from 'gsap/TweenLite';
-import * as ScrollMagic from 'scrollmagic';
-import { TimelineLite } from 'gsap/TimelineLite';
-import { Circ } from 'gsap';
-
 const cardArrow = document.getElementById('card-arrow');
-
-// Effect on page loading
-window.addEventListener('load', () => {
-    TweenLite.to('.wrapper-card', .8, { paddingTop: 0, ease: Circ.easeOut });
-});
 
 // Scroll up on click
 cardArrow.addEventListener('click', () => {
