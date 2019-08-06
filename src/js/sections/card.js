@@ -13,27 +13,45 @@ cardArrow.addEventListener('click', () => {
 // Effect on card scroll up
 const main = document.getElementById('main');
 const contentCard = document.getElementsByClassName('content-card')[0];
+let animationFrameRequested = false;
 window.addEventListener('scroll', () => {
-    requestAnimationFrame(() => {
-        const scrollTop = cardArrow.getBoundingClientRect().top;
-        // Start animation when scrollTop is <= threshold
-        const threshold = 150.0;
+    if (animationFrameRequested)
+        return;
 
-        let progress; // Must be between 1 and 0
-        if (scrollTop > threshold)
-            progress = 1;
-        else if (scrollTop < 0)
-            progress = 0;
-        else
-            progress = scrollTop / threshold;
+    animationFrameRequested = true;
+    requestAnimationFrame(() => {
+        animationFrameRequested = false;
+
+        const scrollTop = (
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop
+        );
+        const viewportHeight = (
+            document.documentElement.clientHeight ||
+            window.innerHeight
+        );
+        const cardHeight = cardArrow.clientHeight;
+        const totalScroll = viewportHeight - cardHeight;
+
+        // Must be between 1 and 0
+        const progress = fixInRange(scrollTop / totalScroll, 0, 1);
+        // Easing function
+        const visibility = 1 - Math.pow(progress, 5);
 
         // Set #main opacity
-        main.style.opacity = progress;
+        main.style.opacity = visibility;
 
         // Set content-card box shadow
-        const y = -3 * progress;
-        const blur = 6 * progress;
-        const alpha = 0.3 * progress;
+        const y = -3 * visibility;
+        const blur = 6 * visibility;
+        const alpha = 0.3 * visibility;
         contentCard.style.boxShadow = `0 ${y}px ${blur}px rgba(0,0,0,${alpha})`;
     });
 }, { passive: true });
+
+function fixInRange(num, min, max) {
+    if (num < min) return min;
+    if (num > max) return max;
+    return num;
+}
