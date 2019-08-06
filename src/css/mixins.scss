@@ -20,6 +20,12 @@
     }
 }
 
+@mixin mobilePortraitOnly {
+    @media only screen and (max-width: $mobileMaxWidth) and (orientation: portrait) {
+        @content;
+    }
+}
+
 
 /**
  * $imgFile must be without any extension

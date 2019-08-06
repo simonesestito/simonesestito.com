@@ -23,6 +23,6 @@ const appInfosObserver = new IntersectionObserver(entries => {
             entryScreenshot.classList.remove('visible');
         }
     }
-}, { threshold: 0.5 });
+}, { threshold: 0.7 });
 
 appInfos.forEach(e => appInfosObserver.observe(e));
