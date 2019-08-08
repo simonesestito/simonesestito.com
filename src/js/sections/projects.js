@@ -8,11 +8,12 @@ const appScreenshots = [...section.getElementsByClassName('app-screenshot')];
 const appInfos = section.querySelectorAll('.phone-apps .phone-app');
 
 // Change app screenshot based on current scroll position
-const OBSERVER_THRESHOLD = 0.5;
+const OBSERVER_THRESHOLD = 0.7;
 const appInfosObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
         // Edge triggers the observer callback at 0 and 1 ratios too
         // Ignore ratios very different from specified treshold
+        console.log(entry.isIntersecting, entry.intersectionRatio);
         if (Math.abs(entry.intersectionRatio - OBSERVER_THRESHOLD) > 0.3) {
             continue;
         }

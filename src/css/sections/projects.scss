@@ -3,31 +3,49 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-$phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
-$phoneContainerWidth: 40vw;
-$phoneContainerMaxWidth: 400px;
-$appListMargin: 16px;
 #projects {
+    --phoneContainerWidth: 40vw;
+    --phoneContainerMaxWidth: 400px;
+    --phoneContainerHeight: calc(100vh - #{$sectionHeaderHeight} * 2);
+    --phoneContainerTop: #{$sectionHeaderHeight};
+    --phoneContainerBottom: auto;
+    --phoneAppWidth: 50vw;
+    --phoneAppMaxWidth: 500px;
+    --phoneAppHeight: var(--phoneContainerHeight);
+    --sectionFlexDirection: row;
+    @include mobilePortraitOnly() {
+        --phoneContainerWidth: 100%;
+        --phoneContainerMaxWidth: var(--phoneContainerWidth);
+        --phoneContainerHeight: 40vh;
+        --phoneContainerTop: auto;
+        --phoneContainerBottom: 0;
+        --phoneAppWidth: 90%;
+        --phoneAppMaxWidth: 90%;
+        --phoneAppHeight: 70vh;
+        --sectionFlexDirection: column-reverse;
+    }
     .section-content {
         display: flex;
-        flex-direction: row;
+        flex-direction: var(--sectionFlexDirection);
         justify-content: space-between;
         width: 100%;
         .phone-container {
             position: -webkit-sticky;
             position: sticky;
-            top: $sectionHeaderHeight;
+            top: var(--phoneContainerTop);
+            bottom: var(--phoneContainerBottom);
             align-self: flex-start;
-            width: $phoneContainerWidth;
-            max-width: $phoneContainerMaxWidth;
-            margin: $sectionHeaderHeight 0;
-            height: $phoneContainerHeight;
+            width: var(--phoneContainerWidth);
+            max-width: var(--phoneContainerMaxWidth);
+            margin: 0 auto;
+            height: var(--phoneContainerHeight);
+            background: linear-gradient(rgba($colorBackground, 0), rgba($colorBackground, .5) 10%, $colorBackground 70%);
             .phone-layer {
                 position: absolute;
                 margin: 0 auto;
-                width: $phoneContainerWidth;
-                max-width: $phoneContainerMaxWidth;
-                height: $phoneContainerHeight;
+                width: 100%;
+                max-width: var(--phoneContainerMaxWidth);
+                height: var(--phoneContainerHeight);
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -56,14 +74,15 @@ $appListMargin: 16px;
         .phone-apps {
             display: flex;
             flex-direction: column;
-            flex-basis: 100%;
-            flex: 1;
-            padding-left: $appListMargin;
+            margin-bottom: calc(var(--phoneContainerHeight) / 2);
             .phone-app {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                height: $phoneContainerHeight;
+                height: var(--phoneAppHeight);
+                width: var(--phoneAppWidth);
+                max-width: var(--phoneAppMaxWidth);
+                margin: 0 auto;
             }
         }
         .download-app-title {
