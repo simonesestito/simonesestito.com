@@ -13,7 +13,7 @@ const appInfosObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
         // Edge triggers the observer callback at 0 and 1 ratios too
         // Ignore ratios very different from specified treshold
-        if (Math.abs(entry.intersectionRatio - OBSERVER_THRESHOLD) > OBSERVER_THRESHOLD / 2.0) {
+        if (Math.abs(entry.intersectionRatio - OBSERVER_THRESHOLD) > 0.3) {
             continue;
         }
 
@@ -24,12 +24,14 @@ const appInfosObserver = new IntersectionObserver(entries => {
             return;
         }
 
-        if (entry.isIntersecting) {
+        // Don't use isIntersecting property.
+        // On Edge, it is true if ratio > 0, without considering the threshold
+        if (entry.intersectionRatio >= OBSERVER_THRESHOLD) {
             entryScreenshot.classList.add('visible');
         } else {
             entryScreenshot.classList.remove('visible');
         }
     }
-}, { threshold: OBSERVER_THRESHOLD });
+}, { threshold: [OBSERVER_THRESHOLD] });
 
 appInfos.forEach(e => appInfosObserver.observe(e));
