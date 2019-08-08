@@ -4,6 +4,7 @@
  */
 
 import supportsWebP from 'supports-webp';
+import 'intersection-observer-polyfill/index.global';
 import smoothscroll from 'smoothscroll-polyfill';
 
 // Smooth-scroll polyfill for Safari
