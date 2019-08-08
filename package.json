@@ -39,6 +39,7 @@
         "uglify-js": "^3.6.0"
     },
     "dependencies": {
+        "intersection-observer-polyfill": "^0.1.0",
         "smoothscroll-polyfill": "^0.4.4",
         "supports-webp": "^2.0.1"
     },
