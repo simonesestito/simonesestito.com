@@ -56,6 +56,11 @@ button.cta {
     }
 }
 
+
+/**
+ * Set the color using [data-chip-color] attribute on .chip element
+ */
+
 .chip {
     border-radius: $chipRadius;
     border: 1px solid;
@@ -76,17 +81,9 @@ button.cta {
         text-decoration: none;
         color: black;
     }
-    .chip-icon,
-    .chip-icon>svg {
+    &>svg {
         height: 24px;
         width: 24px;
-    }
-}
-
-@mixin chipColor($color) {
-    border-color: $color;
-    .chip-icon svg {
-        fill: $color;
     }
 }
 

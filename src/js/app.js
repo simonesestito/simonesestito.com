@@ -15,3 +15,4 @@ supportsWebP
     .then(clazz => document.body.classList.add(clazz));
 
 import './sections';
+import './chips';

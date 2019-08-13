@@ -75,11 +75,9 @@ Copyright (C) 2019 Simone Sestito
                                 <p class="download-app-title">Available on:</p>
                                 <ul class="chips">
                                     <li>
-                                        <a class="chip chip-play-store" href="https://play.google.com/store/apps/details?id=it.simonesestito.ntiles">
-                                            <div class="chip-icon">
-                                                <img src="res/svg/icons/google_play.svg">
-                                            </div>
-                                            <div class="chip-title">Play Store</div>
+                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=it.simonesestito.ntiles">
+                                            <img src="res/svg/icons/google_play.svg">
+                                            <span class="chip-title">Play Store</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -92,11 +90,9 @@ Copyright (C) 2019 Simone Sestito
                                 <p class="download-app-title">Available on:</p>
                                 <ul class="chips">
                                     <li>
-                                        <a class="chip chip-play-store" href="https://play.google.com/store/apps/details?id=com.simonesestito.wallapp">
-                                            <div class="chip-icon">
-                                                <img src="res/svg/icons/google_play.svg">
-                                            </div>
-                                            <div class="chip-title">Play Store</div>
+                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.simonesestito.wallapp">
+                                            <img src="res/svg/icons/google_play.svg">
+                                            <span class="chip-title">Play Store</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -108,19 +104,15 @@ Copyright (C) 2019 Simone Sestito
                                 <p class="download-app-title">Available on:</p>
                                 <ul class="chips">
                                     <li>
-                                        <a class="chip chip-play-store" href="https://play.google.com/store/apps/details?id=com.exos.escapeearth">
-                                            <div class="chip-icon">
-                                                <img src="res/svg/icons/google_play.svg">
-                                            </div>
-                                            <div class="chip-title">Play Store</div>
+                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.exos.escapeearth">
+                                            <img src="res/svg/icons/google_play.svg">
+                                            <span class="chip-title">Play Store</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="chip chip-github" href="https://github.com/simonesestito/escape_earth">
-                                            <div class="chip-icon">
-                                                <img src="res/svg/icons/github.svg">
-                                            </div>
-                                            <div class="chip-title">GitHub</div>
+                                        <a class="chip chip-github" data-chip-color="#0D0D0D" href="https://github.com/simonesestito/escape_earth">
+                                            <img src="res/svg/icons/github.svg">
+                                            <span class="chip-title">GitHub</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -133,20 +125,47 @@ Copyright (C) 2019 Simone Sestito
                 <section class="page-section" id="skills">
                     <h2 class="section-header">Skills</h2>
                     <div class="section-content">
-                        <p class="full-height">{{ TEST }}</p>
-                    </div>
-                </section>
+                        <div class="phone-skills">
+                            <!-- It contains only skills related to the mobile world -->
+                            <div class="phone-animation">
+                                <!-- TODO -->
+                            </div>
+                            <div class="android-skill">
+                                <h3 class="skill-name">Android Development</h3>
+                                <div class="chips center-children">
+                                    <div class="chip" data-chip-color="#ff0000">
+                                        <img src="res/svg/icons/android.svg">
+                                        <span class="chip-title"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flutter-skill">
+                            <h3 class="skill-name">Cross-Platform Mobile Apps</h3>
+                            <div class="chips center-children">
 
-                <!-- Contacts section -->
-                <section class="page-section" id="contacts">
-                    <h2 class="section-header">Contacts</h2>
-                    <div class="section-content">
-                        <p class="full-height">{{ TEST }}</p>
+                            </div>
+                        </div>
                     </div>
-                </section>
+                    <div class="other-skills">
+                        <h3 class="skill-name">...and other interesting things</h3>
+                        <div class="chips center-children">
 
+                        </div>
+                    </div>
             </div>
+            </section>
+
+            <!-- Contacts section -->
+            <section class="page-section" id="contacts">
+                <h2 class="section-header">Contacts</h2>
+                <div class="section-content">
+                    <p class="full-height">{{ TEST }}</p>
+                </div>
+            </section>
+
         </div>
+    </div>
     </div>
 
     <script src="js/app.js"></script>
