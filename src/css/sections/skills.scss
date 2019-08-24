@@ -6,7 +6,7 @@
 $phoneAnimationSize: 140px;
 $phoneAnimationMargin: 24px;
 $phoneAnimationTotalSpace: $phoneAnimationSize+$phoneAnimationMargin*2;
-#tech_skills {
+#skills {
     @include mobileOnly() {
         .section-content {
             margin-left: 16px;
