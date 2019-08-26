@@ -7,7 +7,7 @@
 /* Section generic styles */
 
 section.page-section {
-    min-height: 100vh;
+    padding-bottom: 25vh;
     h2.section-header {
         width: 100%;
         height: $sectionHeaderHeight;
@@ -33,3 +33,4 @@ section.page-section {
 @import './sections/main.scss';
 @import './sections/card.scss';
 @import './sections/projects.scss';
+@import './sections/skills.scss';

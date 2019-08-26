@@ -12,6 +12,7 @@
     --phoneAppWidth: 50vw;
     --phoneAppMaxWidth: 500px;
     --phoneAppHeight: var(--phoneContainerHeight);
+    --phoneAppsMarginBottom: calc(var(--phoneContainerHeight) / 2);
     --sectionFlexDirection: row;
     @include mobilePortraitOnly() {
         --phoneContainerWidth: 100%;
@@ -23,6 +24,7 @@
         --phoneAppMaxWidth: 90%;
         --phoneAppHeight: 70vh;
         --sectionFlexDirection: column-reverse;
+        --phoneAppsMarginBottom: 0;
     }
     .section-content {
         display: flex;
@@ -74,7 +76,7 @@
         .phone-apps {
             display: flex;
             flex-direction: column;
-            margin-bottom: calc(var(--phoneContainerHeight) / 2);
+            margin-bottom: var(--phoneAppsMarginBottom);
             .phone-app {
                 display: flex;
                 justify-content: center;
@@ -90,14 +92,5 @@
             text-transform: uppercase;
             margin-bottom: 8px;
         }
-    }
-}
-
-.chip {
-    &.chip-play-store {
-        @include chipColor(#0D9128);
-    }
-    &.chip-github {
-        @include chipColor(#0D0D0D);
     }
 }
