@@ -6,19 +6,32 @@
 
 /* Section generic styles */
 
-section.page-section {
+section {
     padding-bottom: 25vh;
-    h2.section-header {
+    h1 {
         width: 100%;
         height: $sectionHeaderHeight;
         position: sticky;
         top: 0;
-        text-align: center;
-        text-transform: uppercase;
         margin: 0;
-        line-height: $sectionHeaderHeight;
+        text-align: center;
+        // Line height is only 75%, as the solid background (fade excluded)
+        line-height: ($sectionHeaderHeight * 0.75);
         background: linear-gradient($colorBackground 75%, rgba($colorBackground, 0));
         z-index: 10;
+        font-weight: bold;
+        font-size: $sectionH1Size;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: $sectionH2Size;
+    }
+    h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: $sectionH3Size;
+        color: $darkGrayText;
     }
     .section-content {
         max-width: $maxWidthContainer;

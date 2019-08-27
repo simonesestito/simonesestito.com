@@ -9,13 +9,15 @@
 $colorBackground: #fafafa;
 $colorAccent: #2196F3;
 $colorTextOnAccent: #ffffff;
-$colorGreenPlayStore: #0D9128;
+$darkGrayText: #606060;
 
 /* Fonts size */
 
-$fontTitleSize: 2.8em;
-$fontSubtitleSize: 1.2em;
-$fontButtonSize: 1.2em;
+$sectionH1Size: 1.9em;
+$sectionH2Size: 1.4em;
+$sectionH3Size: 1.1em;
+$ctaButtonSize: 1.2em;
+$chipFontSize: 0.9em;
 
 /* Durations */
 
@@ -25,13 +27,15 @@ $transitionDuration: 0.3s; // Used for button.cta on hover effect
 
 $buttonRadius: 32px;
 $chipRadius: 24px;
+$cardRadius: 16px;
 $chipIcon: 24px;
 $chipPaddingHorizontal: 10px;
 $chipPaddingVertical: 6px;
-$chipMargin: 6px;
+$chipSideMargin: 1em;
+$chipVerticalMargin: 0.5em;
 $containerCardRadius: 24px;
 $maxWidthContainer: 1024px;
-$sectionHeaderHeight: 64px; // Title of each section inside card container
+$sectionHeaderHeight: 80px; // Title of each section inside card container
 $cardHeight: 10vh; // The height of the visible part of card
 $contentMargin: 16px; // Content minimum lateral margin
 $mobileMaxWidth: 768px; // max-width breakpoint in CSS media query

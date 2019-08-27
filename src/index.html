@@ -33,9 +33,10 @@ Copyright (C) 2019 Simone Sestito
             <!-- SVG header image added via CSS -->
         </div>
 
+        <!-- Center these titles on mobile wuth .mobile-vertical-center -->
         <div class="mobile-vertical-center">
             <div class="content desktop-half-right">
-                <h1 class="title">I'm Simone Sestito</h1>
+                <h1>I'm Simone Sestito</h1>
                 <p class="subtitle typewriter">Mobile Developer, specialized on Android.</p><br>
 
                 <button id="btn-contacts" href="#" class="cta">Contact me</button>
@@ -52,8 +53,8 @@ Copyright (C) 2019 Simone Sestito
             <div class="container" id="content">
 
                 <!-- Projects section -->
-                <section class="page-section" id="projects">
-                    <h2 class="section-header">Projects</h2>
+                <section id="projects">
+                    <h1>Projects</h1>
                     <div class="section-content">
                         <div class="phone-container">
                             <figure role="img" aria-label="Screenshot of Quick Settings Android app" class="phone-layer app-screenshot" id="qs"></figure>
@@ -65,7 +66,7 @@ Copyright (C) 2019 Simone Sestito
                             <div class="phone-app" data-app="qs">
                                 <!-- data-app value must be the same as <figure> screenshot ID -->
                                 <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
-                                <h3>Quick Settings</h3>
+                                <h2>Quick Settings</h2>
                                 <p>
                                     It adds custom features to your quick settings panel.
                                     <br> It has more than <u>600.000 downloads</u> right now.
@@ -82,7 +83,7 @@ Copyright (C) 2019 Simone Sestito
                             </div>
                             <div class="phone-app" data-app="wallapp">
                                 <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
-                                <h3>WallApp</h3>
+                                <h2>WallApp</h2>
                                 <p><u>Modern</u> wallpapers app, built following latest Android development guidelines and app architecture
                                 </p>
                                 <p class="download-app-title">Available on:</p>
@@ -97,7 +98,7 @@ Copyright (C) 2019 Simone Sestito
                             </div>
                             <div class="phone-app" data-app="escape_earth">
                                 <span class="flutter-logo"><img src="res/svg/icons/flutter.svg"></span>
-                                <h3>Escape Earth</h3>
+                                <h2>Escape Earth</h2>
                                 <p>Discover the next space launches with this app. Created in only <u>2 days</u>, during <u>"NASA Space Apps Challenge"</u> hackathon.</p>
                                 <p class="download-app-title">Available on:</p>
                                 <ul class="chips">
@@ -120,49 +121,50 @@ Copyright (C) 2019 Simone Sestito
                 </section>
 
                 <!-- Skills section -->
-                <section class="page-section" id="skills">
-                    <h2 class="section-header">Technical Skills</h2>
+                <section id="skills">
+                    <h1>Technical Skills</h1>
                     <div class="section-content">
-                        <div class="skill android-skill">
-                            <h3 class="skill-name">Android Development</h3>
+                        <h2 class="main-skill-title">Android Native Apps</h2>
+                        <ul class="main-skill chips center-children">
+                            <li class="chip" data-chip-color="#EA2D2E">
+                                <img src="res/svg/icons/java.svg">
+                                <span class="chip-title">Java</span>
+                            </li>
+                            <li class="chip" data-chip-color="#547CE0">
+                                <img src="res/svg/icons/kotlin.svg">
+                                <span class="chip-title">Kotlin</span>
+                            </li>
+                            <li class="chip" data-chip-color="#707070">
+                                <img src="res/svg/icons/material_design.svg">
+                                <span class="chip-title">Material Design</span>
+                            </li>
+                            <li class="chip" data-chip-color="#0D9128">
+                                <img src="res/svg/icons/android.svg">
+                                <span class="chip-title">Android Jetpack</span>
+                            </li>
+                            <li class="chip" data-chip-color="#0D9128">
+                                <img src="res/svg/icons/android_modules.svg">
+                                <span class="chip-title">Modular architecture</span>
+                            </li>
+                            <li class="chip" data-chip-color="#044A5C">
+                                <img src="res/svg/icons/database.svg">
+                                <span class="chip-title">SQLite</span>
+                            </li>
+                            <li class="chip" data-chip-color="#FD6C35">
+                                <img src="res/svg/icons/rest_apis.svg">
+                                <span class="chip-title">REST APIs</span>
+                            </li>
+                            <li class="chip" data-chip-color="#F5820B">
+                                <img src="res/svg/icons/firebase.svg">
+                                <span class="chip-title">Firebase</span>
+                            </li>
+                        </ul>
+                        <hr class="mobile-only">
+
+                        <h2 class="other-skills-title">Other skills</h2>
+                        <div class="cross-apps">
+                            <h3>Cross-Platform Apps</h3>
                             <ul class="chips center-children">
-                                <li class="chip" data-chip-color="#EA2D2E">
-                                    <img src="res/svg/icons/java.svg">
-                                    <span class="chip-title">Java</span>
-                                </li>
-                                <li class="chip" data-chip-color="#547CE0">
-                                    <img src="res/svg/icons/kotlin.svg">
-                                    <span class="chip-title">Kotlin</span>
-                                </li>
-                                <li class="chip" data-chip-color="#707070">
-                                    <img src="res/svg/icons/material_design.svg">
-                                    <span class="chip-title">Material Design</span>
-                                </li>
-                                <li class="chip" data-chip-color="#0D9128">
-                                    <img src="res/svg/icons/android.svg">
-                                    <span class="chip-title">Android Jetpack</span>
-                                </li>
-                                <li class="chip" data-chip-color="#0D9128">
-                                    <img src="res/svg/icons/android_modules.svg">
-                                    <span class="chip-title">Modular architecture</span>
-                                </li>
-                                <li class="chip" data-chip-color="#044A5C">
-                                    <img src="res/svg/icons/database.svg">
-                                    <span class="chip-title">SQLite</span>
-                                </li>
-                                <li class="chip" data-chip-color="#FD6C35">
-                                    <img src="res/svg/icons/rest_apis.svg">
-                                    <span class="chip-title">REST APIs</span>
-                                </li>
-                                <li class="chip" data-chip-color="#F5820B">
-                                    <img src="res/svg/icons/firebase.svg">
-                                    <span class="chip-title">Firebase</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="skill flutter-skill">
-                            <h3 class="skill-name">Cross-Platform Mobile Apps</h3>
-                            <div class="chips center-children">
                                 <li class="chip" data-chip-color="#1dbbfd">
                                     <img src="res/svg/icons/flutter.svg">
                                     <span class="chip-title">Flutter</span>
@@ -171,18 +173,14 @@ Copyright (C) 2019 Simone Sestito
                                     <img src="res/svg/icons/dart.svg">
                                     <span class="chip-title">Dart</span>
                                 </li>
-                            </div>
+                            </ul>
                         </div>
-                        <div class="skill other-skills">
-                            <h3 class="skill-name">Also interested in&#x2026;</h3>
-                            <div class="chips center-children">
+                        <div class="node-backend">
+                            <h3>Simple Backend</h3>
+                            <ul class="chips center-children">
                                 <li class="chip" data-chip-color="#1c9e19">
                                     <img src="res/svg/icons/nodejs.svg">
                                     <span class="chip-title">Node.js</span>
-                                </li>
-                                <li class="chip" data-chip-color="#ed7d30">
-                                    <img src="res/svg/icons/javascript.svg">
-                                    <span class="chip-title">JavaScript</span>
                                 </li>
                                 <li class="chip" data-chip-color="#007acc">
                                     <img src="res/svg/icons/typescript.svg">
@@ -196,24 +194,23 @@ Copyright (C) 2019 Simone Sestito
                                     <img src="res/svg/icons/docker.svg">
                                     <span class="chip-title">Docker</span>
                                 </li>
-                            </div>
+                            </ul>
                         </div>
-                    </div>
                 </section>
 
                 <!-- Contacts section -->
-                <section class="page-section" id="contacts">
-                    <h2 class="section-header">Contacts</h2>
+                <section id="contacts">
+                    <h1>Contacts</h1>
                     <div class="section-content">
                         <p class="full-height">{{ TEST }}</p>
                     </div>
                 </section>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/app.js"></script>
+        <script src="js/app.js"></script>
 </body>
 
-</html>
+</html

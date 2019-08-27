@@ -14,7 +14,7 @@
     --phoneAppHeight: var(--phoneContainerHeight);
     --phoneAppsMarginBottom: calc(var(--phoneContainerHeight) / 2);
     --sectionFlexDirection: row;
-    @include mobilePortraitOnly() {
+    @include mobileOnly() {
         --phoneContainerWidth: 100%;
         --phoneContainerMaxWidth: var(--phoneContainerWidth);
         --phoneContainerHeight: 40vh;
@@ -44,13 +44,9 @@
             background: linear-gradient(rgba($colorBackground, 0), rgba($colorBackground, .5) 10%, $colorBackground 70%);
             .phone-layer {
                 position: absolute;
-                margin: 0 auto;
                 width: 100%;
                 max-width: var(--phoneContainerMaxWidth);
                 height: var(--phoneContainerHeight);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
             }
             .app-screenshot {
                 opacity: 0;
@@ -87,10 +83,14 @@
                 margin: 0 auto;
             }
         }
+        li {
+            display: inline-block;
+        }
+        h2 {
+            margin: 0.3em 0;
+        }
         .download-app-title {
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
     }
 }

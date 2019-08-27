@@ -17,7 +17,7 @@ button.cta {
     @include lightShadow;
     cursor: pointer;
     transition-duration: $transitionDuration;
-    font-size: $fontButtonSize;
+    font-size: $ctaButtonSize;
     &:hover {
         @include hardShadow;
     }
@@ -35,26 +35,30 @@ button.cta {
     }
 }
 
-.title {
-    font-size: $fontTitleSize;
-}
-
-.subtitle {
-    font-size: $fontSubtitleSize;
-}
-
-.chips {
+ul {
     list-style-type: none;
     padding-block-start: 0;
     padding-inline-start: 0;
     padding-left: 0;
     margin: 0;
     display: block;
-    &>*,
-    .chip {
-        display: inline-block;
-        margin: 0.5em 1em;
-        margin-left: 0;
+}
+
+hr {
+    margin: 1em;
+    border: 0.5px solid #a0a0a0;
+}
+
+.vertical-separator {
+    width: 1px;
+    margin: 12px 0;
+    background: #a0a0a0;
+}
+
+.chips .chip {
+    display: inline-block;
+    &:last-child {
+        margin-right: 0;
     }
 }
 
@@ -70,7 +74,7 @@ button.cta {
     padding-left: $chipPaddingHorizontal;
     padding-top: $chipPaddingVertical;
     padding-bottom: $chipPaddingVertical;
-    margin: $chipMargin;
+    margin: $chipVerticalMargin $chipSideMargin;
     margin-left: 0;
     text-decoration: none;
     &>* {
@@ -78,7 +82,7 @@ button.cta {
         vertical-align: middle;
     }
     .chip-title {
-        font-size: 0.9em;
+        font-size: $chipFontSize;
         text-decoration: none;
         color: black;
     }
@@ -112,4 +116,23 @@ button.cta {
 
 .flutter-logo svg {
     fill: #1DBBFD;
+}
+
+figure {
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@include desktopOnly() {
+    .mobile-only {
+        display: none;
+    }
+}
+
+@include mobileOnly() {
+    .desktop-only {
+        display: none;
+    }
 }

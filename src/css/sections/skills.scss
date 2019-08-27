@@ -3,12 +3,46 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
+$phoneFigureSize: 72px;
 #skills {
     .section-content {
+        margin-top: 48px;
         margin-left: 16px;
         margin-right: 16px;
     }
-    .chip {
-        margin-right: 2em;
+    @include desktopOnly() {
+        .section-content {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: "main-title main-title . main main main main ." "others-title others-title flutter flutter flutter node node node";
+            grid-row-gap: 48px;
+            .main-skill-title {
+                grid-area: main-title;
+                align-self: center;
+            }
+            .other-skills-title {
+                grid-area: others-title;
+                align-self: center;
+            }
+            .main-skill {
+                grid-area: main;
+                .chip {
+                    margin-right: 2em;
+                }
+            }
+            .cross-apps {
+                grid-area: flutter;
+            }
+            .node-backend {
+                grid-area: node;
+                .chip:last-child {
+                    margin-right: $chipSideMargin;
+                }
+            }
+            h3 {
+                text-align: center;
+            }
+        }
     }
 }
