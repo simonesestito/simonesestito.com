@@ -36,9 +36,6 @@ $phoneFigureSize: 72px;
             }
             .node-backend {
                 grid-area: node;
-                .chip:last-child {
-                    margin-right: $chipSideMargin;
-                }
             }
             h3 {
                 text-align: center;

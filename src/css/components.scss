@@ -1,138 +1,133 @@
-/*
+    /*
  * This file is part of simonesestito.com
  * Copyright (C) 2019 Simone Sestito
  */
-
-
-/* App defined components */
-
-button.cta {
-    background-color: $colorAccent;
-    border: none;
-    border-radius: $buttonRadius;
-    text-transform: uppercase;
-    color: $colorTextOnAccent;
-    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
-    font-weight: bold;
-    @include lightShadow;
-    cursor: pointer;
-    transition-duration: $transitionDuration;
-    font-size: $ctaButtonSize;
-    &:hover {
-        @include hardShadow;
+    /* App defined components */
+    
+    button.cta {
+        background-color: $colorAccent;
+        border: none;
+        border-radius: $buttonRadius;
+        text-transform: uppercase;
+        color: $colorTextOnAccent;
+        padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+        font-weight: bold;
+        @include lightShadow;
+        cursor: pointer;
+        transition-duration: $transitionDuration;
+        font-size: $ctaButtonSize;
+        &:hover {
+            @include hardShadow;
+        }
     }
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-align: center;
-    svg {
-        width: 2em;
-        height: 2em;
-        margin: auto;
+    
+    .icon {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        text-align: center;
+        svg {
+            width: 2em;
+            height: 2em;
+            margin: auto;
+        }
     }
-}
-
-ul {
-    list-style-type: none;
-    padding-block-start: 0;
-    padding-inline-start: 0;
-    padding-left: 0;
-    margin: 0;
-    display: block;
-}
-
-hr {
-    margin: 1em;
-    border: 0.5px solid #a0a0a0;
-}
-
-.vertical-separator {
-    width: 1px;
-    margin: 12px 0;
-    background: #a0a0a0;
-}
-
-.chips .chip {
-    display: inline-block;
-    &:last-child {
-        margin-right: 0;
+    
+    ul {
+        list-style-type: none;
+        padding-block-start: 0;
+        padding-inline-start: 0;
+        padding-left: 0;
+        margin: 0;
+        display: block;
     }
-}
-
-
-/**
- * Set the color using [data-chip-color] attribute on .chip element
- */
-
-.chip {
-    border-radius: $chipRadius;
-    border: 1px solid;
-    padding-right: $chipPaddingHorizontal;
-    padding-left: $chipPaddingHorizontal;
-    padding-top: $chipPaddingVertical;
-    padding-bottom: $chipPaddingVertical;
-    margin: $chipVerticalMargin $chipSideMargin;
-    margin-left: 0;
-    text-decoration: none;
-    &>* {
-        display: inline-block;
-        vertical-align: middle;
+    
+    hr {
+        margin: 1em;
+        border: 0.5px solid #a0a0a0;
     }
-    .chip-title {
-        font-size: $chipFontSize;
+    
+    .vertical-separator {
+        width: 1px;
+        margin: 12px 0;
+        background: #a0a0a0;
+    }
+    
+    .chips {
+        margin: 0 -#{$chipSideMargin};
+        .chip {
+            display: inline-block;
+            margin: $chipVerticalMargin $chipSideMargin;
+        }
+    }
+    /**
+     * Set the color using [data-chip-color] attribute on .chip element
+     */
+    
+    .chip {
+        border-radius: $chipRadius;
+        border: 1px solid;
+        padding-right: $chipPaddingHorizontal;
+        padding-left: $chipPaddingHorizontal;
+        padding-top: $chipPaddingVertical;
+        padding-bottom: $chipPaddingVertical;
         text-decoration: none;
-        color: black;
+        &>* {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .chip-title {
+            font-size: $chipFontSize;
+            text-decoration: none;
+            color: black;
+        }
+        &>svg {
+            height: 24px;
+            width: 24px;
+        }
     }
-    &>svg {
-        height: 24px;
-        width: 24px;
+    
+    .typewriter:after {
+        content: "|";
+        font-weight: bold;
+        animation: blink 500ms ease infinite alternate;
+        color: #606060;
     }
-}
-
-.typewriter:after {
-    content: "|";
-    font-weight: bold;
-    animation: blink 500ms ease infinite alternate;
-    color: #606060;
-}
-
-@keyframes blink {
-    0%,
-    20% {
-        opacity: 1;
+    
+    @keyframes blink {
+        0%,
+        20% {
+            opacity: 1;
+        }
+        30%,
+        100% {
+            opacity: 0;
+        }
     }
-    30%,
-    100% {
-        opacity: 0;
+    
+    .android-logo svg {
+        fill: #0D9128;
     }
-}
-
-.android-logo svg {
-    fill: #0D9128;
-}
-
-.flutter-logo svg {
-    fill: #1DBBFD;
-}
-
-figure {
-    margin: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-@include desktopOnly() {
-    .mobile-only {
-        display: none;
+    
+    .flutter-logo svg {
+        fill: #1DBBFD;
     }
-}
-
-@include mobileOnly() {
-    .desktop-only {
-        display: none;
+    
+    figure {
+        margin: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
-}
+    
+    @include desktopOnly() {
+        .mobile-only {
+            display: none;
+        }
+    }
+    
+    @include mobileOnly() {
+        .desktop-only {
+            display: none;
+        }
+    }
