@@ -8,16 +8,23 @@
     .content-card {
         max-width: $maxWidthContainer;
         min-height: $cardHeight;
-        background: $colorBackground;
+        background: var(--colorBackground);
         margin: var(--cardMarginTop) auto 0 auto;
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
         box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3); // Animated in JS
         will-change: box-shadow;
         #card-arrow {
+            display: flex;
             width: 100%;
             height: $cardHeight;
             margin: 0;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            svg {
+                fill: var(--colorText);
+            }
         }
     }
 }

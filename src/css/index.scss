@@ -7,9 +7,11 @@
 @import './mixins.scss';
 @import './vars.scss';
 body {
-    background: $colorBackground;
+    background: var(--colorBackground);
+    color: var(--colorText);
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 @import './layout.scss';

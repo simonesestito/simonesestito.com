@@ -6,10 +6,25 @@
 
 /* Colors */
 
-$colorBackground: #fafafa;
 $colorAccent: #2196F3;
 $colorTextOnAccent: #ffffff;
-$darkGrayText: #606060;
+// Dark theme colors
+:root {
+    --colorBodyBackground: #ffffff;
+    --colorBackground: #fafafa;
+    --colorText: black;
+    --darkGrayText: #606060;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+     :root {
+        --colorBodyBackground: #35363A;
+        --colorBackground: #3C4043;
+        --colorText: #fafafa;
+        --darkGrayText: #a0a0a0;
+    }
+}
+
 
 /* Durations */
 

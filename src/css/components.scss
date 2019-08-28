@@ -24,18 +24,6 @@ button.cta {
     }
 }
 
-.icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    text-align: center;
-    svg {
-        width: 2em;
-        height: 2em;
-        margin: auto;
-    }
-}
-
 ul {
     list-style-type: none;
     padding-block-start: 0;
@@ -84,7 +72,7 @@ hr {
     .chip-title {
         font-size: 0.9rem;
         text-decoration: none;
-        color: black;
+        color: var(--colorText);
     }
     &>svg {
         height: 24px;
