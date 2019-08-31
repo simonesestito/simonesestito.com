@@ -55,7 +55,6 @@
             .submit-check {
                 @include prefix(transition, opacity 1s $timingFunction);
                 height: $envelopeHeight;
-                padding-top: $paperPadding * 2;
                 opacity: 0;
             }
             .recaptcha {
@@ -100,22 +99,18 @@
         }
         .envelope-front {
             z-index: 3;
+        }
+        .envelope-back {
+            z-index: 1;
+        }
+        .envelope-front,
+        .envelope-back {
             svg {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 bottom: 0;
                 fill: var(--colorOnSecondaryBackground);
-            }
-        }
-        .envelope-back {
-            z-index: 1;
-            svg {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                bottom: 0;
-                fill: var(--colorSecondaryBackground);
             }
         }
         .closure-flap {

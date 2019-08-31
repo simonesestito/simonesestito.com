@@ -18,7 +18,7 @@ const submitButton = document.querySelector('#contacts .paper input[type=submit]
  */
 function showCaptcha() {
     doOnNextFrame(() => {
-        envelope.style.marginTop = '0px';
+        envelope.style.marginTop = '-32px';
         submitCheck.style.opacity = '1';
         submitButton.style.opacity = '0';
     });
