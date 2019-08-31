@@ -45,3 +45,13 @@
 @mixin hardShadow($x: 0, $y: 4px) {
     box-shadow: $x $y 5px rgba(0, 0, 0, 0.4);
 }
+
+
+/* Vendor prefixes */
+
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    #{$property}: $value;
+}

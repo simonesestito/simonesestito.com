@@ -24,6 +24,8 @@
         "prod": "firebase serve --only hosting"
     },
     "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-transform-runtime": "^7.5.5",
         "@types/gsap": "^1.20.2",
         "css": "^2.2.4",
         "firebase-tools": "^7.1.1",
@@ -39,6 +41,7 @@
         "uglify-js": "^3.6.0"
     },
     "dependencies": {
+        "@babel/runtime-corejs2": "^7.5.5",
         "intersection-observer-polyfill": "^0.1.0",
         "smoothscroll-polyfill": "^0.4.4",
         "supports-webp": "^2.0.1"

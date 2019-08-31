@@ -3,6 +3,8 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
+$bodyFontFamily: 'Montserrat',
+sans-serif;
 
 /* Colors */
 
@@ -12,6 +14,8 @@ $colorTextOnAccent: #ffffff;
 :root {
     --colorBodyBackground: #ffffff;
     --colorBackground: #fafafa;
+    --colorSecondaryBackground: #f5f5f5;
+    --colorOnSecondaryBackground: #c0c0c0;
     --colorText: black;
     --darkGrayText: #606060;
 }
@@ -20,6 +24,8 @@ $colorTextOnAccent: #ffffff;
      :root {
         --colorBodyBackground: #35363A;
         --colorBackground: #3C4043;
+        --colorSecondaryBackground: #4D5154;
+        --colorOnSecondaryBackground: #7E8285;
         --colorText: #fafafa;
         --darkGrayText: #a0a0a0;
     }
@@ -32,9 +38,10 @@ $transitionDuration: 0.3s; // Used for button.cta on hover effect
 
 /* Other dimensions */
 
+$placeholderTextSize: 14px;
 $buttonRadius: 32px;
 $chipRadius: 24px;
-$cardRadius: 16px;
+$contentRadius: 4px;
 $chipIcon: 24px;
 $chipPaddingHorizontal: 10px;
 $chipPaddingVertical: 6px;

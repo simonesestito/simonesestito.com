@@ -208,7 +208,31 @@ Copyright (C) 2019 Simone Sestito
                 <section id="contacts">
                     <h1>Contacts</h1>
                     <div class="section-content">
-                        <p class="full-height">{{ TEST }}</p>
+
+                        <div class="mail-container">
+                            <span class="paper-filling"></span>
+                            <form id="contacts-form" class="paper">
+                                <input placeholder="Your name" type="text" autocomplete="name" name="name">
+                                <input placeholder="Your email address" type="email" autocomplete="email" name="email">
+                                <div contenteditable placeholder="Your message" name="message"></div>
+                                <input type="submit" value="Submit">
+                                <div class="submit-check">
+                                    <div class="recaptcha"></div>
+                                    <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="">Privacy Policy</a></small>
+                                </div>
+                            </form>
+
+                            <div class="envelope">
+                                <div class="envelope-front">
+                                    <img src="res/svg/envelope_front.svg">
+                                </div>
+                                <div class="envelope-back">
+                                    <img src="res/svg/envelope_back.svg">
+                                </div>
+                            </div>
+                            <div class="closure-flap"></div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -219,4 +243,4 @@ Copyright (C) 2019 Simone Sestito
         <script src="js/app.js"></script>
 </body>
 
-</html
+</html>

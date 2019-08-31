@@ -1,0 +1,123 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+#contacts {
+    $mailContainerWidth: 40vw;
+    $envelopeHeight: calc(#{$mailContainerWidth} / 2);
+    $paperPadding: 12px;
+    $timingFunction: cubic-bezier(1, 0, 0.43, 1);
+    small {
+        font-size: 0.65rem;
+    }
+    .mail-container {
+        position: relative;
+        width: $mailContainerWidth;
+        margin: auto;
+        margin-bottom: calc(#{$envelopeHeight} * 1.5);
+        form.paper {
+            position: relative;
+            width: 90%;
+            padding: $paperPadding;
+            margin: 0 auto;
+            background-color: var(--colorSecondaryBackground);
+            z-index: 2;
+            @include prefix('box-shadow', inset 0 0 50px rgba(0, 0, 0, 0.1));
+            overflow: hidden;
+            border-radius: $contentRadius;
+            [name] {
+                display: block;
+                @include prefix(appearance, none);
+                margin: $paperPadding 0;
+                padding: 8px;
+                background: transparent;
+            }
+            [name=name],
+            [name=email] {
+                min-width: 40%;
+                margin-left: auto; // Right align
+                text-align: right;
+                border: none;
+                border-bottom: 1px solid var(--darkGrayText);
+            }
+            [name=message] {
+                width: 100%;
+                min-height: 150px;
+                box-sizing: border-box;
+                overflow: auto;
+                margin-top: 24px;
+                border: 1px solid var(--darkGrayText);
+                border-radius: $contentRadius;
+            }
+            .submit-check {
+                @include prefix(transition, opacity 1s $timingFunction);
+                height: $envelopeHeight;
+                padding-top: $paperPadding * 2;
+                opacity: 0;
+            }
+            .recaptcha {
+                background: green;
+                height: 80px;
+            }
+        }
+        .paper,
+        .paper-filling,
+        .closure-flap {
+            @include prefix(transition, all 1s $timingFunction);
+        }
+        .paper-filling {
+            display: block;
+            height: 0;
+        }
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: $envelopeHeight;
+            margin: 0;
+            margin-top: calc(#{$envelopeHeight} * (-1));
+            @include prefix('box-shadow', 0 0 4px rgba(0, 0, 0, 0.2));
+            @include prefix(transition, margin-top 1s $timingFunction);
+            &>* {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        }
+        .envelope-front {
+            z-index: 3;
+            svg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                fill: var(--colorOnSecondaryBackground);
+            }
+        }
+        .envelope-back {
+            z-index: 1;
+            svg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                fill: var(--colorSecondaryBackground);
+            }
+        }
+        .closure-flap {
+            position: relative;
+            width: 100%;
+            height: calc(#{$envelopeHeight} / 2);
+            margin-top: calc(#{$envelopeHeight} * (-1.5));
+            background-color: purple; // TODO Remove this, test only
+            z-index: 1;
+            @include prefix(transform, none);
+            @include prefix(transform-origin, bottom center);
+            &[data-flipped=true] {
+                @include prefix(transform, perspective(500px) rotateX(-180deg));
+                z-index: 5;
+            }
+        }
+    }
+}
