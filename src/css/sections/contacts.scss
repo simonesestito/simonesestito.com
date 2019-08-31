@@ -132,5 +132,13 @@
                 z-index: 5;
             }
         }
+        .envelope-front,
+        .closure-flap {
+            svg path {
+                stroke: var(--darkGrayText);
+                stroke-width: 1px;
+                stroke-linejoin: round;
+            }
+        }
     }
 }
