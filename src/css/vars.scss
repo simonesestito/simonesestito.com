@@ -15,18 +15,16 @@ $colorTextOnAccent: #ffffff;
     --colorBodyBackground: #ffffff;
     --colorBackground: #fafafa;
     --colorSecondaryBackground: #f5f5f5;
-    --colorOnSecondaryBackground: #e5e5e5;
     --colorText: black;
-    --colorAccentText: $colorAccent;
+    --colorAccentText: #{$colorAccent};
     --darkGrayText: #606060;
 }
 
 @media screen and (prefers-color-scheme: dark) {
      :root {
-        --colorBodyBackground: #35363A;
-        --colorBackground: #3C4043;
-        --colorSecondaryBackground: #5A5E61;
-        --colorOnSecondaryBackground: #4A4E51;
+        --colorBodyBackground: #202124;
+        --colorBackground: #35363A;
+        --colorSecondaryBackground: #3E4245;
         --colorText: #fafafa;
         --colorAccentText: #64b5f6;
         --darkGrayText: #a0a0a0;
