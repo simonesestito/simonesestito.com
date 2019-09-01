@@ -104,7 +104,8 @@
             z-index: 1;
         }
         .envelope-front,
-        .envelope-back {
+        .envelope-back,
+        .closure-flap {
             svg {
                 position: absolute;
                 width: 100%;
@@ -118,7 +119,6 @@
             width: 100%;
             height: calc(#{$envelopeHeight} / 2);
             margin-top: calc(#{$envelopeHeight} * (-1.5));
-            background-color: purple; // TODO Remove this, test only
             z-index: 1;
             @include prefix(transform, none);
             @include prefix(transform-origin, bottom center);
