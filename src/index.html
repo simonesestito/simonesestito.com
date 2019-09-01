@@ -215,7 +215,8 @@ Copyright (C) 2019 Simone Sestito
                                 <input placeholder="Your name" type="text" autocomplete="name" name="name">
                                 <input placeholder="Your email address" type="email" autocomplete="email" name="email">
                                 <div contenteditable placeholder="Your message" name="message"></div>
-                                <input type="submit" value="Submit">
+                                <input class="online-only" type="submit" value="Submit">
+                                <p class="error-text offline-only">Internet connection required to send an email.</p>
                                 <div class="submit-check">
                                     <div class="recaptcha"></div>
                                     <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="https://www.iubenda.com/privacy-policy/62089826" rel="nofollow">Privacy Policy</a></small>
