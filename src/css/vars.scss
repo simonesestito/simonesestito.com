@@ -62,6 +62,7 @@ $mobileMaxWidth: 768px; // max-width breakpoint in CSS media query
     --mainContentMarginTop: 15vh; // Margin between #main header SVG and #main .content
     --cardContainerMarginTop: 0; // Margin between card arrow and real card content
     --cardMarginTop: calc(100vh - #{$cardHeight}); // The margin top of the card
+    --mailContainerWidth: 40vw;
     /**/
     @include mobileOnly() {
         /* Mobile */
@@ -69,5 +70,6 @@ $mobileMaxWidth: 768px; // max-width breakpoint in CSS media query
         --mainContentMarginTop: 0;
         --cardContainerMarginTop: 48px; // 48px = mobile address bar height
         --cardMarginTop: calc(100vh - #{$cardHeight} - var(--cardContainerMarginTop));
+        --mailContainerWidth: 90vw;
     }
 }
