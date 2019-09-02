@@ -21,7 +21,7 @@
         "predeploy": "npm run build",
         "deploy": "firebase deploy",
         "preprod": "npm run build",
-        "prod": "firebase serve --only hosting"
+        "prod": "firebase serve"
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",
