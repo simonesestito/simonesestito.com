@@ -21,7 +21,7 @@ const {
 const sendEmailSchema = Joi.object().keys({
     userName: Joi.string().required(),
     userEmail: Joi.string().email({ minDomainSegments: 2 }).required(),
-    userMessage: Joi.string().required(),
+    userMessage: Joi.string().min(10).required(),
     clientCaptcha: Joi.string().required()
 });
 app.post('/api/sendEmail', asyncHandler(async(req, res) => {

@@ -24,6 +24,7 @@ Copyright (C) 2019 Simone Sestito
     <link rel="stylesheet" href="css/index.scss">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="192x192" href="res/favicon_highres.png">
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
     <title>Simone Sestito | Portfolio</title>
 </head>
 
@@ -212,14 +213,14 @@ Copyright (C) 2019 Simone Sestito
                         <div class="mail-container">
                             <span class="paper-filling"></span>
                             <form id="contacts-form" class="paper">
-                                <input placeholder="Your name" type="text" autocomplete="name" name="name">
-                                <input placeholder="Your email address" type="email" autocomplete="email" name="email">
+                                <input placeholder="Your name" type="text" autocomplete="name" name="name" required>
+                                <input placeholder="Your email address" type="email" autocomplete="email" name="email" required>
                                 <div contenteditable placeholder="Your message" name="message"></div>
                                 <input class="online-only" type="submit" value="Submit">
                                 <p class="error-text offline-only">Internet connection required to send an email.</p>
                                 <div class="submit-check">
-                                    <div class="recaptcha"></div>
                                     <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="https://www.iubenda.com/privacy-policy/62089826" rel="nofollow">Privacy Policy</a></small>
+                                    <div id='contacts-recaptcha'></div>
                                 </div>
                             </form>
 
@@ -234,6 +235,8 @@ Copyright (C) 2019 Simone Sestito
                             <div class="closure-flap">
                                 <img src="res/svg/closure_flap.svg">
                             </div>
+
+                            <p class="error-text" id="contacts-email-error"></p>
                         </div>
 
                     </div>

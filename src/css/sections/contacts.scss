@@ -13,6 +13,7 @@
     .mail-container {
         position: relative;
         width: var(--mailContainerWidth);
+        min-width: 350px; // ReCaptcha
         margin: auto;
         margin-top: $paperPadding * 2;
         margin-bottom: calc(#{$envelopeHeight} * 1.5);
@@ -52,8 +53,8 @@
                 border-radius: $contentRadius;
             }
             .submit-check {
+                min-height: calc(#{$envelopeHeight} - #{$paperPadding});
                 @include prefix(transition, opacity 1s $timingFunction);
-                height: $envelopeHeight;
                 opacity: 0;
             }
             .recaptcha {
@@ -121,6 +122,7 @@
             width: 100%;
             height: calc(#{$envelopeHeight} / 2);
             margin-top: calc(#{$envelopeHeight} * (-1.5));
+            margin-bottom: $envelopeHeight;
             z-index: 1;
             @include prefix(transform, none);
             @include prefix(transform-origin, bottom center);
@@ -128,6 +130,9 @@
                 @include prefix(transform, perspective(500px) rotateX(-180deg) translateY(3px));
                 z-index: 5;
             }
+        }
+        .error-text {
+            padding-top: $paperPadding;
         }
     }
 }
