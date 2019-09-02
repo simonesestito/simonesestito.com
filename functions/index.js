@@ -6,7 +6,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const Joi = require('@hapi/joi');
-const app = express();
 const { isValidRecaptcha } = require('./captcha');
 const { createGmailClient, sendSelfMail, deleteMail } = require('./mail-utils');
 const { htmlEncode, asyncHandler } = require('./utils');
@@ -16,12 +15,19 @@ const {
     ERROR_INVALID_USER_EMAIL
 } = require('./constants');
 
+const app = express();
+
+/*
+ * Requires Content-Type: application/json
+ */
+app.use(express.json());
+
 // TODO -- Add CORS
 
 const sendEmailSchema = Joi.object().keys({
-    userName: Joi.string().required(),
+    userName: Joi.string().min(1).required(),
     userEmail: Joi.string().email({ minDomainSegments: 2 }).required(),
-    userMessage: Joi.string().min(10).required(),
+    userMessage: Joi.string().min(1).required(),
     clientCaptcha: Joi.string().required()
 });
 app.post('/api/sendEmail', asyncHandler(async(req, res) => {

@@ -112,6 +112,10 @@ async function sendEmail(recaptchaToken) {
     try {
         const response = await fetch('/api/sendEmail', {
             method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 userName: paper.elements.name.value,
                 userEmail: paper.elements.email.value,
