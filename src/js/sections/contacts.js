@@ -5,7 +5,8 @@
 
 import { doOnNextFrame, px, waitMillis } from '../utils';
 
-const envelope = document.querySelector('#contacts .envelope');
+const envelopeFront = document.querySelector('#contacts .envelope-front');
+const envelopeBack = document.querySelector('#contacts .envelope-back');
 const paper = document.querySelector('#contacts form.paper');
 const closureFlap = document.querySelector('#contacts .closure-flap');
 const submitCheck = document.querySelector('#contacts .paper .submit-check');
@@ -20,11 +21,10 @@ let emailPromise;
  * Should be called on submit.
  */
 async function showCaptcha() {
-    const currEnvelopeMarginTop = px(window.getComputedStyle(envelope).marginTop);
-    const submitCheckHeight = px(window.getComputedStyle(submitCheck).height);
+    const envelopeHeight = window.getComputedStyle(envelopeBack).height;
 
     await doOnNextFrame(() => {
-        envelope.style.marginTop = currEnvelopeMarginTop + submitCheckHeight + 'px';
+        paper.style.marginBottom = envelopeHeight;
         submitCheck.style.opacity = '1';
         submitButton.style.opacity = '0';
     });
@@ -51,7 +51,7 @@ paper.addEventListener('submit', e => {
  * Should be called after captcha challenge.
  */
 async function sendEmailAnimation() {
-    const envelopeHeight = px(window.getComputedStyle(envelope).height);
+    const envelopeHeight = px(window.getComputedStyle(envelopeBack).height);
     const {
         height,
         paddingTop
@@ -64,8 +64,8 @@ async function sendEmailAnimation() {
 
     await doOnNextFrame(() => {
         paper.style.paddingBottom = '0px';
+        paper.style.marginBottom = '0px';
         paper.style.height = newPaperHeight + 'px';
-        envelope.style.marginTop = `-${envelopeHeight}px`;
     });
 
     await waitMillis(1000);
