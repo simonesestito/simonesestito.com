@@ -211,11 +211,10 @@ Copyright (C) 2019 Simone Sestito
                     <div class="section-content">
 
                         <div class="mail-container">
-                            <span class="paper-filling"></span>
                             <form id="contacts-form" class="paper">
                                 <input placeholder="Your name" type="text" autocomplete="name" name="name" required>
                                 <input placeholder="Your email address" type="email" autocomplete="email" name="email" required>
-                                <div contenteditable placeholder="Your message" name="message"></div>
+                                <div contenteditable="true" placeholder="Your message" name="message"></div>
                                 <input class="online-only" type="submit" value="Submit">
                                 <p class="error-text offline-only">Internet connection required to send an email.</p>
                                 <div class="submit-check">
@@ -224,13 +223,11 @@ Copyright (C) 2019 Simone Sestito
                                 </div>
                             </form>
 
-                            <div class="envelope">
-                                <div class="envelope-front">
-                                    <img src="res/svg/envelope_front.svg">
-                                </div>
-                                <div class="envelope-back">
-                                    <img src="res/svg/envelope_back.svg">
-                                </div>
+                            <div class="envelope-front">
+                                <img src="res/svg/envelope_front.svg">
+                            </div>
+                            <div class="envelope-back">
+                                <img src="res/svg/envelope_back.svg">
                             </div>
                             <div class="closure-flap">
                                 <img src="res/svg/closure_flap.svg">

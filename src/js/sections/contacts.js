@@ -7,7 +7,6 @@ import { doOnNextFrame, px, waitMillis } from '../utils';
 
 const envelope = document.querySelector('#contacts .envelope');
 const paper = document.querySelector('#contacts form.paper');
-const paperFilling = document.querySelector('#contacts .paper-filling');
 const closureFlap = document.querySelector('#contacts .closure-flap');
 const submitCheck = document.querySelector('#contacts .paper .submit-check');
 const submitButton = document.querySelector('#contacts .paper input[type=submit]');
@@ -66,7 +65,6 @@ async function sendEmailAnimation() {
     await doOnNextFrame(() => {
         paper.style.paddingBottom = '0px';
         paper.style.height = newPaperHeight + 'px';
-        paperFilling.style.height = '100px';
         envelope.style.marginTop = `-${envelopeHeight}px`;
     });
 

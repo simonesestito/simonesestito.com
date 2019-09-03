@@ -5,29 +5,28 @@
 
 #contacts {
     $envelopeHeight: calc(var(--mailContainerWidth) / 2);
+    $closureFlapHeight: calc(var(--mailContainerWidth) / 4);
     $paperPadding: 12px;
-    $timingFunction: cubic-bezier(1, 0, 0.43, 1);
+    $recaptchaWidth: 310px;
+    $recaptchaHeight: 80px;
     small {
         font-size: 0.65rem;
     }
     .mail-container {
-        position: relative;
+        display: grid;
         width: var(--mailContainerWidth);
-        min-width: 350px; // ReCaptcha
-        margin: auto;
-        margin-top: $paperPadding * 2;
-        margin-bottom: calc(#{$envelopeHeight} * 1.5);
+        min-width: $recaptchaWidth;
+        grid-template-columns: 24px 1fr 24px;
+        grid-template-rows: 1fr $closureFlapHeight $envelopeHeight;
         form.paper {
-            position: relative;
             display: flex;
             flex-direction: column;
-            width: 80%;
             padding: $paperPadding;
-            margin: 1px auto 0 auto;
             background-color: var(--colorSecondaryBackground);
             z-index: 2;
             overflow: hidden;
             box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+            grid-area: 1 / 2 / span 3 / span 1;
             [name] {
                 display: block;
                 @include prefix(appearance, none);
@@ -53,13 +52,11 @@
                 border-radius: $contentRadius;
             }
             .submit-check {
-                min-height: calc(#{$envelopeHeight} - #{$paperPadding});
                 @include prefix(transition, opacity 1s $timingFunction);
                 opacity: 0;
             }
-            .recaptcha {
-                background: green;
-                height: 80px;
+            #contacts-recaptcha {
+                min-height: $recaptchaHeight;
             }
             input[type=submit] {
                 align-self: flex-end;
@@ -74,55 +71,33 @@
             }
         }
         .paper,
-        .paper-filling,
         .closure-flap {
             @include prefix(transition, all 1s $timingFunction);
         }
-        .paper-filling {
-            display: block;
-            height: 0;
-        }
-        .envelope {
-            position: relative;
-            width: 100%;
-            height: $envelopeHeight;
-            margin: 0;
-            margin-top: calc(#{$envelopeHeight} * (-1));
+        .envelope-front,
+        .envelope-back {
             border-radius: 1% 2%;
-            @include prefix('box-shadow', 0 0 6px rgba(0, 0, 0, 0.25));
-            @include prefix(transition, margin-top 1s $timingFunction);
-            &>* {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
+            grid-area: 3 / 1 / span 1 / span 3;
         }
         .envelope-front {
             z-index: 3;
         }
         .envelope-back {
             z-index: 1;
+            @include prefix('box-shadow', 0 0 6px rgba(0, 0, 0, 0.25));
         }
         .envelope-front,
         .envelope-back,
         .closure-flap {
             background: transparent;
             svg {
-                position: absolute;
                 width: 100%;
                 height: 100%;
-                bottom: 0;
-                top: 0;
                 fill: var(--colorSecondaryBackground);
             }
         }
         .closure-flap {
-            position: relative;
-            width: 100%;
-            height: calc(#{$envelopeHeight} / 2);
-            margin-top: calc(#{$envelopeHeight} * (-1.5));
-            margin-bottom: $envelopeHeight;
+            grid-area: 2 / 1 / span 1 / span 3;
             z-index: 1;
             @include prefix(transform, none);
             @include prefix(transform-origin, bottom center);

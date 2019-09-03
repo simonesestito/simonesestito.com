@@ -15,7 +15,7 @@
 }
 
 @mixin mobileOnly {
-    @media only screen and (max-width: $mobileMaxWidth) and (orientation: portrait) {
+    @media only screen and (max-width: $mobileMaxWidth) {
         @content;
     }
 }
