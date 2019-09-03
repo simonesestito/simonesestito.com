@@ -7,8 +7,13 @@ const functions = require('firebase-functions');
 const express = require('express');
 const Joi = require('@hapi/joi');
 const { isValidRecaptcha } = require('./captcha');
-const { createGmailClient, sendSelfMail, deleteMail } = require('./mail-utils');
 const { htmlEncode, asyncHandler } = require('./utils');
+const {
+    createGmailClient,
+    sendSelfMail,
+    deleteMail,
+    mxLookup
+} = require('./mail-utils');
 const {
     ERROR_INVALID_BODY_INPUT,
     ERROR_INVALID_RECAPTCHA,

@@ -5,15 +5,19 @@
 const {
     RECAPTCHA_SECRET_KEY
 } = require('./constants');
-const axios = require('axios').default;
+const rp = require('request-promise');
 
 exports.isValidRecaptcha = async function(clientCode) {
     try {
-        const response = await axios.post('https://recaptcha.google.com/recaptcha/api/siteverify', {
-            secret: RECAPTCHA_SECRET_KEY,
-            response: clientCode
-        });
-        return response.success;
+        const { success } = await rp('https://recaptcha.google.com/recaptcha/api/siteverify', {
+            method: 'POST',
+            json: true,
+            formData: {
+                secret: RECAPTCHA_SECRET_KEY,
+                response: clientCode
+            }
+        })
+        return success;
     } catch (e) {
         console.error(e);
         return false;
