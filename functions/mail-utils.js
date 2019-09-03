@@ -3,11 +3,9 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-const dns = require('dns');
 const { google } = require('googleapis');
 const { OAuth2 } = google.auth;
 const {
-    DNS_SERVERS,
     GMAIL_CLIENT_ID,
     GMAIL_SECRET,
     GMAIL_REDIRECT_URL,
@@ -16,27 +14,6 @@ const {
     MAIL_SELF_TO
 } = require('./constants');
 const { stringifyHeaders } = require('./utils');
-
-dns.setServers(DNS_SERVERS);
-
-exports.mxLookup = async function(host) {
-    return new Promise(res => {
-        dns.resolveMx(host, (err, addrs) => {
-            if (err) {
-                console.error(err);
-                return void res(null);
-            }
-
-            const { exchange } = addrs.reduce((prev, curr) => {
-                if (!prev || prev.priority > curr.priority)
-                    return curr;
-                else
-                    return prev;
-            });
-            return void res(exchange);
-        });
-    });
-}
 
 exports.createGmailClient = function() {
     const oauthClient = new OAuth2(

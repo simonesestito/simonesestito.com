@@ -11,13 +11,11 @@ const { htmlEncode, asyncHandler } = require('./utils');
 const {
     createGmailClient,
     sendSelfMail,
-    deleteMail,
-    mxLookup
+    deleteMail
 } = require('./mail-utils');
 const {
     ERROR_INVALID_BODY_INPUT,
     ERROR_INVALID_RECAPTCHA,
-    ERROR_INVALID_USER_EMAIL
 } = require('./constants');
 
 const app = express();
@@ -60,15 +58,6 @@ app.post('/api/sendEmail', asyncHandler(async(req, res) => {
     // Sanitize user input
     userName = htmlEncode(userName).replace(/['"]+/g, '');
     userMessage = htmlEncode(userMessage);
-
-    // Validate email against MX record
-    const host = userEmail.split('@')[1];
-    const exchange = await mxLookup(host);
-    if (!exchange) {
-        return void res.status(400).send({
-            error: ERROR_INVALID_USER_EMAIL
-        });
-    }
 
     // Send email to myself with user's message
     const gmail = createGmailClient();

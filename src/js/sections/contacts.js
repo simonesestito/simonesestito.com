@@ -82,6 +82,7 @@ async function sendEmailAnimation() {
         // TODO Display error mark
 
         console.error(err);
+
         switch (err.message) {
             case 'INTERNET_ERROR':
                 emailErrorDisplay.textContent = 'Internet connection required.'
@@ -94,9 +95,6 @@ async function sendEmailAnimation() {
                 break;
             case 'INVALID_RECAPTCHA':
                 emailErrorDisplay.textContent = 'ReCaptcha verification failed'
-                break;
-            case 'INVALID_USER_EMAIL':
-                emailErrorDisplay.textContent = 'Invalid email address inserted';
                 break;
             default:
                 emailErrorDisplay.textContent = 'An error occurred sending the email';
