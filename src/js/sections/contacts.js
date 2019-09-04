@@ -5,13 +5,14 @@
 
 import { doOnNextFrame, px, waitMillis } from '../utils';
 
-const envelopeFront = document.querySelector('#contacts .envelope-front');
 const envelopeBack = document.querySelector('#contacts .envelope-back');
 const paper = document.querySelector('#contacts form.paper');
 const closureFlap = document.querySelector('#contacts .closure-flap');
 const submitCheck = document.querySelector('#contacts .paper .submit-check');
 const submitButton = document.querySelector('#contacts .paper input[type=submit]');
 const emailErrorDisplay = document.getElementById('contacts-email-error');
+const errorResultMark = document.querySelector('#contacts .mail-container .result.error');
+const successResultMark = document.querySelector('#contacts .mail-container .result.success');
 
 const recaptchaContainerId = 'contacts-recaptcha';
 let emailPromise;
@@ -75,9 +76,9 @@ async function sendEmailAnimation() {
     await waitMillis(1000);
     // Handle emailPromise
     await emailPromise.then(() => {
-        // TODO Display success
+        successResultMark.classList.add('visible');
     }, err => {
-        // TODO Display error mark
+        errorResultMark.classList.add('visible');
 
         console.error(err);
 

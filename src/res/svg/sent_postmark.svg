@@ -1,0 +1,15 @@
+<svg width="200" height="100" version="1.1" viewBox="0 0 52.917 26.458" xmlns="http://www.w3.org/2000/svg">
+ <g fill="none" stroke="#000">
+  <path d="m1.7461 7.7492s5.3471-8.0338 13.521-0.86709c8.174 7.1667 13.739-1.1561 13.739-1.1561" stroke-width="1.7487"/>
+  <path d="m1.7202 14.257s5.3573-7.5064 13.547-0.81017c8.1896 6.6962 13.766-1.0802 13.766-1.0802" stroke-width="1.6919"/>
+  <path d="m1.7461 20.898s5.3573-7.5064 13.547-0.81017c8.1896 6.6962 13.766-1.0802 13.766-1.0802" stroke-width="1.6919"/>
+ </g>
+ <g transform="translate(2.6458)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3229">
+  <ellipse cx="34.173" cy="13.229" rx="11.01" ry="11.01" style="paint-order:markers stroke fill"/>
+  <ellipse cx="34.173" cy="13.229" rx="7.9112" ry="7.9112" style="paint-order:markers stroke fill"/>
+ </g>
+ <g transform="matrix(.88947 -.41367 .41367 .88947 .011579 2.1057)">
+  <rect x="15.31" y="20.936" width="28.061" height="10.714" ry="3.0384" style="paint-order:stroke fill markers"/>
+  <text x="20.981178" y="28.237087" fill="#ffffff" font-family="sans-serif" font-size="5.7652px" letter-spacing="0px" stroke-width=".14413" word-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="20.981178" y="28.237087" fill="#ffffff" font-family="sans-serif" font-weight="bold" stroke-width=".14413">SENT</tspan></text>
+ </g>
+</svg>
