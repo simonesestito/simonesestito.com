@@ -54,11 +54,18 @@
                 @include prefix(transition, opacity 1s $timingFunction);
                 opacity: 0;
                 min-height: $envelopeHeight;
+                display: flex;
+                flex-direction: column;
+                justify-items: flex-end;
+                &>* {
+                    margin-top: auto;
+                    margin-bottom: $paperPadding;
+                }
                 #contacts-recaptcha {
-                    display: flex;
-                    align-items: center;
-                    justify-items: center;
                     min-height: $recaptchaHeight;
+                    &>* {
+                        margin: 0 auto;
+                    }
                 }
                 small {
                     font-size: 0.7rem;

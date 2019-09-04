@@ -24,10 +24,14 @@ let emailPromise;
  * Should be called on submit.
  */
 async function showCaptcha() {
-    const envelopeHeight = window.getComputedStyle(envelopeBack).height;
+    const envelopeHeight = px(window.getComputedStyle(envelopeBack).height);
+
+    // Keep a small piece of paper inside the envelope
+    const paperInsideEnvelope = 24;
 
     await doOnNextFrame(() => {
-        paper.style.marginBottom = envelopeHeight;
+        paper.style.marginBottom = (envelopeHeight - paperInsideEnvelope) + 'px';
+        paper.style.paddingBottom = paperInsideEnvelope + 'px';
         submitCheck.style.opacity = '1';
         submitButton.style.opacity = '0';
     });
