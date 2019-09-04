@@ -5,16 +5,19 @@
 
 import { doOnNextFrame, px, waitMillis } from '../utils';
 
-const envelopeBack = document.querySelector('#contacts .envelope-back');
 const paper = document.querySelector('#contacts form.paper');
-const closureFlap = document.querySelector('#contacts .closure-flap');
-const submitCheck = document.querySelector('#contacts .paper .submit-check');
-const submitButton = document.querySelector('#contacts .paper input[type=submit]');
-const emailErrorDisplay = document.getElementById('contacts-email-error');
-const errorResultMark = document.querySelector('#contacts .mail-container .result.error');
-const successResultMark = document.querySelector('#contacts .mail-container .result.success');
-const messageDiv = document.querySelector('#contacts form.paper [contenteditable][name="message"]');
-const formError = document.querySelector('#contacts form.paper .form-error')
+const mailContainer = document.querySelector('#contacts .mail-container');
+
+const errorResultMark = mailContainer.querySelector('.result.error');
+const successResultMark = mailContainer.querySelector('.result.success');
+const envelopeBack = mailContainer.querySelector('.envelope-back');
+const closureFlap = mailContainer.querySelector('.closure-flap');
+
+const submitCheck = paper.querySelector('.submit-check');
+const submitButton = paper.querySelector('input[type=submit]');
+const emailErrorDisplay = paper.querySelector('.email-error');
+const messageDiv = paper.querySelector('[contenteditable][name="message"]');
+const formError = paper.querySelector('.form-error');
 
 const recaptchaContainerId = 'contacts-recaptcha';
 let emailPromise;
