@@ -33,6 +33,8 @@ const appInfosObserver = new IntersectionObserver(entries => {
     }
 }, { threshold: [OBSERVER_THRESHOLD] });
 
+appInfos.forEach(e => appInfosObserver.observe(e));
+
 let prevVisibleItem;
 
 /**
@@ -49,5 +51,3 @@ function onNewVisibleItem(newVisibleItem) {
     newVisibleItem.classList.add('visible');
     prevVisibleItem = newVisibleItem;
 }
-
-appInfos.forEach(e => appInfosObserver.observe(e));

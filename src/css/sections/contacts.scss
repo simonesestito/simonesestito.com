@@ -9,11 +9,27 @@
     $paperPadding: 8px;
     $recaptchaWidth: 310px;
     $recaptchaHeight: 80px;
+    .section-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: $paperPadding;
+        .other-links {
+            max-width: 30%;
+        }
+        .mail-container {
+            width: var(--mailContainerWidth);
+        }
+        @include mobileOnly() {
+            flex-direction: column;
+            .other-links {
+                max-width: 100%;
+            }
+        }
+    }
     .mail-container {
         display: grid;
-        width: var(--mailContainerWidth);
         min-width: $recaptchaWidth;
-        margin: $paperPadding auto;
         grid-template-columns: $paperPadding auto $paperPadding;
         grid-template-rows: auto $closureFlapHeight $envelopeHeight auto;
         form.paper {
@@ -166,5 +182,8 @@
                 opacity: 0;
             }
         }
+    }
+    .other-links {
+        margin: 0;
     }
 }
