@@ -8,9 +8,6 @@
     $closureFlapHeight: calc(var(--mailContainerWidth) / 4);
     $paperPadding: 8px;
     $recaptchaWidth: 310px;
-    small {
-        font-size: 0.65rem;
-    }
     .mail-container {
         display: grid;
         width: var(--mailContainerWidth);
@@ -60,6 +57,9 @@
                     align-items: center;
                     justify-items: center;
                     min-height: $envelopeHeight;
+                }
+                small {
+                    font-size: 0.7rem;
                 }
             }
             input[type=submit] {

@@ -13,6 +13,8 @@ const submitButton = document.querySelector('#contacts .paper input[type=submit]
 const emailErrorDisplay = document.getElementById('contacts-email-error');
 const errorResultMark = document.querySelector('#contacts .mail-container .result.error');
 const successResultMark = document.querySelector('#contacts .mail-container .result.success');
+const messageDiv = document.querySelector('#contacts form.paper [contenteditable][name="message"]');
+const formError = document.querySelector('#contacts form.paper .form-error')
 
 const recaptchaContainerId = 'contacts-recaptcha';
 let emailPromise;
@@ -44,6 +46,19 @@ async function showCaptcha() {
 
 paper.addEventListener('submit', e => {
     e.preventDefault();
+
+    // Validate form data
+    if (!paper.elements.name.value || !paper.elements.email.value) {
+        formError.textContent = 'All fields are required';
+        // More granular validation is performed server-side
+        return;
+    } else if (!messageDiv.textContent) {
+        formError.textContent = 'The message cannot be empty';
+        return;
+    } else {
+        formError.textContent = '';
+    }
+
     showCaptcha();
 });
 
@@ -105,7 +120,6 @@ async function sendEmailAnimation() {
  * Send the email calling the remote endpoint
  */
 async function sendEmail(recaptchaToken) {
-    const messageDiv = document.querySelector('#contacts form.paper [contenteditable][name="message"]');
     try {
         const response = await fetch('/api/sendEmail', {
             method: 'POST',
