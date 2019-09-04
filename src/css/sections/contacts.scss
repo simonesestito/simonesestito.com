@@ -160,6 +160,11 @@
             padding-top: $paperPadding;
             grid-area: 4 / 1 / span 1 / span 3;
             justify-self: center;
+            opacity: 1;
+            @include prefix(transition, opacity 1s $timingFunction);
+            &:empty {
+                opacity: 0;
+            }
         }
     }
 }
