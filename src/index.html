@@ -223,9 +223,9 @@ Copyright (C) 2019 Simone Sestito
 
                         <div class="mail-container">
                             <form id="contacts-form" class="paper">
-                                <input placeholder="Your name" type="text" autocomplete="name" name="name" required>
-                                <input placeholder="Your email address" type="email" autocomplete="email" name="email" required>
-                                <div contenteditable="true" placeholder="Your message" name="message"></div>
+                                <input aria-label="Your name" placeholder="Your name" type="text" autocomplete="name" name="name" required>
+                                <input aria-label="Your email address" placeholder="Your email address" type="email" autocomplete="email" name="email" required>
+                                <div contenteditable="true" role="textbox" aria-label="Your message" placeholder="Your message" aria-multiline="true" aria-required="true" name="message"></div>
                                 <small class="form-error error-text"></small>
                                 <input class="online-only" type="submit" value="Submit">
                                 <small class="error-text offline-only">Internet connection required to send an email.</small>

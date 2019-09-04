@@ -78,7 +78,10 @@ paper.addEventListener('submit', e => {
 
     // Freeze form input
     allInputs.forEach(e => e.setAttribute('readonly', true));
-    allEditables.forEach(e => e.setAttribute('contenteditable', false));
+    allEditables.forEach(e => {
+        e.setAttribute('contenteditable', false);
+        e.setAttribute('aria-readonly', true);
+    });
 
     showCaptcha();
 });
