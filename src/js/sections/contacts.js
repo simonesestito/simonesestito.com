@@ -47,17 +47,31 @@ async function showCaptcha() {
 paper.addEventListener('submit', e => {
     e.preventDefault();
 
-    // Validate form data
-    if (!paper.elements.name.value || !paper.elements.email.value) {
-        formError.textContent = 'All fields are required';
+    const allInputs = [...paper.querySelectorAll('input[name]')];
+    const allEditables = [...paper.querySelectorAll('[contenteditable]')];
+
+    // Validate form input
+    const allFieldsFilled = [
+        ...allInputs,
+        ...allEditables
+    ].reduce((prev, curr) => {
+        if (curr.hasAttribute('contenteditable'))
+            return prev && !!curr.textContent;
+        else
+            return prev && !!curr.value;
+    }, true);
+
+    if (!allFieldsFilled) {
         // More granular validation is performed server-side
-        return;
-    } else if (!messageDiv.textContent) {
-        formError.textContent = 'The message cannot be empty';
+        formError.textContent = 'All fields are required';
         return;
     } else {
         formError.textContent = '';
     }
+
+    // Freeze form input
+    allInputs.forEach(e => e.setAttribute('readonly', true));
+    allEditables.forEach(e => e.setAttribute('contenteditable', false));
 
     showCaptcha();
 });
