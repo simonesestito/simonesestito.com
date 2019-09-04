@@ -6,3 +6,4 @@
 export * from './card';
 export * from './main';
 export * from './projects';
+export * from './contacts';

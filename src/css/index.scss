@@ -10,7 +10,7 @@ body {
     background: var(--colorBackground);
     color: var(--colorText);
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $bodyFontFamily;
     overflow-x: hidden;
 }
 

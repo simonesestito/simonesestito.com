@@ -35,7 +35,15 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(cacheFirst(event));
+    if (
+        event.request.method === 'GET' ||
+        event.request.method === 'HEAD' ||
+        event.request.method === 'OPTIONS'
+    ) {
+        event.respondWith(cacheFirst(event));
+    } else {
+        event.respondWith(fetch(event.request));
+    }
 });
 
 function cacheFirst(event) {
@@ -45,7 +53,7 @@ function cacheFirst(event) {
             return cacheResponse;
         }
         // Cache MISS
-        return fetch(event.request.url).then(onlineResponse => {
+        return fetch(event.request).then(onlineResponse => {
             if (onlineResponse.ok) {
                 // Network request succeded
                 return caches.open(CACHE_NAME)

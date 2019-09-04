@@ -7,7 +7,7 @@ Copyright (C) 2019 Simone Sestito
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#2196F3">
     <meta name="Description" content="I'm Simone Sestito, an Android developer, and this is my personal portfolio where I show my best projects, what I can do, how you can contact me and much more!">
@@ -24,6 +24,7 @@ Copyright (C) 2019 Simone Sestito
     <link rel="stylesheet" href="css/index.scss">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
     <link rel="icon" sizes="192x192" href="res/favicon_highres.png">
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
     <title>Simone Sestito | Portfolio</title>
 </head>
 
@@ -208,7 +209,41 @@ Copyright (C) 2019 Simone Sestito
                 <section id="contacts">
                     <h1>Contacts</h1>
                     <div class="section-content">
-                        <p class="full-height">{{ TEST }}</p>
+
+                        <div class="mail-container">
+                            <form id="contacts-form" class="paper">
+                                <input placeholder="Your name" type="text" autocomplete="name" name="name" required>
+                                <input placeholder="Your email address" type="email" autocomplete="email" name="email" required>
+                                <div contenteditable="true" placeholder="Your message" name="message"></div>
+                                <small class="form-error error-text"></small>
+                                <input class="online-only" type="submit" value="Submit">
+                                <small class="error-text offline-only">Internet connection required to send an email.</small>
+                                <div class="submit-check">
+                                    <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="https://www.iubenda.com/privacy-policy/62089826" rel="nofollow">Privacy Policy</a></small>
+                                    <div id='contacts-recaptcha'></div>
+                                </div>
+                            </form>
+
+                            <figure class="envelope-front">
+                                <img src="res/svg/envelope_front.svg">
+                            </figure>
+                            <figure class="envelope-back">
+                                <img src="res/svg/envelope_back.svg">
+                            </figure>
+                            <figure class="closure-flap">
+                                <img src="res/svg/closure_flap.svg">
+                            </figure>
+
+                            <figure class="result error">
+                                <img src="res/svg/error_postmark.svg">
+                            </figure>
+                            <figure class="result success">
+                                <img src="res/svg/sent_postmark.svg">
+                            </figure>
+
+                            <p class="error-text email-error"></p>
+                        </div>
+
                     </div>
                 </section>
 
@@ -219,4 +254,4 @@ Copyright (C) 2019 Simone Sestito
         <script src="js/app.js"></script>
 </body>
 
-</html
+</html>
