@@ -12,10 +12,10 @@ const errorResultMark = mailContainer.querySelector('.result.error');
 const successResultMark = mailContainer.querySelector('.result.success');
 const envelopeBack = mailContainer.querySelector('.envelope-back');
 const closureFlap = mailContainer.querySelector('.closure-flap');
+const emailErrorDisplay = mailContainer.querySelector('.email-error');
 
 const submitCheck = paper.querySelector('.submit-check');
 const submitButton = paper.querySelector('input[type=submit]');
-const emailErrorDisplay = paper.querySelector('.email-error');
 const messageDiv = paper.querySelector('[contenteditable][name="message"]');
 const formError = paper.querySelector('.form-error');
 
