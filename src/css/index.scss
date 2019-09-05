@@ -6,8 +6,8 @@
 @import './mixins.scss';
 @import './vars.scss';
 body {
-    background: var(--colorBackground);
-    color: var(--colorText);
+    background: var(--surfaceColor);
+    color: var(--textColor);
     margin: 0;
     font-family: $bodyFontFamily;
     overflow-x: hidden;

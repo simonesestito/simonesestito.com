@@ -8,7 +8,7 @@
     .content-card {
         max-width: $maxWidthContainer;
         min-height: $cardHeight;
-        background: var(--colorBackground);
+        background: var(--surfaceColor);
         margin: var(--cardMarginTop) auto 0 auto;
         border-top-left-radius: $containerCardRadius;
         border-top-right-radius: $containerCardRadius;
@@ -23,7 +23,7 @@
             align-items: center;
             justify-content: center;
             svg {
-                fill: var(--colorText);
+                fill: var(--textColor);
             }
         }
     }

@@ -19,7 +19,7 @@ section {
         vertical-align: top;
         // Line height is only 75%, as the solid background (fade excluded)
         line-height: ($sectionHeaderHeight * 0.75);
-        background: linear-gradient(var(--colorBackground) 75%, rgba(0, 0, 0, 0));
+        background: linear-gradient(var(--surfaceColor) 75%, rgba(0, 0, 0, 0));
         z-index: 10;
     }
     .section-content {

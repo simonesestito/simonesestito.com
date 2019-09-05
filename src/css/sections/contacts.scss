@@ -36,7 +36,7 @@
             display: flex;
             flex-direction: column;
             padding: $paperPadding;
-            background-color: var(--colorBackground);
+            background-color: var(--elevatedSurfaceColor);
             z-index: 2;
             overflow: hidden;
             box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
@@ -56,7 +56,7 @@
                 align-self: flex-end;
                 text-align: right;
                 border: none;
-                border-bottom: 1px solid var(--darkGrayText);
+                border-bottom: 1px solid var(--lightTextColor);
             }
             [name=message] {
                 width: 100%;
@@ -64,7 +64,7 @@
                 box-sizing: border-box;
                 overflow: auto;
                 margin-top: 24px;
-                border: 1px solid var(--darkGrayText);
+                border: 1px solid var(--lightTextColor);
                 border-radius: $contentRadius;
             }
             .submit-check {
@@ -91,11 +91,11 @@
             input[type=submit] {
                 align-self: flex-end;
                 background: transparent;
-                border: 1px solid var(--darkGrayText);
+                border: 1px solid var(--lightTextColor);
                 border-radius: $contentRadius;
                 padding: 6px 12px;
                 font-weight: bold;
-                color: var(--colorAccentText);
+                color: var(--accentTextColor);
                 cursor: pointer;
                 text-transform: uppercase;
             }
@@ -124,7 +124,7 @@
             svg {
                 width: 100%;
                 height: 100%;
-                fill: var(--colorSecondaryBackground);
+                fill: var(--elevatedSurfaceColor);
             }
         }
         .closure-flap {
