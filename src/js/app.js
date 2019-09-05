@@ -54,3 +54,4 @@ if (/(android)/i.test(navigator.userAgent)) {
 import './sections';
 import './chips';
 import './bubbles';
+import './cookie';

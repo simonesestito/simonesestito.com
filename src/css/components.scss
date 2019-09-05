@@ -148,3 +148,42 @@ figure {
         display: none;
     }
 }
+
+#cookie-banner {
+    background: var(--colorSecondaryBackground);
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: $maxWidthContainer;
+    padding: 16px;
+    margin: 0 auto;
+    border-bottom-left-radius: $contentRadius;
+    border-bottom-right-radius: $contentRadius;
+    @include hardShadow();
+    opacity: 0;
+    z-index: 20;
+    @include prefix(transition, opacity 300ms $timingFunction);
+    &.visible {
+        opacity: 1;
+    }
+    &.hidden {
+        display: none;
+    }
+    p {
+        flex: 1 0 0;
+        margin: 0;
+    }
+    .close-btn {
+        flex: 0 0 24px;
+        height: 24px;
+        margin-left: 4px;
+        cursor: pointer;
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--colorText);
+        }
+    }
+}
