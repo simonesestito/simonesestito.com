@@ -41,7 +41,7 @@ if (/(android)/i.test(navigator.userAgent)) {
                 return acc;
             }, {});
 
-        contentValues['height'] = vh + 'px';
+        contentValues['height'] = vh;
 
         const newContent = Object.keys(contentValues)
             .map(k => `${k}=${contentValues[k]}`)

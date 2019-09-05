@@ -8,7 +8,7 @@
     $closureFlapHeight: calc(var(--mailContainerWidth) / 4);
     $paperPadding: 12px;
     $recaptchaWidth: 310px;
-    $recaptchaHeight: 80px;
+    $recaptchaHeight: 100px;
     .section-content {
         display: flex;
         align-items: center;
@@ -68,21 +68,15 @@
                 border-radius: $contentRadius;
             }
             .submit-check {
-                @include prefix(transition, opacity 1s $timingFunction);
                 opacity: 0;
                 min-height: $envelopeHeight;
                 display: flex;
                 flex-direction: column;
-                justify-items: flex-end;
-                &>* {
-                    margin-top: auto;
-                    margin-bottom: $paperPadding;
-                }
+                justify-content: flex-start;
+                @include prefix(transition, all 1s $timingFunction);
                 #contacts-recaptcha {
                     min-height: $recaptchaHeight;
-                    &>* {
-                        margin: 0 auto;
-                    }
+                    align-self: center;
                 }
                 small {
                     font-size: 0.7rem;

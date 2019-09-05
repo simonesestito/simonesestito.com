@@ -28,6 +28,9 @@ let emailPromise;
  */
 async function showCaptcha() {
     const envelopeHeight = px(window.getComputedStyle(envelopeBack).height);
+    const submitCheckContentHeight = [...submitCheck.children]
+        .map(e => px(window.getComputedStyle(e).height))
+        .reduce((acc, i) => acc + i, 0);
 
     // Keep a small piece of paper inside the envelope
     const paperInsideEnvelope = 24;
@@ -36,6 +39,8 @@ async function showCaptcha() {
         paper.style.marginBottom = (envelopeHeight - paperInsideEnvelope) + 'px';
         paper.style.paddingBottom = paperInsideEnvelope + 'px';
         submitCheck.style.opacity = '1';
+        submitCheck.style.height = submitCheckContentHeight + 'px';
+        submitCheck.style.minHeight = submitCheckContentHeight + 'px';
         submitButton.style.opacity = '0';
     });
 
