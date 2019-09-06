@@ -42,7 +42,7 @@
             max-width: var(--phoneContainerMaxWidth);
             margin: 0 auto;
             height: var(--phoneContainerHeight);
-            background: linear-gradient(rgba(0, 0, 0, 0), var(--surfaceColor) 60%);
+            background: linear-gradient(rgba(255, 255, 255, 0), var(--surfaceColor) 60%);
             .phone-layer {
                 position: absolute;
                 width: 100%;
