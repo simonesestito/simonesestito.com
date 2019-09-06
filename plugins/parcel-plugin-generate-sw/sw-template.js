@@ -9,6 +9,7 @@
 
 const CACHE_PREFIX = 'portfolio-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_ID;
+const CROSS_ORIGIN_CACHE_NAME = CACHE_PREFIX + 'cross-origin';
 
 self.addEventListener('install', event => {
     event.waitUntil(
@@ -28,9 +29,9 @@ self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(cacheKeys => {
             const oldCaches = cacheKeys.filter(c =>
-                c.startsWith(CACHE_PREFIX) && c !== CACHE_NAME);
-
-            // TODO Copy old cross origin cached requests
+                c.startsWith(CACHE_PREFIX) &&
+                c !== CACHE_NAME &&
+                c !== CROSS_ORIGIN_CACHE_NAME);
 
             return Promise.all(oldCaches.map(c => {
                 return caches.delete(c);
@@ -39,11 +40,7 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    if (
-        event.request.method === 'GET' ||
-        event.request.method === 'HEAD' ||
-        event.request.method === 'OPTIONS'
-    ) {
+    if (event.request.method === 'GET') {
         event.respondWith(cacheFirst(event));
     } else {
         event.respondWith(fetch(event.request));
@@ -60,7 +57,10 @@ function cacheFirst(event) {
         return fetch(event.request).then(onlineResponse => {
             if (onlineResponse.ok) {
                 // Network request succeded
-                return caches.open(CACHE_NAME)
+                const isSameOrigin = event.request.url.startsWith(self.location.origin);
+                // Save cross-origin requests in a different cache
+                const cacheName = isSameOrigin ? CACHE_NAME : CROSS_ORIGIN_CACHE_NAME;
+                return caches.open(cacheName)
                     .then(cache => cache.put(event.request.url, onlineResponse.clone()))
                     .then(() => onlineResponse);
             } else {
