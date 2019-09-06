@@ -38,12 +38,22 @@
 
 /* Shadows */
 
-@mixin lightShadow($x: 0, $y: 3px) {
-    box-shadow: $x $y 3px rgba(0, 0, 0, 0.2);
+@mixin lightShadow($x: 0, $y: 3px, $inset: false) {
+    @if $inset {
+        box-shadow: inset $x $y 3px rgba(0, 0, 0, 0.2);
+    }
+    @else {
+        box-shadow: $x $y 3px rgba(0, 0, 0, 0.2);
+    }
 }
 
-@mixin hardShadow($x: 0, $y: 4px) {
-    box-shadow: $x $y 5px rgba(0, 0, 0, 0.4);
+@mixin hardShadow($x: 0, $y: 4px, $inset: false) {
+    @if $inset {
+        box-shadow: inset $x $y 5px rgba(0, 0, 0, 0.4);
+    }
+    @else {
+        box-shadow: $x $y 5px rgba(0, 0, 0, 0.4);
+    }
 }
 
 

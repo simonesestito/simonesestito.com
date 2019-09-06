@@ -7,8 +7,10 @@
 /* Layout related styles */
 
 .container {
-    margin-top: var(--cardContainerMarginTop);
     max-width: $maxWidthContainer;
+    &#content {
+        margin-top: var(--cardContainerMarginTop);
+    }
 }
 
 .right {
