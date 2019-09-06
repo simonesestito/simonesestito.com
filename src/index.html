@@ -59,222 +59,220 @@ Copyright (C) 2019 Simone Sestito
         </div>
     </header>
 
-    <div class="wrapper-card">
-        <div class="content-card">
-            <p id="card-arrow">
-                <img src="res/svg/icons/arrow_down.svg">
-            </p>
+    <div class="content-card">
+        <p id="card-arrow">
+            <img src="res/svg/icons/arrow_down.svg">
+        </p>
 
-            <div class="container" id="content">
+        <div class="container" id="content">
 
-                <!-- Projects section -->
-                <section id="projects">
-                    <h1>Projects</h1>
-                    <div class="section-content">
-                        <div class="phone-container">
-                            <figure role="img" aria-label="Screenshot of Quick Settings Android app" class="phone-layer app-screenshot" id="qs"></figure>
-                            <figure role="img" aria-label="Screenshot of WallApp Android app" class="phone-layer app-screenshot" id="wallapp"></figure>
-                            <figure role="img" aria-label="Screenshot of Escape Earth Android app built with Flutter" class="phone-layer app-screenshot" id="escape_earth"></figure>
-                            <figure class="phone-layer phone-frame"></figure>
+            <!-- Projects section -->
+            <section id="projects">
+                <h1>Projects</h1>
+                <div class="section-content">
+                    <div class="phone-container">
+                        <figure role="img" aria-label="Screenshot of Quick Settings Android app" class="phone-layer app-screenshot" id="qs"></figure>
+                        <figure role="img" aria-label="Screenshot of WallApp Android app" class="phone-layer app-screenshot" id="wallapp"></figure>
+                        <figure role="img" aria-label="Screenshot of Escape Earth Android app built with Flutter" class="phone-layer app-screenshot" id="escape_earth"></figure>
+                        <figure class="phone-layer phone-frame"></figure>
+                    </div>
+                    <div class="phone-apps">
+                        <!-- data-app value must be the same as <figure> screenshot ID -->
+                        <div class="phone-app" data-app="qs">
+                            <div class="row">
+                                <h2>Quick Settings</h2>
+                                <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
+                            </div>
+                            <p>
+                                Designed to allow users to make the most of their devices, adding a lot of features directly in the quick settings / notification panel.<br> It has been my very first project published on Google Play and now it has
+                                <u>more than 600.000 downloads</u>.
+                            </p>
+                            <p class="download-app-title">Available on:</p>
+                            <ul class="chips">
+                                <li>
+                                    <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=it.simonesestito.ntiles">
+                                        <img src="res/svg/icons/google_play.svg">
+                                        <span class="chip-title">Play Store</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="phone-apps">
-                            <!-- data-app value must be the same as <figure> screenshot ID -->
-                            <div class="phone-app" data-app="qs">
-                                <div class="row">
-                                    <h2>Quick Settings</h2>
-                                    <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
-                                </div>
-                                <p>
-                                    Designed to allow users to make the most of their devices, adding a lot of features directly in the quick settings / notification panel.<br> It has been my very first project published on Google Play and now it has
-                                    <u>more than 600.000 downloads</u>.
-                                </p>
-                                <p class="download-app-title">Available on:</p>
-                                <ul class="chips">
-                                    <li>
-                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=it.simonesestito.ntiles">
-                                            <img src="res/svg/icons/google_play.svg">
-                                            <span class="chip-title">Play Store</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <div class="phone-app" data-app="wallapp">
+                            <div class="row">
+                                <h2>WallApp</h2>
+                                <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
                             </div>
-                            <div class="phone-app" data-app="wallapp">
-                                <div class="row">
-                                    <h2>WallApp</h2>
-                                    <span class="android-logo"><img src="res/svg/icons/android.svg"></span>
-                                </div>
-                                <p>
-                                    A <u>clean and modern</u> wallpapers app, built to learn the latest technologies in Android app development, like Android Jetpack and MVVM design pattern. This project was made in a small but gritty team.
-                                </p>
-                                <p class="download-app-title">Available on:</p>
-                                <ul class="chips">
-                                    <li>
-                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.simonesestito.wallapp">
-                                            <img src="res/svg/icons/google_play.svg">
-                                            <span class="chip-title">Play Store</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <p>
+                                A <u>clean and modern</u> wallpapers app, built to learn the latest technologies in Android app development, like Android Jetpack and MVVM design pattern. This project was made in a small but gritty team.
+                            </p>
+                            <p class="download-app-title">Available on:</p>
+                            <ul class="chips">
+                                <li>
+                                    <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.simonesestito.wallapp">
+                                        <img src="res/svg/icons/google_play.svg">
+                                        <span class="chip-title">Play Store</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="phone-app" data-app="escape_earth">
+                            <div class="row">
+                                <h2>Escape Earth</h2>
+                                <span class="flutter-logo"><img src="res/svg/icons/flutter.svg"></span>
                             </div>
-                            <div class="phone-app" data-app="escape_earth">
-                                <div class="row">
-                                    <h2>Escape Earth</h2>
-                                    <span class="flutter-logo"><img src="res/svg/icons/flutter.svg"></span>
-                                </div>
-                                <p>
-                                    Discover the next space launches with this app. This is an app created in only 2 days, during <u>my first hackathon</u> called "NASA Space Apps Challenge" in Rome.
-                                </p>
-                                <p class="download-app-title">Available on:</p>
-                                <ul class="chips">
-                                    <li>
-                                        <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.exos.escapeearth">
-                                            <img src="res/svg/icons/google_play.svg">
-                                            <span class="chip-title">Play Store</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="chip chip-github" data-chip-color="#808080" href="https://github.com/simonesestito/escape_earth">
-                                            <img src="res/svg/icons/github.svg">
-                                            <span class="chip-title">GitHub</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <p>
+                                Discover the next space launches with this app. This is an app created in only 2 days, during <u>my first hackathon</u> called "NASA Space Apps Challenge" in Rome.
+                            </p>
+                            <p class="download-app-title">Available on:</p>
+                            <ul class="chips">
+                                <li>
+                                    <a class="chip" data-chip-color="#0D9128" href="https://play.google.com/store/apps/details?id=com.exos.escapeearth">
+                                        <img src="res/svg/icons/google_play.svg">
+                                        <span class="chip-title">Play Store</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="chip chip-github" data-chip-color="#808080" href="https://github.com/simonesestito/escape_earth">
+                                        <img src="res/svg/icons/github.svg">
+                                        <span class="chip-title">GitHub</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <!-- Skills section -->
-                <section id="skills">
-                    <h1>Technical Skills</h1>
-                    <div class="section-content">
-                        <h2 class="main-skill-title">Android Native Apps</h2>
-                        <ul class="main-skill chips center-children">
-                            <li class="chip" data-chip-color="#EA2D2E">
-                                <img src="res/svg/icons/java.svg">
-                                <span class="chip-title">Java</span>
+            <!-- Skills section -->
+            <section id="skills">
+                <h1>Technical Skills</h1>
+                <div class="section-content">
+                    <h2 class="main-skill-title">Android Native Apps</h2>
+                    <ul class="main-skill chips center-children">
+                        <li class="chip" data-chip-color="#EA2D2E">
+                            <img src="res/svg/icons/java.svg">
+                            <span class="chip-title">Java</span>
+                        </li>
+                        <li class="chip" data-chip-color="#547CE0">
+                            <img src="res/svg/icons/kotlin.svg">
+                            <span class="chip-title">Kotlin</span>
+                        </li>
+                        <li class="chip" data-chip-color="#707070">
+                            <img src="res/svg/icons/material_design.svg">
+                            <span class="chip-title">Material Design</span>
+                        </li>
+                        <li class="chip" data-chip-color="#0D9128">
+                            <img src="res/svg/icons/android.svg">
+                            <span class="chip-title">Android Jetpack</span>
+                        </li>
+                        <li class="chip" data-chip-color="#0D9128">
+                            <img src="res/svg/icons/android_modules.svg">
+                            <span class="chip-title">Modular architecture</span>
+                        </li>
+                        <li class="chip" data-chip-color="#246A7C">
+                            <img src="res/svg/icons/database.svg">
+                            <span class="chip-title">SQLite</span>
+                        </li>
+                        <li class="chip" data-chip-color="#FD6C35">
+                            <img src="res/svg/icons/rest_apis.svg">
+                            <span class="chip-title">REST APIs</span>
+                        </li>
+                        <li class="chip" data-chip-color="#F5820B">
+                            <img src="res/svg/icons/firebase.svg">
+                            <span class="chip-title">Firebase</span>
+                        </li>
+                    </ul>
+                    <hr class="mobile-only">
+
+                    <h2 class="other-skills-title">Other skills</h2>
+                    <div class="cross-apps">
+                        <h3>Cross-Platform Apps</h3>
+                        <ul class="chips center-children">
+                            <li class="chip" data-chip-color="#1dbbfd">
+                                <img src="res/svg/icons/flutter.svg">
+                                <span class="chip-title">Flutter</span>
                             </li>
                             <li class="chip" data-chip-color="#547CE0">
-                                <img src="res/svg/icons/kotlin.svg">
-                                <span class="chip-title">Kotlin</span>
-                            </li>
-                            <li class="chip" data-chip-color="#707070">
-                                <img src="res/svg/icons/material_design.svg">
-                                <span class="chip-title">Material Design</span>
-                            </li>
-                            <li class="chip" data-chip-color="#0D9128">
-                                <img src="res/svg/icons/android.svg">
-                                <span class="chip-title">Android Jetpack</span>
-                            </li>
-                            <li class="chip" data-chip-color="#0D9128">
-                                <img src="res/svg/icons/android_modules.svg">
-                                <span class="chip-title">Modular architecture</span>
-                            </li>
-                            <li class="chip" data-chip-color="#246A7C">
-                                <img src="res/svg/icons/database.svg">
-                                <span class="chip-title">SQLite</span>
-                            </li>
-                            <li class="chip" data-chip-color="#FD6C35">
-                                <img src="res/svg/icons/rest_apis.svg">
-                                <span class="chip-title">REST APIs</span>
-                            </li>
-                            <li class="chip" data-chip-color="#F5820B">
-                                <img src="res/svg/icons/firebase.svg">
-                                <span class="chip-title">Firebase</span>
+                                <img src="res/svg/icons/dart.svg">
+                                <span class="chip-title">Dart</span>
                             </li>
                         </ul>
-                        <hr class="mobile-only">
-
-                        <h2 class="other-skills-title">Other skills</h2>
-                        <div class="cross-apps">
-                            <h3>Cross-Platform Apps</h3>
-                            <ul class="chips center-children">
-                                <li class="chip" data-chip-color="#1dbbfd">
-                                    <img src="res/svg/icons/flutter.svg">
-                                    <span class="chip-title">Flutter</span>
-                                </li>
-                                <li class="chip" data-chip-color="#547CE0">
-                                    <img src="res/svg/icons/dart.svg">
-                                    <span class="chip-title">Dart</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="node-backend">
-                            <h3>Simple Backend</h3>
-                            <ul class="chips center-children">
-                                <li class="chip" data-chip-color="#1c9e19">
-                                    <img src="res/svg/icons/nodejs.svg">
-                                    <span class="chip-title">Node.js</span>
-                                </li>
-                                <li class="chip" data-chip-color="#007acc">
-                                    <img src="res/svg/icons/typescript.svg">
-                                    <span class="chip-title">TypeScript</span>
-                                </li>
-                                <li class="chip" data-chip-color="#006fb6">
-                                    <img src="res/svg/icons/docker.svg">
-                                    <span class="chip-title">Docker</span>
-                                </li>
-                                <li class="chip" data-chip-color="#5db257">
-                                    <img src="res/svg/icons/mongodb.svg">
-                                    <span class="chip-title">MongoDB</span>
-                                </li>
-                            </ul>
-                        </div>
-                </section>
-
-                <!-- Contacts section -->
-                <section id="contacts">
-                    <h1>Contacts</h1>
-                    <div class="section-content">
-                        <div class="other-links row center-children">
-                            <a class="bubble" aria-label="Play Store Developer Page" data-bubble-color="#0D9128" href="https://play.google.com/store/apps/dev?id=6582390767433501974">
-                                <img src="res/svg/icons/google_play.svg">
-                            </a>
-                            <a class="bubble" aria-label="GitHub Profile" data-bubble-color="#606060" href="https://github.com/simonesestito">
-                                <img src="res/svg/icons/github.svg">
-                            </a>
-                            <a class="bubble" aria-label="LinkedIn Profile" data-bubble-color="#0274b3" href="https://linkedin.com/in/simonesestito">
-                                <img src="res/svg/icons/linkedin.svg">
-                            </a>
-                        </div>
-
-                        <div class="mail-container">
-                            <form id="contacts-form" class="paper">
-                                <input aria-label="Your name" placeholder="Your name" type="text" autocomplete="name" name="name" required>
-                                <input aria-label="Your email address" placeholder="Your email address" type="email" autocomplete="email" name="email" required>
-                                <div contenteditable="true" role="textbox" aria-label="Your message" placeholder="Your message" aria-multiline="true" aria-required="true" name="message"></div>
-                                <small class="form-error error-text"></small>
-                                <input class="online-only flat-button" type="submit" value="Submit">
-                                <small class="error-text offline-only">Internet connection required to send an email.</small>
-                                <div class="submit-check">
-                                    <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="https://www.iubenda.com/privacy-policy/24574042" rel="nofollow">Privacy Policy</a></small>
-                                    <div id='contacts-recaptcha'></div>
-                                </div>
-                            </form>
-
-                            <figure class="envelope-front">
-                                <img src="res/svg/envelope_front.svg">
-                            </figure>
-                            <figure class="envelope-back">
-                                <img src="res/svg/envelope_back.svg">
-                            </figure>
-                            <figure class="closure-flap">
-                                <img src="res/svg/closure_flap.svg">
-                            </figure>
-
-                            <figure class="result error">
-                                <img src="res/svg/error_postmark.svg">
-                            </figure>
-                            <figure class="result success">
-                                <img src="res/svg/sent_postmark.svg">
-                            </figure>
-
-                            <p class="error-text email-error"></p>
-                        </div>
                     </div>
-                </section>
+                    <div class="node-backend">
+                        <h3>Simple Backend</h3>
+                        <ul class="chips center-children">
+                            <li class="chip" data-chip-color="#1c9e19">
+                                <img src="res/svg/icons/nodejs.svg">
+                                <span class="chip-title">Node.js</span>
+                            </li>
+                            <li class="chip" data-chip-color="#007acc">
+                                <img src="res/svg/icons/typescript.svg">
+                                <span class="chip-title">TypeScript</span>
+                            </li>
+                            <li class="chip" data-chip-color="#006fb6">
+                                <img src="res/svg/icons/docker.svg">
+                                <span class="chip-title">Docker</span>
+                            </li>
+                            <li class="chip" data-chip-color="#5db257">
+                                <img src="res/svg/icons/mongodb.svg">
+                                <span class="chip-title">MongoDB</span>
+                            </li>
+                        </ul>
+                    </div>
+            </section>
 
+            <!-- Contacts section -->
+            <section id="contacts">
+                <h1>Contacts</h1>
+                <div class="section-content">
+                    <div class="other-links row center-children">
+                        <a class="bubble" aria-label="Play Store Developer Page" data-bubble-color="#0D9128" href="https://play.google.com/store/apps/dev?id=6582390767433501974">
+                            <img src="res/svg/icons/google_play.svg">
+                        </a>
+                        <a class="bubble" aria-label="GitHub Profile" data-bubble-color="#606060" href="https://github.com/simonesestito">
+                            <img src="res/svg/icons/github.svg">
+                        </a>
+                        <a class="bubble" aria-label="LinkedIn Profile" data-bubble-color="#0274b3" href="https://linkedin.com/in/simonesestito">
+                            <img src="res/svg/icons/linkedin.svg">
+                        </a>
+                    </div>
+
+                    <div class="mail-container">
+                        <form id="contacts-form" class="paper">
+                            <input aria-label="Your name" placeholder="Your name" type="text" autocomplete="name" name="name" required>
+                            <input aria-label="Your email address" placeholder="Your email address" type="email" autocomplete="email" name="email" required>
+                            <div contenteditable="true" role="textbox" aria-label="Your message" placeholder="Your message" aria-multiline="true" aria-required="true" name="message"></div>
+                            <small class="form-error error-text"></small>
+                            <input class="online-only flat-button" type="submit" value="Submit">
+                            <small class="error-text offline-only">Internet connection required to send an email.</small>
+                            <div class="submit-check">
+                                <small>By clicking on the following captcha, you agree the information you inserted will be sent to the site's owner via email. You also agree our <a href="https://www.iubenda.com/privacy-policy/24574042" rel="nofollow">Privacy Policy</a></small>
+                                <div id='contacts-recaptcha'></div>
+                            </div>
+                        </form>
+
+                        <figure class="envelope-front">
+                            <img src="res/svg/envelope_front.svg">
+                        </figure>
+                        <figure class="envelope-back">
+                            <img src="res/svg/envelope_back.svg">
+                        </figure>
+                        <figure class="closure-flap">
+                            <img src="res/svg/closure_flap.svg">
+                        </figure>
+
+                        <figure class="result error">
+                            <img src="res/svg/error_postmark.svg">
+                        </figure>
+                        <figure class="result success">
+                            <img src="res/svg/sent_postmark.svg">
+                        </figure>
+
+                        <p class="error-text email-error"></p>
+                    </div>
                 </div>
+            </section>
+
             </div>
         </div>
 
