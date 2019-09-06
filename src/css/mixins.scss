@@ -55,3 +55,15 @@
     -ms-#{$property}: $value;
     #{$property}: $value;
 }
+
+@mixin keyframesPrefix($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}

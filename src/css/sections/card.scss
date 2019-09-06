@@ -29,7 +29,7 @@
     }
 }
 
-@keyframes cardArrowUp {
+@include keyframesPrefix(cardArrowUp) {
     from {
         padding-top: $cardHeight;
     }
