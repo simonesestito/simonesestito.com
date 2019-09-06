@@ -1,0 +1,35 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+button.cta {
+    background-color: $colorAccent;
+    border: none;
+    border-radius: $buttonRadius;
+    text-transform: uppercase;
+    color: var(--textOnAccentColor);
+    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.078rem;
+    @include lightShadow;
+    cursor: pointer;
+    transition-duration: $transitionDuration;
+    font-size: 1rem;
+    &:hover {
+        @include hardShadow;
+    }
+}
+
+.flat-button {
+    background: transparent;
+    border: 1px solid var(--lightTextColor);
+    border-radius: $contentRadius;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 6px 12px;
+    font-weight: bold;
+    color: var(--accentTextColor);
+    cursor: pointer;
+    text-transform: uppercase;
+}

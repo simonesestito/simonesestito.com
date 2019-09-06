@@ -109,6 +109,13 @@ p {
     line-height: 1.4em;
 }
 
+figure {
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 // Useful for .chips in Skills section
 .center-children {
     margin: 0 auto;

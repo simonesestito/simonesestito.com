@@ -1,0 +1,40 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+.chips {
+    margin: 0 -#{$chipSideMargin};
+    .chip {
+        display: inline-block;
+        margin: $chipVerticalMargin $chipSideMargin;
+    }
+}
+
+
+/**
+ * Set the color using [data-chip-color] attribute on .chip element
+ */
+
+.chip {
+    border-radius: $chipRadius;
+    border: 1px solid;
+    padding-right: $chipPaddingHorizontal;
+    padding-left: $chipPaddingHorizontal;
+    padding-top: $chipPaddingVertical;
+    padding-bottom: $chipPaddingVertical;
+    text-decoration: none;
+    &>* {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .chip-title {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: var(--textColor);
+    }
+    &>svg {
+        height: 24px;
+        width: 24px;
+    }
+}

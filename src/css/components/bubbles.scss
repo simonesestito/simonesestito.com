@@ -1,0 +1,24 @@
+/*
+ * This file is part of simonesestito.com
+ * Copyright (C) 2019 Simone Sestito
+ */
+
+.bubble {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    padding: 18px;
+    box-shadow: 0 0 8px; // Color set in JS
+    border-radius: 50%;
+    margin: 24px;
+    @include prefix(transition, box-shadow 200ms linear);
+    opacity: 0.9;
+    &:hover {
+        box-shadow: 0 0 16px;
+    }
+    svg {
+        fill: white;
+        width: 100%;
+        height: 100%;
+    }
+}
