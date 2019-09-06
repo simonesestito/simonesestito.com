@@ -157,7 +157,7 @@ async function sendEmail(recaptchaToken) {
             body: JSON.stringify({
                 userName: paper.elements.name.value,
                 userEmail: paper.elements.email.value,
-                userMessage: messageDiv.textContent,
+                userMessage: messageDiv.innerText,
                 clientCaptcha: recaptchaToken
             })
         });
