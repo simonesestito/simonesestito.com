@@ -14,10 +14,10 @@
     },
     "homepage": "https://simonesestito.com",
     "scripts": {
-        "start": "parcel src/index.html",
+        "start": "parcel src/index.html src/404.html",
         "clean": "shx rm -rf dist/ .cache/",
         "prebuild": "npm run clean",
-        "build": "parcel build src/index.html --no-source-maps",
+        "build": "parcel build src/index.html src/404.html --no-source-maps",
         "predeploy": "npm run build",
         "deploy": "firebase deploy",
         "preprod": "npm run build",
@@ -29,7 +29,6 @@
         "@types/gsap": "^1.20.2",
         "css": "^2.2.4",
         "parcel-bundler": "^1.12.3",
-        "parcel-plugin-asset-copier": "^1.0.0",
         "parcel-plugin-generate-sw": "file:plugins/parcel-plugin-generate-sw",
         "postcss-assets": "^5.0.0",
         "postcss-css-variables": "^0.13.0",
@@ -42,8 +41,12 @@
     "dependencies": {
         "@babel/runtime-corejs2": "^7.5.5",
         "intersection-observer-polyfill": "^0.1.0",
+        "parcel-plugin-static-files-copy": "^2.2.1",
         "smoothscroll-polyfill": "^0.4.4",
         "supports-webp": "^2.0.1"
     },
-    "assetsPath": "src/res/assets"
+    "staticFiles": {
+        "staticPath": "src/res/assets",
+        "watcherGlob": "**"
+    }
 }
