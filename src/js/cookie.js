@@ -17,7 +17,6 @@ try {
 
 if (cookieAgreement && cookieAgreement.accepted === true && cookieAgreement.date < Date.now()) {
     // Already accepted
-    banner.classList.add('hidden');
     loadCookies();
 } else {
     // Not accepted yet

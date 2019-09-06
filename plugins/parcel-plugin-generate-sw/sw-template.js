@@ -3,11 +3,14 @@
  * Copyright (C) 2019 Simone Sestito
  */
 
-const CACHE_NAME = 'portfolio-cache';
-// const PRECACHE_FILES = [...]; added after bundled
+// Variables added after bundling:
+// const PRECACHE_FILES = [...];
+// const CACHE_ID = <millis>;
+
+const CACHE_PREFIX = 'portfolio-';
+const CACHE_NAME = CACHE_PREFIX + CACHE_ID;
 
 self.addEventListener('install', event => {
-    console.log('Installing SW...');
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
             return cache.addAll(PRECACHE_FILES);
@@ -15,23 +18,24 @@ self.addEventListener('install', event => {
     );
 });
 
+self.addEventListener('message', event => {
+    if (event.data.action === 'skipWaiting') {
+        self.skipWaiting();
+    }
+});
+
 self.addEventListener('activate', event => {
-    let cache;
     event.waitUntil(
-        caches.open(CACHE_NAME)
-        .then(c => {
-            cache = c;
-            return c.keys();
-        })
-        .then(keys => Promise.all(
-            keys
-            .map(key => key.url)
-            .filter(url => url.startsWith(self.location.origin))
-            .map(url => url.replace(self.location.origin, ''))
-            .filter(url => PRECACHE_FILES.indexOf(url) === -1)
-            .map(url => cache.delete(url))
-        ))
-    )
+        caches.keys().then(cacheKeys => {
+            const oldCaches = cacheKeys.filter(c =>
+                c.startsWith(CACHE_PREFIX) && c !== CACHE_NAME);
+
+            // TODO Copy old cross origin cached requests
+
+            return Promise.all(oldCaches.map(c => {
+                return caches.delete(c);
+            }));
+        }));
 });
 
 self.addEventListener('fetch', event => {

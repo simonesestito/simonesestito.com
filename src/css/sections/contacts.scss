@@ -82,14 +82,6 @@
             }
             input[type=submit] {
                 align-self: flex-end;
-                background: transparent;
-                border: 1px solid var(--lightTextColor);
-                border-radius: $contentRadius;
-                padding: 6px 12px;
-                font-weight: bold;
-                color: var(--accentTextColor);
-                cursor: pointer;
-                text-transform: uppercase;
             }
         }
         .paper,

@@ -55,3 +55,4 @@ import './sections';
 import './chips';
 import './bubbles';
 import './cookie';
+import './sw-update';
