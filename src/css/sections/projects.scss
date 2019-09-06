@@ -17,7 +17,7 @@
     @include mobileOnly() {
         --phoneContainerWidth: 100%;
         --phoneContainerMaxWidth: var(--phoneContainerWidth);
-        --phoneContainerHeight: 40vh;
+        --phoneContainerHeight: 30vh;
         --phoneContainerTop: auto;
         --phoneContainerBottom: 0;
         --phoneAppWidth: 90%;
