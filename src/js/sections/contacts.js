@@ -16,6 +16,7 @@ const successResultMark = mailContainer.querySelector('.result.success');
 const envelopeBack = mailContainer.querySelector('.envelope-back');
 const closureFlap = mailContainer.querySelector('.closure-flap');
 const emailErrorDisplay = mailContainer.querySelector('.email-error');
+const mailLoading = mailContainer.querySelector('.mail-loading');
 
 const submitCheck = paper.querySelector('.submit-check');
 const submitButton = paper.querySelector('input[type=submit]');
@@ -131,6 +132,9 @@ async function sendEmailAnimation() {
     closureFlap.setAttribute('data-flipped', 'true');
 
     await waitMillis(1000);
+    await doOnNextFrame(() => {
+        mailLoading.style.opacity = '1';
+    });
     // Handle emailPromise
     await emailPromise.then(() => {
         successResultMark.classList.add('visible');
@@ -138,7 +142,6 @@ async function sendEmailAnimation() {
         errorResultMark.classList.add('visible');
 
         console.error(err);
-
         switch (err.message) {
             case 'INTERNET_ERROR':
                 emailErrorDisplay.textContent = 'Internet connection required.'
@@ -159,6 +162,9 @@ async function sendEmailAnimation() {
                 emailErrorDisplay.textContent = 'An error occurred sending the email.';
         }
         emailErrorDisplay.innerHTML += '<br>Refresh the page and retry, or send an email directly to <a href="mailto:simone@simonesestito.com">simone@simonesestito.com</a>.';
+    });
+    await doOnNextFrame(() => {
+        mailLoading.style.opacity = '0';
     });
 }
 

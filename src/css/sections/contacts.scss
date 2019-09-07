@@ -91,7 +91,8 @@
         }
         .envelope-front,
         .envelope-back,
-        .result {
+        .result,
+        .mail-loading {
             border-radius: 2% 4%;
             grid-area: 3 / 1 / span 1 / span 3;
         }
@@ -171,6 +172,12 @@
             &:empty {
                 opacity: 0;
             }
+        }
+        .mail-loading {
+            opacity: 0;
+            z-index: 10;
+            align-self: center;
+            justify-self: center;
         }
     }
     .other-links {
