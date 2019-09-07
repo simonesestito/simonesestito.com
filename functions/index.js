@@ -25,8 +25,6 @@ const app = express();
  */
 app.use(express.json());
 
-// TODO -- Add CORS
-
 const sendEmailSchema = Joi.object().keys({
     userName: Joi.string().min(1).required(),
     userEmail: Joi.string().email({ minDomainSegments: 2 }).required(),
