@@ -6,6 +6,8 @@
 
 import { doOnNextFrame, px, waitMillis } from '../utils';
 
+const SAVED_EMAIL_DRAFT_KEY = 'email-draft';
+
 const paper = document.querySelector('#contacts form.paper');
 const mailContainer = document.querySelector('#contacts .mail-container');
 
@@ -22,6 +24,19 @@ const formError = paper.querySelector('.form-error');
 
 const recaptchaContainerId = 'contacts-recaptcha';
 let emailPromise;
+
+// Restore unsent email draft, if any
+const emailDraftJson = sessionStorage.getItem(SAVED_EMAIL_DRAFT_KEY);
+if (emailDraftJson) {
+    const {
+        userName,
+        userMessage,
+        userEmail
+    } = JSON.parse(emailDraftJson);
+    paper.elements.name.value = userName;
+    paper.elements.email.value = userEmail;
+    messageDiv.innerText = userMessage;
+}
 
 /**
  * First animation step.
@@ -150,7 +165,20 @@ async function sendEmailAnimation() {
 /**
  * Send the email calling the remote endpoint
  */
-async function sendEmail(recaptchaToken) {
+async function sendEmail(clientCaptcha) {
+    const userName = paper.elements.name.value;
+    const userEmail = paper.elements.email.value;
+    const userMessage = messageDiv.innerText;
+
+    // Save email data in sessionStorage
+    // If there's the need to refresh the page (after an error maybe)
+    // the email written in the form will be restored
+    sessionStorage.setItem(SAVED_EMAIL_DRAFT_KEY, JSON.stringify({
+        userName,
+        userEmail,
+        userMessage
+    }));
+
     try {
         const response = await fetch('/api/emails', {
             method: 'POST',
@@ -159,15 +187,18 @@ async function sendEmail(recaptchaToken) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userName: paper.elements.name.value,
-                userEmail: paper.elements.email.value,
-                userMessage: messageDiv.innerText,
-                clientCaptcha: recaptchaToken
+                userName,
+                userEmail,
+                userMessage,
+                clientCaptcha
             })
         });
 
         if (response.ok) {
-            return; // Success
+            // Success
+            // Remove saved email draft
+            sessionStorage.removeItem(SAVED_EMAIL_DRAFT_KEY);
+            return;
         }
 
         const { error } = await response.json();
