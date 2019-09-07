@@ -57,7 +57,7 @@ app.post('/api/sendEmail', asyncHandler(async(req, res) => {
 
     // Sanitize user input
     userName = htmlEncode(userName).replace(/['"]+/g, '');
-    userMessage = htmlEncode(userMessage);
+    userMessage = htmlEncode(userMessage).replace(/\n/gm, '<br>');
 
     // Send email to myself with user's message
     const gmail = createGmailClient();
