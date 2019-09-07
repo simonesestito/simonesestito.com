@@ -129,17 +129,21 @@ async function sendEmailAnimation() {
                 emailErrorDisplay.textContent = 'Internet connection required.'
                 break;
             case 'SERVER_ERROR':
-                emailErrorDisplay.textContent = 'Server error processing the request';
+                emailErrorDisplay.textContent = 'Server error processing the request.';
                 break;
             case 'INVALID_BODY_INPUT':
-                emailErrorDisplay.textContent = 'Invalid data inserted. Refresh the page and retry inserting correct data';
+                emailErrorDisplay.textContent = 'Invalid data inserted.';
                 break;
             case 'INVALID_RECAPTCHA':
-                emailErrorDisplay.textContent = 'ReCaptcha verification failed'
+                emailErrorDisplay.textContent = 'ReCaptcha verification failed.'
+                break;
+            case 'TOO_MANY_EMAILS':
+                emailErrorDisplay.textContent = 'You\'ve sent too many emails.';
                 break;
             default:
-                emailErrorDisplay.textContent = 'An error occurred sending the email';
+                emailErrorDisplay.textContent = 'An error occurred sending the email.';
         }
+        emailErrorDisplay.innerHTML += '<br>Refresh the page and retry, or send an email directly to <a href="mailto:simone@simonesestito.com">simone@simonesestito.com</a>.';
     });
 }
 

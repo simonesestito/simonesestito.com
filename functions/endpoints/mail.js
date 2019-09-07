@@ -7,21 +7,20 @@
 
 const Joi = require('@hapi/joi');
 const { isValidRecaptcha } = require('../services/captcha');
-const { htmlEncode, asyncHandler } = require('../utils');
-const {
-    createGmailClient,
-    sendSelfMail,
-    deleteMail
-} = require('../services/mail-service');
+const { asyncHandler } = require('../utils');
+const { EmailService } = require('../services/email');
 const {
     ERROR_INVALID_BODY_INPUT,
     ERROR_INVALID_RECAPTCHA,
+    ERROR_TOO_MANY_EMAILS
 } = require('../constants');
 const { sendEmailSchema } = require('../models/input/send-mail');
 
 exports.registerEndpoints = function(router) {
     router.post('/', asyncHandler(sendEmail));
 }
+
+const emailClient = new EmailService();
 
 async function sendEmail(req, res) {
     // Validate body with Joi
@@ -45,18 +44,25 @@ async function sendEmail(req, res) {
         });
     }
 
-    // Sanitize user input
-    userName = htmlEncode(userName).replace(/['"]+/g, '');
-    userMessage = htmlEncode(userMessage).replace(/\n/gm, '<br>');
+    const userIp = req.header('fastly-temp-xff').split(', ')[0];
 
     // Send email to myself with user's message
-    const gmail = createGmailClient();
-    const mailId = await sendSelfMail(gmail, {
-        userEmail,
-        userName,
-        userMessage
-    });
-    await deleteMail(gmail, mailId);
+    try {
+        await emailClient.sendUserEmail(
+            userIp,
+            userName,
+            userEmail,
+            userMessage
+        );
+    } catch (e) {
+        if (e.message === ERROR_TOO_MANY_EMAILS) {
+            return void res.status(429).send({
+                error: ERROR_TOO_MANY_EMAILS
+            });
+        } else {
+            throw e;
+        }
+    }
 
     return void res.status(200).send({});
 }
