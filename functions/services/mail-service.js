@@ -1,6 +1,7 @@
 /*
  * This file is part of simonesestito.com
  * Copyright (C) 2019 Simone Sestito
+ * All rights reserved, including the right to copy, modify, and redistribute.
  */
 
 const { google } = require('googleapis');
@@ -12,8 +13,8 @@ const {
     GMAIL_REFRESH_TOKEN,
     MAIL_SELF_FROM,
     MAIL_SELF_TO
-} = require('./constants');
-const { stringifyHeaders } = require('./utils');
+} = require('../constants');
+const { stringifyHeaders } = require('../utils');
 
 exports.createGmailClient = function() {
     const oauthClient = new OAuth2(

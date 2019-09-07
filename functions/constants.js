@@ -1,7 +1,9 @@
 /*
  * This file is part of simonesestito.com
  * Copyright (C) 2019 Simone Sestito
+ * All rights reserved, including the right to copy, modify, and redistribute.
  */
+
 const functions = require('firebase-functions');
 
 exports.RECAPTCHA_SECRET_KEY = functions.config().recaptcha.secretkey;

@@ -1,10 +1,12 @@
 /*
  * This file is part of simonesestito.com
  * Copyright (C) 2019 Simone Sestito
+ * All rights reserved, including the right to copy, modify, and redistribute.
  */
+
 const {
     RECAPTCHA_SECRET_KEY
-} = require('./constants');
+} = require('../constants');
 const rp = require('request-promise');
 
 exports.isValidRecaptcha = async function(clientCode) {

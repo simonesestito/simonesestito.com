@@ -13,6 +13,7 @@
             "${commentbegin}",
             "${commentprefix} This file is part of ${project}",
             "${commentprefix} Copyright (C) ${year} ${name}",
+            "${commentprefix} All rights reserved, including the right to copy, modify, and redistribute.",
             "${commentend}"
         ]
     }

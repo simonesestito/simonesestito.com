@@ -148,7 +148,7 @@ async function sendEmailAnimation() {
  */
 async function sendEmail(recaptchaToken) {
     try {
-        const response = await fetch('/api/sendEmail', {
+        const response = await fetch('/api/emails', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
