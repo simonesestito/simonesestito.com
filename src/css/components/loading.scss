@@ -6,7 +6,7 @@
 
 
 /*
- * Credits to loading.io
+ * Based on code from https://loading.io/css/
  */
 
 .lds-ellipsis {
@@ -14,7 +14,7 @@
     position: relative;
     width: 64px;
     height: 64px;
-    transform: scale(1.4);
+    @include prefix(transform, scale(1.4));
 }
 
 .lds-ellipsis div {
@@ -22,54 +22,55 @@
     top: 27px;
     width: 11px;
     height: 11px;
+    border: 1px solid var(--textColor);
     border-radius: 50%;
-    background: $colorAccent;
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    background: var(--accentTextColor);
+    @include prefix(animation-timing-function, cubic-bezier(0, 1, 1, 0));
 }
 
 .lds-ellipsis div:nth-child(1) {
     left: 6px;
-    animation: lds-ellipsis1 0.6s infinite;
+    @include prefix(animation, lds-ellipsis1 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(2) {
     left: 6px;
-    animation: lds-ellipsis2 0.6s infinite;
+    @include prefix(animation, lds-ellipsis2 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(3) {
     left: 26px;
-    animation: lds-ellipsis2 0.6s infinite;
+    @include prefix(animation, lds-ellipsis2 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(4) {
     left: 45px;
-    animation: lds-ellipsis3 0.6s infinite;
+    @include prefix(animation, lds-ellipsis3 0.6s infinite);
 }
 
-@keyframes lds-ellipsis1 {
+@include keyframesPrefix(lds-ellipsis1) {
     0% {
-        transform: scale(0);
+        @include prefix(transform, scale(0));
     }
     100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes lds-ellipsis3 {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
+        @include prefix(transform, scale(1));
     }
 }
 
-@keyframes lds-ellipsis2 {
+@include keyframesPrefix(lds-ellipsis2) {
     0% {
-        transform: translate(0, 0);
+        @include prefix(transform, translate(0, 0));
     }
     100% {
-        transform: translate(19px, 0);
+        @include prefix(transform, translate(19px, 0));
+    }
+}
+
+@include keyframesPrefix(lds-ellipsis3) {
+    0% {
+        @include prefix(transform, scale(1));
+    }
+    100% {
+        @include prefix(transform, scale(0));
     }
 }
