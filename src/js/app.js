@@ -7,6 +7,7 @@
 import supportsWebP from 'supports-webp';
 import 'intersection-observer-polyfill/index.global';
 import smoothscroll from 'smoothscroll-polyfill';
+import { loadScriptUrl } from './utils';
 
 // Smooth-scroll polyfill for Safari
 smoothscroll.polyfill();
@@ -51,6 +52,17 @@ if (/(android)/i.test(navigator.userAgent)) {
     });
 }
 
+// When cookies are accepted, start Analytics
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() { window.dataLayer.push(arguments); }
+document.addEventListener('cookiesaccepted', () => {
+    // Google Analytics
+    loadScriptUrl('https://www.googletagmanager.com/gtag/js?id=UA-80600108-4');
+    gtag('js', new Date());
+    gtag('config', 'UA-80600108-4', {
+        'anonymize_ip': true
+    });
+});
 
 import './sections';
 import './components';

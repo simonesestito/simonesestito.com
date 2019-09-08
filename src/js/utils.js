@@ -36,3 +36,19 @@ export async function waitMillis(millis) {
         setTimeout(res, millis);
     });
 }
+
+/**
+ * Load JS script from URL dynamically
+ * @param {string} scriptUrl
+ * @param {Function} callback 
+ */
+export function loadScriptUrl(scriptUrl, callback) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = scriptUrl;
+    if (callback) {
+        script.onload = () => callback();
+    }
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+}

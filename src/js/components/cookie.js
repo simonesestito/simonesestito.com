@@ -4,8 +4,7 @@
  * All rights reserved, including the right to copy, modify, and redistribute.
  */
 
-const COOKIES_ACCEPTED_EVENT = 'cookiesAccepted';
-exports.COOKIES_ACCEPTED_EVENT = COOKIES_ACCEPTED_EVENT;
+const COOKIES_ACCEPTED_EVENT = 'cookiesaccepted';
 
 const COOKIES_ACCEPT_POLICY_KEY = 'cookie-agreement'; // In localStorage
 const banner = document.getElementById('cookie-banner');
@@ -28,7 +27,9 @@ if (cookieAgreement && cookieAgreement.accepted === true && cookieAgreement.date
 }
 
 function loadCookies() {
-    document.dispatchEvent(new Event(COOKIES_ACCEPTED_EVENT));
+    setTimeout(() => {
+        document.dispatchEvent(new Event(COOKIES_ACCEPTED_EVENT));
+    });
 }
 
 function acceptCookies() {
