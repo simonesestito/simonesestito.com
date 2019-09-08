@@ -20,7 +20,7 @@
     opacity: 0;
     z-index: 20;
     justify-content: space-between;
-    @include prefix(transition, opacity 300ms $timingFunction);
+    transition: opacity 300ms $timingFunction;
     &.visible {
         display: flex;
         opacity: 1;

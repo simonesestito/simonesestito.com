@@ -14,7 +14,7 @@
     position: relative;
     width: 64px;
     height: 64px;
-    @include prefix(transform, scale(1.4));
+    @include prefix((webkit, ms), transform, scale(1.4));
 }
 
 .lds-ellipsis div {
@@ -25,52 +25,52 @@
     border: 1px solid var(--textColor);
     border-radius: 50%;
     background: var(--accentTextColor);
-    @include prefix(animation-timing-function, cubic-bezier(0, 1, 1, 0));
+    @include prefix((webkit), animation-timing-function, cubic-bezier(0, 1, 1, 0));
 }
 
 .lds-ellipsis div:nth-child(1) {
     left: 6px;
-    @include prefix(animation, lds-ellipsis1 0.6s infinite);
+    @include prefix((webkit), animation, lds-ellipsis1 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(2) {
     left: 6px;
-    @include prefix(animation, lds-ellipsis2 0.6s infinite);
+    @include prefix((webkit), animation, lds-ellipsis2 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(3) {
     left: 26px;
-    @include prefix(animation, lds-ellipsis2 0.6s infinite);
+    @include prefix((webkit), animation, lds-ellipsis2 0.6s infinite);
 }
 
 .lds-ellipsis div:nth-child(4) {
     left: 45px;
-    @include prefix(animation, lds-ellipsis3 0.6s infinite);
+    @include prefix((webkit), animation, lds-ellipsis3 0.6s infinite);
 }
 
 @include keyframesPrefix(lds-ellipsis1) {
     0% {
-        @include prefix(transform, scale(0));
+        @include prefix((webkit, ms), transform, scale(0));
     }
     100% {
-        @include prefix(transform, scale(1));
+        @include prefix((webkit, ms), transform, scale(1));
     }
 }
 
 @include keyframesPrefix(lds-ellipsis2) {
     0% {
-        @include prefix(transform, translate(0, 0));
+        @include prefix((webkit, ms), transform, translate(0, 0));
     }
     100% {
-        @include prefix(transform, translate(19px, 0));
+        @include prefix((webkit, ms), transform, translate(19px, 0));
     }
 }
 
 @include keyframesPrefix(lds-ellipsis3) {
     0% {
-        @include prefix(transform, scale(1));
+        @include prefix((webkit, ms), transform, scale(1));
     }
     100% {
-        @include prefix(transform, scale(0));
+        @include prefix((webkit, ms), transform, scale(0));
     }
 }

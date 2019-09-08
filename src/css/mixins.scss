@@ -60,18 +60,15 @@
 
 /* Vendor prefixes */
 
-@mixin prefix($property, $value) {
-    -webkit-#{$property}: $value;
-    -moz-#{$property}: $value;
-    -ms-#{$property}: $value;
+@mixin prefix($prefixes, $property, $value) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
     #{$property}: $value;
 }
 
 @mixin keyframesPrefix($name) {
     @-webkit-keyframes #{$name} {
-        @content;
-    }
-    @-moz-keyframes #{$name} {
         @content;
     }
     @keyframes #{$name} {

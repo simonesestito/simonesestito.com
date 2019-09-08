@@ -12,7 +12,7 @@
     box-shadow: 0 0 8px; // Color set in JS
     border-radius: 50%;
     margin: 24px;
-    @include prefix(transition, box-shadow 200ms linear);
+    transition: box-shadow 200ms linear;
     opacity: 0.9;
     &:hover {
         box-shadow: 0 0 16px;
