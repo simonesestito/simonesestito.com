@@ -15,6 +15,7 @@
     --phoneAppHeight: var(--phoneContainerHeight);
     --phoneAppsMarginBottom: calc(var(--phoneContainerHeight) / 2);
     --sectionFlexDirection: row;
+    --paragraphPaddingRight: 2em;
     @include mobileOnly() {
         --phoneContainerWidth: 100%;
         --phoneContainerMaxWidth: var(--phoneContainerWidth);
@@ -26,6 +27,7 @@
         --phoneAppHeight: 70vh;
         --sectionFlexDirection: column-reverse;
         --phoneAppsMarginBottom: 0;
+        --paragraphPaddingRight: 0;
     }
     .section-content {
         display: flex;
@@ -89,6 +91,9 @@
         }
         h2 {
             margin: 0.3em 0.5em 0.3em 0;
+        }
+        p {
+            padding-right: var(--paragraphPaddingRight);
         }
         .download-app-title {
             margin-bottom: 0;
