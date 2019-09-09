@@ -33,6 +33,9 @@
         min-width: $recaptchaWidth;
         grid-template-columns: $paperPadding auto $paperPadding;
         grid-template-rows: auto $closureFlapHeight $envelopeHeight auto;
+        &>* {
+            position: relative;
+        }
         form.paper {
             display: flex;
             flex-direction: column;
@@ -85,8 +88,7 @@
                 align-self: flex-end;
             }
         }
-        .paper,
-        .closure-flap {
+        .paper {
             transition: all 1s $timingFunction;
         }
         .envelope-front,
@@ -120,10 +122,14 @@
         .closure-flap {
             grid-area: 2 / 1 / span 1 / span 3;
             z-index: 1;
-            @include prefix((webkit, ms), transform-origin, bottom center);
+            display: flex;
             &[data-flipped=true] {
-                @include prefix((webkit, ms), transform, perspective(500px) rotateX(-180deg) translateY(3px));
                 z-index: 5;
+                @include prefix((webkit), backface-visibility, visible);
+                @include prefix((webkit, ms), transform-origin, bottom center);
+                @include prefix((webkit, ms), transform-style, preserve-3d);
+                @include prefix((webkit), animation, closureFlapClose 1s $timingFunction);
+                @include prefix((webkit), animation-fill-mode, forwards);
             }
         }
         .result {
@@ -174,12 +180,21 @@
         }
         .mail-loading {
             opacity: 0;
-            z-index: 10;
+            z-index: 6;
             align-self: center;
             justify-self: center;
         }
     }
     .other-links {
         margin: 0;
+    }
+}
+
+@include keyframesPrefix(closureFlapClose) {
+    0% {
+        @include prefix((webkit), transform, rotateX(0));
+    }
+    100% {
+        @include prefix((webkit), transform, rotateX(-180deg));
     }
 }

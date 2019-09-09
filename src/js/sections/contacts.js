@@ -115,7 +115,7 @@ async function sendEmailAnimation() {
         height,
         paddingTop
     } = window.getComputedStyle(paper);
-    const newPaperHeight = envelopeHeight - px(paddingTop);
+    const newPaperHeight = envelopeHeight - px(paddingTop) - 20;
 
     await doOnNextFrame(() => {
         paper.style.height = height;
