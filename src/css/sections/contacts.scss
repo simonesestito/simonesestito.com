@@ -40,6 +40,7 @@
             display: flex;
             flex-direction: column;
             padding: $paperPadding;
+            padding-bottom: $envelopeHeight;
             background-color: var(--elevatedSurfaceColor);
             z-index: 2;
             overflow: hidden;
@@ -71,18 +72,6 @@
                 margin-top: 24px;
                 border: 1px solid var(--lightTextColor);
                 border-radius: $contentRadius;
-            }
-            .submit-check {
-                opacity: 0;
-                min-height: $envelopeHeight;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                transition: all 1s $timingFunction;
-                #contacts-recaptcha {
-                    min-height: $recaptchaHeight;
-                    align-self: center;
-                }
             }
             input[type=submit] {
                 align-self: flex-end;

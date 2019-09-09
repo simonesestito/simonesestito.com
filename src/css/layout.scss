@@ -138,6 +138,10 @@ figure {
     }
 }
 
+.grecaptcha-badge {
+    display: none !important;
+}
+
 @include desktopOnly() {
     .desktop-half-right {
         max-width: 50%;

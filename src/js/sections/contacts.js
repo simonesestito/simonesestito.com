@@ -4,7 +4,7 @@
  * All rights reserved, including the right to copy, modify, and redistribute.
  */
 
-import { doOnNextFrame, px, waitMillis } from '../utils';
+import { doOnNextFrame, px, waitMillis, loadScriptUrl } from '../utils';
 
 const SAVED_EMAIL_DRAFT_KEY = 'email-draft';
 
@@ -18,13 +18,18 @@ const closureFlap = mailContainer.querySelector('.closure-flap');
 const emailErrorDisplay = mailContainer.querySelector('.email-error');
 const mailLoading = mailContainer.querySelector('.mail-loading');
 
-const submitCheck = paper.querySelector('.submit-check');
 const submitButton = paper.querySelector('input[type=submit]');
 const messageDiv = paper.querySelector('[contenteditable][name="message"]');
 const formError = paper.querySelector('.form-error');
 
-const recaptchaContainerId = 'contacts-recaptcha';
 let emailPromise;
+
+/**
+ * Load ReCaptcha when cookies are allowed
+ */
+document.addEventListener('cookiesaccepted', () => {
+    loadScriptUrl('https://www.google.com/recaptcha/api.js');
+});
 
 // Restore unsent email draft, if any
 const emailDraftJson = sessionStorage.getItem(SAVED_EMAIL_DRAFT_KEY);
@@ -40,36 +45,14 @@ if (emailDraftJson) {
 }
 
 /**
- * First animation step.
- * Should be called on submit.
+ * Function used in HTML ReCaptcha widget
  */
-async function showCaptcha() {
-    const submitCheckContentHeight = [...submitCheck.children]
-        .map(e => px(window.getComputedStyle(e).height))
-        .reduce((acc, i) => acc + i, 0);
-
-    // Keep a small piece of paper inside the envelope
-    const paperInsideEnvelope = 24;
-
-    await doOnNextFrame(() => {
-        paper.style.marginBottom = submitCheckContentHeight - paperInsideEnvelope + 'px';
-        paper.style.paddingBottom = paperInsideEnvelope + 'px';
-        submitCheck.style.opacity = '1';
-        submitButton.style.opacity = '0';
-    });
-
-    // Explicitly load ReCaptcha
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    grecaptcha.render(recaptchaContainerId, {
-        sitekey: '6LeRJ7YUAAAAADY5ZFtshqLYuRSjyA3tGbtt6azi',
-        theme: isDark ? 'dark' : 'light',
-        callback(recaptchaToken) {
-            emailPromise = sendEmail(recaptchaToken);
-            sendEmailAnimation();
-        }
-    });
+window.onContactsRecaptchaSuccess = function(recaptchaToken) {
+    emailPromise = sendEmail(recaptchaToken);
+    sendEmailAnimation();
 }
 
+// On form submit
 paper.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -96,17 +79,19 @@ paper.addEventListener('submit', e => {
     }
 
     // Freeze form input
+    submitButton.style.opacity = '0';
     allInputs.forEach(e => e.setAttribute('readonly', true));
     allEditables.forEach(e => {
         e.setAttribute('contenteditable', false);
         e.setAttribute('aria-readonly', true);
     });
 
-    showCaptcha();
+    // Execute ReCaptcha challenge
+    grecaptcha.execute();
 });
 
 /**
- * Second animation step.
+ * First animation step.
  * Should be called after captcha challenge.
  */
 async function sendEmailAnimation() {

@@ -46,6 +46,7 @@ export function loadScriptUrl(scriptUrl, callback) {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = scriptUrl;
+    script.async = true;
     if (callback) {
         script.onload = () => callback();
     }
