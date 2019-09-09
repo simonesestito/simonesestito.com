@@ -126,15 +126,18 @@ async function sendEmailAnimation() {
         paper.style.marginBottom = '0px';
         paper.style.height = newPaperHeight + 'px';
     });
-
     await waitMillis(1000);
+
     // Attribute triggers transform animation from CSS
     closureFlap.setAttribute('data-flipped', 'true');
-
     await waitMillis(1000);
+
     await doOnNextFrame(() => {
         mailLoading.style.opacity = '1';
     });
+    // Keep loading indicator for at least 500ms to avoid flashing
+    await waitMillis(500);
+
     // Handle emailPromise
     await emailPromise.then(() => {
         successResultMark.classList.add('visible');

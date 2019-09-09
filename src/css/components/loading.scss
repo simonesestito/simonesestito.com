@@ -9,68 +9,44 @@
  * Based on code from https://loading.io/css/
  */
 
-.lds-ellipsis {
-    display: inline-block;
+.lds-ripple {
     position: relative;
-    width: 64px;
-    height: 64px;
-    @include prefix((webkit, ms), transform, scale(1.4));
 }
 
-.lds-ellipsis div {
+.lds-ripple div {
+    box-sizing: content-box;
     position: absolute;
-    top: 27px;
-    width: 11px;
-    height: 11px;
-    border: 1px solid var(--textColor);
+    border-width: 12px;
+    border-style: solid;
+    opacity: 1;
     border-radius: 50%;
-    background: var(--accentTextColor);
-    @include prefix((webkit), animation-timing-function, cubic-bezier(0, 1, 1, 0));
+    border-color: var(--accentTextColor);
+    @include prefix((webkit), animation, lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite);
 }
 
-.lds-ellipsis div:nth-child(1) {
-    left: 6px;
-    @include prefix((webkit), animation, lds-ellipsis1 0.6s infinite);
+.lds-ripple div:nth-child(2) {
+    @include prefix((webkit), animation-delay, -0.5s);
 }
 
-.lds-ellipsis div:nth-child(2) {
-    left: 6px;
-    @include prefix((webkit), animation, lds-ellipsis2 0.6s infinite);
+.lds-ripple {
+    width: 132px !important;
+    height: 132px !important;
+    @include prefix((webkit, ms), transform, translate(-50px, -50px) scale(0.5) translate(50px, 50px));
 }
 
-.lds-ellipsis div:nth-child(3) {
-    left: 26px;
-    @include prefix((webkit), animation, lds-ellipsis2 0.6s infinite);
-}
-
-.lds-ellipsis div:nth-child(4) {
-    left: 45px;
-    @include prefix((webkit), animation, lds-ellipsis3 0.6s infinite);
-}
-
-@include keyframesPrefix(lds-ellipsis1) {
+@include keyframesPrefix(lds-ripple) {
     0% {
-        @include prefix((webkit, ms), transform, scale(0));
+        top: 96px;
+        left: 96px;
+        width: 0;
+        height: 0;
+        opacity: 1;
     }
     100% {
-        @include prefix((webkit, ms), transform, scale(1));
-    }
-}
-
-@include keyframesPrefix(lds-ellipsis2) {
-    0% {
-        @include prefix((webkit, ms), transform, translate(0, 0));
-    }
-    100% {
-        @include prefix((webkit, ms), transform, translate(19px, 0));
-    }
-}
-
-@include keyframesPrefix(lds-ellipsis3) {
-    0% {
-        @include prefix((webkit, ms), transform, scale(1));
-    }
-    100% {
-        @include prefix((webkit, ms), transform, scale(0));
+        top: 18px;
+        left: 18px;
+        width: 156px;
+        height: 156px;
+        opacity: 0;
     }
 }
