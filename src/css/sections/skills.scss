@@ -14,9 +14,10 @@ $phoneFigureSize: 72px;
     @include desktopOnly() {
         .section-content {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             grid-template-rows: auto;
-            grid-template-areas: "main-title main-title . main main main main ." "secondary-title secondary-title flutter flutter flutter node node node";
+            grid-template-areas: "main-title main-title main main main"
+                "secondary-title secondary-title node node node";
             grid-row-gap: 48px;
             .main-skill-title {
                 grid-area: main-title;
@@ -31,9 +32,6 @@ $phoneFigureSize: 72px;
                 .chip {
                     margin-right: 2em;
                 }
-            }
-            .cross-apps {
-                grid-area: flutter;
             }
             .node-backend {
                 grid-area: node;
