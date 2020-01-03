@@ -28,6 +28,12 @@ exports.UserRepository = class {
         const existingUser = await this.getUserByIp(ipAddress);
         if (existingUser) {
             // User already exists
+
+            // Add empty emailDates if not included
+            if (!existingUser.emailDates) {
+                existingUser.emailDates = [];
+            }
+            
             return existingUser;
         }
 
