@@ -8,7 +8,6 @@
     max-width: $maxWidthContainer;
     min-height: $cardHeight;
     background: var(--surfaceColor);
-    @include prefix((webkit), animation, cardArrowUp 0.8s #{$timingFunction});
     margin: var(--cardMarginTop) auto 0 auto;
     border-top-left-radius: $containerCardRadius;
     border-top-right-radius: $containerCardRadius;
@@ -25,11 +24,5 @@
         svg {
             fill: var(--textColor);
         }
-    }
-}
-
-@include keyframesPrefix(cardArrowUp) {
-    from {
-        margin-top: 100vh;
     }
 }
