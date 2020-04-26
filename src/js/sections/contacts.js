@@ -24,13 +24,6 @@ const formError = paper.querySelector('.form-error');
 
 let emailPromise;
 
-/**
- * Load ReCaptcha when cookies are allowed
- */
-document.addEventListener('cookiesaccepted', () => {
-    loadScriptUrl('https://www.google.com/recaptcha/api.js');
-});
-
 // Restore unsent email draft, if any
 const emailDraftJson = sessionStorage.getItem(SAVED_EMAIL_DRAFT_KEY);
 if (emailDraftJson) {

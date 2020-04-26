@@ -6,5 +6,4 @@
 
 export * from './bubbles';
 export * from './chips';
-export * from './cookie';
 export * from './sw-update';

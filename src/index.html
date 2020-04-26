@@ -33,17 +33,6 @@
 </head>
 
 <body>
-    <div class="fixed-banner" id="cookie-banner">
-        <p>This website uses technical and third-party cookies. If you continue browsing the website, you'll accept the
-            Privacy Policy.
-            <a href="https://www.iubenda.com/privacy-policy/24574042" target="_blank" rel="noopener nofollow">Privacy
-                Policy</a>
-        </p>
-        <figure role="button" aria-label="Accept cookies" class="close-btn">
-            <img src="res/svg/icons/close-circle.svg">
-        </figure>
-    </div>
-
     <div class="fixed-banner" id="sw-update-banner">
         <p>A new version of this website is available!</p>
         <button class="update-btn flat-button">Update</button>
@@ -312,31 +301,10 @@
         <div class="inner-shadow"></div>
         <div class="container">
             <p>Copyright (C) 2020 Simone Sestito.</p>
-
-            <!-- Iubenda privacy policy widget -->
-            <a href="https://www.iubenda.com/privacy-policy/24574042" class="iubenda-white iubenda-embed"
-                title="Privacy Policy">Privacy Policy</a>
-            <script type="text/javascript">
-                (function (w, d) {
-                    var loader = function () {
-                        var s = d.createElement("script"),
-                            tag = d.getElementsByTagName("script")[0];
-                        s.src = "https://cdn.iubenda.com/iubenda.js";
-                        tag.parentNode.insertBefore(s, tag);
-                    };
-                    if (w.addEventListener) {
-                        w.addEventListener("load", loader, false);
-                    } else if (w.attachEvent) {
-                        w.attachEvent("onload", loader);
-                    } else {
-                        w.onload = loader;
-                    }
-                })(window, document);
-            </script>
-        </div>
     </footer>
 
     <script src="js/app.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 
 </html>
