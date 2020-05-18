@@ -62,6 +62,9 @@
             #qs {
                 @include webpBackground('/res/img/screenshots/qs', '.png');
             }
+            #shops_queue {
+                @include webpBackground('/res/img/screenshots/shops_queue', '.png');
+            }
             #wallapp {
                 @include webpBackground('/res/img/screenshots/wallapp', '.png');
             }
