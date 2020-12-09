@@ -25,7 +25,9 @@ exports.GmailApi = class {
         );
 
         oauthClient.setCredentials({
-            refresh_token: GMAIL_REFRESH_TOKEN
+            refresh_token: GMAIL_REFRESH_TOKEN,
+            scope: "https://mail.google.com/",
+            token_type: "Bearer",
         });
 
         this.gmail = google.gmail({

@@ -41,6 +41,7 @@
     "dependencies": {
         "@babel/runtime-corejs2": "^7.5.5",
         "firebase-functions": "^3.6.1",
+        "googleapis": "^39.2.0",
         "intersection-observer-polyfill": "^0.1.0",
         "parcel-plugin-static-files-copy": "^2.2.1",
         "smoothscroll-polyfill": "^0.4.4",
