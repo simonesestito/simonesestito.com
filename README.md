@@ -22,5 +22,5 @@ Necessary to collect analytics about the users behaviour on the website.
 ## License
 
     simonesestito.com Portfolio Website
-    Copyright (C) 2019-2021 Simone Sestito
+    Copyright (C) 2019-2022 Simone Sestito
     All rights reserved, including the right to copy, modify, and redistribute.
