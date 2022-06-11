@@ -16,8 +16,8 @@ It's a bundler and allows to have splitted source files which results in a bette
 The free hosting service used in this project.
 - **Firebase Cloud Functions**:
 They are used for the Contacts section, in particular to validate the ReCaptcha client token and to send the email.
-- **Google Analytics + Google Tag Manager**:
-Necessary to collect analytics about the users behaviour on the website.
+- **TinyAnalitics.io**:
+Necessary to collect small, privacy-friendly, analytics about the users behaviour on the website.
 
 ## License
 
