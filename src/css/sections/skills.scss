@@ -5,12 +5,14 @@
  */
 
 $phoneFigureSize: 72px;
+
 #skills {
     .section-content {
         margin-top: 48px;
         margin-left: 16px;
         margin-right: 16px;
     }
+
     @include desktopOnly() {
         .section-content {
             display: grid;
@@ -19,26 +21,52 @@ $phoneFigureSize: 72px;
             grid-template-areas: "main-title main-title main main main"
                 "secondary-title secondary-title misc misc misc";
             grid-row-gap: 48px;
+
             .main-skill-title {
                 grid-area: main-title;
                 align-self: center;
             }
+
             .secondary-skills-title {
                 grid-area: secondary-title;
                 align-self: center;
             }
+
             .main-skill {
                 grid-area: main;
+
                 .chip {
                     margin-right: 2em;
                 }
             }
+
             .misc-skills {
                 grid-area: misc;
             }
+
             h3 {
                 text-align: center;
             }
+        }
+    }
+
+    .skills-projects {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skills-project {
+        padding: 24px 12px;
+
+        svg {
+            fill: var(--accentTextColor);
+            margin: 0;
+            height: 1.2em;
+            margin-bottom: -0.2em;
+        }
+
+        * {
+            margin: 4px;
         }
     }
 }
