@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  api:
+    image: 'simonesestito/www-api.simonesestito.com:latest'
+    ports:
+      - "127.0.0.1:${DOCKER_HOST_PROXY_PORT:-8080}:8080"
+    env_file:
+      - .env
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 1s
