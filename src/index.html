@@ -218,23 +218,23 @@
                 <div class="section-content">
                     <h2 class="main-skill-title">Android and Cross-Platform App Development</h2>
                     <ul class="main-skill chips center-children">
-                        <li class="chip" data-chip-color="#547CE0">
+                        <li class="chip" data-chip-color="#547CE0" data-skill="kotlin">
                             <img src="res/svg/icons/kotlin.svg">
                             <span class="chip-title">Kotlin</span>
                         </li>
-                        <li class="chip" data-chip-color="#1dbbfd">
+                        <li class="chip" data-chip-color="#1dbbfd" data-skill="flutter">
                             <img src="res/svg/icons/flutter.svg">
                             <span class="chip-title">Flutter</span>
                         </li>
-                        <li class="chip" data-chip-color="#0D9128">
+                        <li class="chip" data-chip-color="#0D9128" data-skill="jetpack">
                             <img src="res/svg/icons/android.svg">
                             <span class="chip-title">Android Jetpack</span>
                         </li>
-                        <li class="chip" data-chip-color="#FD6C35">
+                        <li class="chip" data-chip-color="#FD6C35" data-skill="rest">
                             <img src="res/svg/icons/rest_apis.svg">
                             <span class="chip-title">REST APIs</span>
                         </li>
-                        <li class="chip" data-chip-color="#F5820B">
+                        <li class="chip" data-chip-color="#F5820B" data-skill="firebase">
                             <img src="res/svg/icons/firebase.svg">
                             <span class="chip-title">Firebase products</span>
                         </li>
@@ -245,23 +245,19 @@
                     <h2 class="secondary-skills-title">Backend Development</h2>
                     <div class="misc-skills">
                         <ul class="chips center-children">
-                            <li class="chip" data-chip-color="#006fb6">
+                            <li class="chip" data-chip-color="#006fb6" data-skill="docker">
                                 <img src="res/svg/icons/docker.svg">
-                                <span class="chip-title">Docker deployment</span>
+                                <span class="chip-title">Docker on Linux server</span>
                             </li>
-                            <li class="chip" data-chip-color="#EA2D2E">
+                            <li class="chip" data-chip-color="#EA2D2E" data-skill="spring">
                                 <img src="res/svg/icons/java.svg">
                                 <span class="chip-title">Java Spring Framework</span>
                             </li>
-                            <li class="chip" data-chip-color="#246A7C">
+                            <li class="chip" data-chip-color="#246A7C" data-skill="db">
                                 <img src="res/svg/icons/database.svg">
                                 <span class="chip-title">SQL databases</span>
                             </li>
-                            <li class="chip" data-chip-color="#b79b0b">
-                                <img src="res/svg/icons/linux.svg">
-                                <span class="chip-title">Linux servers</span>
-                            </li>
-                            <li class="chip" data-chip-color="#0D9128">
+                            <li class="chip" data-chip-color="#0D9128" data-skill="node">
                                 <img src="res/svg/icons/nodejs.svg">
                                 <span class="chip-title">Node.js with JS/TS</span>
                             </li>
@@ -269,37 +265,47 @@
                     </div>
                 </div>
 
-                <h3 class="center">Click on a skill to show relevant projects</h3>
+                <h3 class="center">Click on a <u>skill</u> to show relevant projects</h3>
                 <div class="skills-projects">
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="node docker">
+                        <b>This website</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/simonesestito.com"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>The email service is powered by Node.js and runs as a Docker image</p>
                     </div>
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="flutter db docker rest spring">
+                        <b>Foody</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/foody"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>University project about databases, powered by Flutter Web and Spring</p>
                     </div>
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="docker">
+                        <b>Docker Projects Manager</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/docker-projects-manager"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Python utility to manage Docker projects on a server</p>
                     </div>
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="node firebase">
+                        <b>WallApp CLI</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/wallapp-cli"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Admin utility to manage wallpapers inside of the WallApp application, stored on Firebase</p>
                     </div>
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="rest jetpack docker db">
+                        <b>Shops Queue</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/shops-queue-php"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Graduation exam's project which manages queues outside shops, using a 3D map to search</p>
                     </div>
-                    <div class="skills-project">
-                        <b>Title</b>
-                        <a href="#"><img src="res/svg/icons/open_link.svg"></a>
-                        <p>Short description</p>
+                    <div class="skills-project hidden" data-skill="flutter rest">
+                        <b>Escape Earth</b>
+                        <a target="_blank" rel="noopener" href="https://github.com/simonesestito/escape-earth"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Hackathon project. It collects space launch dates and all the info about rocket launches</p>
+                    </div>
+                    <div class="skills-project hidden" data-skill="kotlin jetpack firebase">
+                        <b>WallApp Android</b>
+                        <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.simonesestito.wallapp&hl=it&gl=IT"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Modern wallpaper app built with 2020 Android Jetpack tools</p>
+                    </div>
+                    <div class="skills-project hidden" data-skill="flutter firebase node">
+                        <b>Barberia 95</b>
+                        <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.barberia95.app"><img src="res/svg/icons/open_link.svg"></a>
+                        <p>Booking app for a real barber shop, built with Flutter, Firebase and with Node.js backend functions</p>
                     </div>
                 </div>
             </section>
