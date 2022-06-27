@@ -167,7 +167,7 @@ async function sendEmail(clientCaptcha) {
     }));
 
     try {
-        const response = await fetch('/api/emails', {
+        const response = await fetch('https://www-api.simonesestito.com/api/emails', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

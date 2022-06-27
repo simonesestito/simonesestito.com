@@ -4,13 +4,16 @@
  * All rights reserved, including the right to copy, modify, and redistribute.
  */
 
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
 const express = require('express');
+const cors = require('cors');
 const email = require('./endpoints/mail');
 
-admin.initializeApp();
 const app = express();
+
+app.use(cors({
+    origin: 'https://simonesestito.com',
+    methods: [ 'POST' ],
+}));
 
 /*
  * Requires Content-Type: application/json
@@ -21,4 +24,5 @@ const emailRouter = express.Router();
 email.registerEndpoints(emailRouter);
 app.use('/api/emails', emailRouter);
 
-exports.apiBackend = functions.https.onRequest(app);
+const port = process.env.PORT || 8080;
+app.listen(port, () => console.log('Server started on port', port));

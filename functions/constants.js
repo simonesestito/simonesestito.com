@@ -4,21 +4,20 @@
  * All rights reserved, including the right to copy, modify, and redistribute.
  */
 
-const functions = require('firebase-functions');
-
-exports.RECAPTCHA_SECRET_KEY = functions.config().recaptcha.secretkey;
-exports.GMAIL_CLIENT_ID = functions.config().gmail.clientid;
-exports.GMAIL_SECRET = functions.config().gmail.secret;
-exports.GMAIL_REDIRECT_URL = functions.config().gmail.redirect;
-exports.GMAIL_REFRESH_TOKEN = functions.config().gmail.refreshtoken;
-exports.MAIL_SELF_FROM = functions.config().mailself.from;
-exports.MAIL_SELF_TO = functions.config().mailself.to;
+exports.RECAPTCHA_SECRET_KEY = assertDeclared('RECAPTCHA_SECRET_KEY');
+exports.TELEGRAM_BOT_TOKEN = assertDeclared('TELEGRAM_BOT_TOKEN');
+exports.TELEGRAM_RCPT_USER = assertDeclared('TELEGRAM_RCPT_USER');
+exports.API_DOMAIN = process.env.API_DOMAIN || 'https://www-api.simonesestito.com';
 
 exports.ERROR_SERVER = 'SERVER_ERROR';
 exports.ERROR_INVALID_BODY_INPUT = 'INVALID_BODY_INPUT';
 exports.ERROR_INVALID_RECAPTCHA = 'INVALID_RECAPTCHA';
-exports.ERROR_TOO_MANY_EMAILS = 'TOO_MANY_EMAILS';
 
-exports.ANTISPAM_PROTECTION_ENABLED = true;
-exports.ANTISPAM_EMAILS_LIMIT = 2;
-exports.ANTISPAM_MILLIS_LIMIT = 24 * 60 * 60 * 1000; // 1 day
+function assertDeclared(environmentVariableName) {
+    const envVar = process.env[environmentVariableName];
+    if (envVar === undefined) {
+        console.log(process.env);
+        throw Error('Required environment variable ' + environmentVariableName + ' not defined.');
+    }
+    return envVar;
+}
