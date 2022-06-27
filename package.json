@@ -19,7 +19,7 @@
         "prebuild": "npm run clean",
         "build": "parcel build src/index.html src/404.html --no-source-maps",
         "predeploy": "npm run build",
-        "deploy": "firebase deploy",
+        "deploy": "firebase deploy --only hosting",
         "preprod": "npm run build",
         "prod": "firebase serve"
     },
