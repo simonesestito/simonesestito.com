@@ -17,4 +17,5 @@ exports.replyEmailSchema = Joi.object().keys({
     userName: Joi.string().min(1).required(),
     userEmail: Joi.string().email({ minDomainSegments: 2 }).required(),
     userMessage: Joi.string().min(1).required(),
+    messageId: Joi.number().required(),
 });

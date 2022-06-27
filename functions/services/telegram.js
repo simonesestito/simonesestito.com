@@ -12,19 +12,32 @@ exports.TelegramService = class {
     async sendUserEmail(userName, userEmail, userMessage) {
         userName = htmlEncode(userName);
         userMessage = htmlEncode(userMessage);
-        
+
         // Compose Telegram message to send to myself
         const telegramMessage = `<b>New mail received from Portfolio Website!</b>
 
         <b>From:</b> ${userName} (${userEmail})
         <b>Message:</b> ${userMessage}`.split('\n').map(s => s.trim()).join('\n');
 
+        // First, send a mock message to obtain a valid message ID
         const sentMessage = await rp(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             json: true,
             body: {
                 chat_id: TELEGRAM_RCPT_USER,
+                text: 'New email!',
+            },
+        });
+
+        // Then, edit that message with the actual content.
+        // At this point, we also have the real message ID
+        await rp(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/editMessageText`, {
+            method: 'POST',
+            json: true,
+            body: {
+                chat_id: TELEGRAM_RCPT_USER,
                 text: telegramMessage,
+                message_id: sentMessage.result.message_id,
                 parse_mode: 'HTML',
                 reply_markup: {
                     inline_keyboard: [
@@ -34,7 +47,8 @@ exports.TelegramService = class {
                                 url: `${API_DOMAIN}/api/emails/reply
                                 ?userName=${encodeURIComponent(userName)}
                                 &userEmail=${encodeURIComponent(userEmail)}
-                                &userMessage=${encodeURIComponent(userMessage)}`.split('\n').map(s => s.trim()).join(''),
+                                &userMessage=${encodeURIComponent(userMessage)}
+                                &messageId=${sentMessage.result.message_id}`.split('\n').map(s => s.trim()).join(''),
                             },
                         ],
                     ],
@@ -49,6 +63,17 @@ exports.TelegramService = class {
             body: {
                 chat_id: TELEGRAM_RCPT_USER,
                 message_id: sentMessage.result.message_id,
+            },
+        });
+    }
+
+    async unpinMessage(messageId) {
+        await rp(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/unpinChatMessage`, {
+            method: 'POST',
+            json: true,
+            body: {
+                chat_id: TELEGRAM_RCPT_USER,
+                message_id: messageId,
             },
         });
     }

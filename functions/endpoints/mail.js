@@ -61,6 +61,9 @@ function replyToEmail(req, res) {
         });
     }
 
+    // Unpin message (equivalent as "Mark as read")
+    telegramBot.unpinMessage(value.messageId);
+
     const { userName, userEmail, userMessage } = value;
 
     const mailText = `\n\n
@@ -68,7 +71,7 @@ function replyToEmail(req, res) {
         From: ${userName} <${userEmail}>
         Message: ${userMessage}`.split('\n').map(s => s.trim()).join('\n');
 
-    const mailToLink = `mailto:${userEmail}&body=${encodeURIComponent(mailText)}`;
+    const mailToLink = `mailto:${userEmail}?body=${encodeURIComponent(mailText)}`;
     const gmailWebLink = `https://mail.google.com/mail/?authuser=1&view=cm&fs=1&to=${userEmail}&body=${encodeURIComponent(mailText)}`;
 
     return void res.status(200).send(`
