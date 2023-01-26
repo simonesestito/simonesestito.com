@@ -22,5 +22,5 @@ Necessary to collect small, privacy-friendly, analytics about the users behaviou
 ## License
 
     simonesestito.com Portfolio Website
-    Copyright (C) 2019-2022 Simone Sestito
+    Copyright (C) 2019-2023 Simone Sestito
     All rights reserved, including the right to copy, modify, and redistribute.
