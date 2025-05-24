@@ -1,7 +1,11 @@
 package api
 
-import "net/http"
-import "github.com/gorilla/mux"
+import (
+	"github.com/go-playground/validator/v10"
+	"github.com/gorilla/mux"
+	"net/http"
+	"www-api/src/config"
+)
 
 type Router interface {
 	Handler() http.Handler
@@ -19,10 +23,13 @@ func (r *_router) Handler() http.Handler {
 	return r.router
 }
 
-func NewRouter() Router {
+func NewRouter(cfg config.Config) Router {
 	r := &_router{
-		router:  mux.NewRouter(),
-		context: &apiContext{},
+		router: mux.NewRouter(),
+		context: &apiContext{
+			Log:       cfg.Log,
+			Validator: validator.New(),
+		},
 	}
 	return r
 }
