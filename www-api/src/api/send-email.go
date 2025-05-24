@@ -6,7 +6,7 @@ import (
 	"www-api/src/model"
 )
 
-func (r *_router) sendEmail(res http.ResponseWriter, req *http.Request) {
+func (r *router) sendEmail(res http.ResponseWriter, req *http.Request) {
 	var sendEmailRequest model.SendEmailRequest
 	displayError, err := readJsonBody(req, res, r.context.JsonValidator, &sendEmailRequest)
 	if err != nil {

@@ -12,12 +12,12 @@ type Router interface {
 	Handler() http.Handler
 }
 
-type _router struct {
+type router struct {
 	router  *mux.Router
 	context *apiContext
 }
 
-func (r *_router) Handler() http.Handler {
+func (r *router) Handler() http.Handler {
 	// Also register the routes here
 	r.router.HandleFunc("/api/emails", r.sendEmail).Methods("POST")
 	r.router.HandleFunc("/api/emails/reply", r.replyToEmail).Methods("GET")
@@ -25,7 +25,7 @@ func (r *_router) Handler() http.Handler {
 }
 
 func NewRouter(cfg config.Config) Router {
-	r := &_router{
+	r := &router{
 		router: mux.NewRouter(),
 		context: &apiContext{
 			Log:              cfg.Log,

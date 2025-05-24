@@ -6,7 +6,7 @@ import (
 	"www-api/src/model"
 )
 
-func (r *_router) replyToEmail(res http.ResponseWriter, req *http.Request) {
+func (r *router) replyToEmail(res http.ResponseWriter, req *http.Request) {
 	var replyEmailRequest model.ReplyEmailRequest
 	displayError, err := readGetQueryParameters(req, r.context.UrlValuesDecoder, r.context.JsonValidator, &replyEmailRequest)
 	if err != nil {
