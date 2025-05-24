@@ -10,7 +10,7 @@ func (r *_router) sendEmail(res http.ResponseWriter, req *http.Request) {
 	var sendEmailRequest model.SendEmailRequest
 	displayError, err := readJsonBody(req, res, r.context.Validator, &sendEmailRequest)
 	if err != nil {
-		r.context.Log.Warnf("Error reading JSON body: %v", err)
+		r.context.Log.Warnf("sendEmail: error reading JSON body: %v", err)
 		http.Error(res, displayError, http.StatusBadRequest)
 		return
 	}
