@@ -1,20 +1,30 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
+	"www-api/src/api/errors"
 	"www-api/src/model"
 )
 
 func (r *router) sendEmail(res http.ResponseWriter, req *http.Request) {
 	var sendEmailRequest model.SendEmailRequest
-	err := readJsonBody(req, res, r.context.JsonValidator, &sendEmailRequest)
-	if err != nil {
-		r.context.Log.Warnf("sendEmail: error reading JSON body: %v", err.InternalError())
-		http.Error(res, err.ErrorCode(), err.StatusCode())
+	httpErr := readJsonBody(req, res, r.context.JsonValidator, &sendEmailRequest)
+	if httpErr != nil {
+		r.context.Log.Warnf("sendEmail: error reading JSON body: %v", httpErr.InternalError())
+		http.Error(res, httpErr.ErrorCode(), httpErr.StatusCode())
 		return
 	}
 
-	_, _ = res.Write([]byte("Send email endpoint is not implemented yet"))
-	_, _ = res.Write([]byte(fmt.Sprintf("\n%+v", sendEmailRequest)))
+	// TODO: Handle the captcha validation
+
+	err := r.context.emailService.ReceiveEmail(sendEmailRequest)
+	if err != nil {
+		httpErr = errors.NewServerError(err)
+		r.context.Log.Errorf("sendEmail: error sending email: %v", httpErr.InternalError())
+		http.Error(res, httpErr.ErrorCode(), httpErr.StatusCode())
+		return
+	}
+
+	res.WriteHeader(http.StatusOK)
+	_, _ = res.Write([]byte("{}"))
 }
