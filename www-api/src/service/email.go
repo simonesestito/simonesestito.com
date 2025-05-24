@@ -58,7 +58,37 @@ func (s *emailService) ReceiveEmail(request model.SendEmailRequest) error {
 }
 
 func (s *emailService) ReplyToEmail(request model.ReplyEmailRequest) (mailToLink string, gmailWebLink string, err error) {
+	// Unpin message (equivalent as "Mark as read" in standard email clients)
+	err = s.telegram.UnpinMessage(request.MessageID)
+	if err != nil {
+		return "", "", fmt.Errorf("failed to unpin telegram message: %w", err)
+	}
 
+	emailText := fmt.Sprintf("\n\n\n----- Original Message -----\nFrom: %s <%s>\nMessage: %s",
+		html.EscapeString(request.UserName),
+		html.EscapeString(request.UserEmail),
+		html.EscapeString(request.UserMessage),
+	)
+
+	replyMailSubject := "Re: Your message to simonesestito.com"
+	mailToLink = fmt.Sprintf("mailto:%s?subject=%s&body=%s",
+		html.EscapeString(request.UserEmail),
+		html.EscapeString(replyMailSubject),
+		html.EscapeString(emailText),
+	)
+
+	gmailBaseUrl := "https://mail.google.com/mail/"
+	gmailUrlParams := url.Values{
+		"authuser": {"0"},
+		"view":     {"cm"},
+		"fs":       {"1"},
+		"to":       {html.EscapeString(request.UserEmail)},
+		"su":       {html.EscapeString(replyMailSubject)},
+		"body":     {html.EscapeString(emailText)},
+	}
+	gmailWebLink = fmt.Sprintf("%s?%s", gmailBaseUrl, gmailUrlParams.Encode())
+
+	return
 }
 
 // BuildReplyURL allows to build the URL to reply to an email.

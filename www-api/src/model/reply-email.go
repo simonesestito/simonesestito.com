@@ -4,5 +4,5 @@ type ReplyEmailRequest struct {
 	UserName    string `schema:"userName,required"`
 	UserEmail   string `schema:"userEmail,required"`
 	UserMessage string `schema:"userMessage,required"`
-	MessageID   int    `schema:"messageId,required" validate:"required,min=1"`
+	MessageID   uint64 `schema:"messageId,required" validate:"required,min=1"`
 }
