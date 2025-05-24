@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/go-playground/validator/v10"
+	"github.com/gorilla/schema"
 	"io"
 	"net/http"
 )
@@ -48,28 +49,59 @@ func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Va
 		return
 	}
 
-	// Validate the struct using the validator
-	err = validate.Struct(out)
+	err = validateStruct(validate, out)
 	if err != nil {
-		validationErrors := validator.ValidationErrors{}
-		if !errors.As(err, &validationErrors) {
-			displayError = "Unexpected error validating body input"
-			return
-		}
-
 		displayError = "Invalid JSON body"
-		msg := ""
-		if len(validationErrors) > 0 {
-			validationError := validationErrors[0]
-			msg = fmt.Sprintf("%s: %s %s %s",
-				msg,
-				validationError.Namespace(),
-				validationError.Tag(),
-				validationError.Param())
-		}
-		err = fmt.Errorf("%s: %s", displayError, msg)
 		return
 	}
 
 	return "", nil
+}
+
+func readGetQueryParameters(r *http.Request, decoder *schema.Decoder, validate *validator.Validate, out interface{}) (displayError string, err error) {
+	// Read the GET query parameters from the request and decode them into the provided struct.
+	// It returns the request body as a string and an error if any.
+	// The string is the error message that can be used to send a response to the client.
+	// The error is the actual internal error that can be logged.
+	// If everything is ok, it returns an empty string and nil error.
+	decoder.MaxSize(1024 * 1024)
+
+	// Decode the request body into the provided struct
+	query := r.URL.Query()
+	err = decoder.Decode(out, query)
+	if err != nil {
+		displayError = "Invalid query parameters"
+		return
+	}
+
+	err = validateStruct(validate, out)
+	if err != nil {
+		displayError = "Invalid query parameters"
+		return
+	}
+
+	return "", nil
+}
+
+func validateStruct(validate *validator.Validate, out interface{}) error {
+	// Validate the struct using the validator
+	err := validate.Struct(out)
+	if err != nil {
+		validationErrors := validator.ValidationErrors{}
+		if !errors.As(err, &validationErrors) {
+			return fmt.Errorf("%s: %w", "Unexpected error validating body input", err)
+		}
+
+		msg := "Validation error"
+		if len(validationErrors) > 0 {
+			validationError := validationErrors[0]
+			msg = fmt.Sprintf("%s %s %s",
+				validationError.Namespace(),
+				validationError.Tag(),
+				validationError.Param())
+		}
+		return fmt.Errorf("%s: %s", "Invalid struct", msg)
+	}
+
+	return nil
 }

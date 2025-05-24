@@ -1,8 +1,8 @@
 package model
 
 type ReplyEmailRequest struct {
-	UserName    string `json:"userName" validate:"required"`
-	UserEmail   string `json:"userEmail" validate:"required,email"`
-	UserMessage string `json:"userMessage" validate:"required"`
-	MessageID   int    `json:"messageId" validate:"required"` // ID of the Telegram notification message to unpin
+	UserName    string `schema:"userName,required"`
+	UserEmail   string `schema:"userEmail,required"`
+	UserMessage string `schema:"userMessage,required"`
+	MessageID   int    `schema:"messageId,required" validate:"required,min=1"`
 }

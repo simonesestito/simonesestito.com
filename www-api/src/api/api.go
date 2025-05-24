@@ -3,6 +3,7 @@ package api
 import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/schema"
 	"net/http"
 	"www-api/src/config"
 )
@@ -27,8 +28,9 @@ func NewRouter(cfg config.Config) Router {
 	r := &_router{
 		router: mux.NewRouter(),
 		context: &apiContext{
-			Log:       cfg.Log,
-			Validator: validator.New(),
+			Log:              cfg.Log,
+			JsonValidator:    validator.New(),
+			UrlValuesDecoder: schema.NewDecoder(),
 		},
 	}
 	return r
