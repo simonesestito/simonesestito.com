@@ -24,7 +24,7 @@ func (r *router) Handler() http.Handler {
 	return r.router
 }
 
-func NewRouter(cfg config.Config) Router {
+func NewRouter(cfg *config.Config) Router {
 	r := &router{
 		router: mux.NewRouter(),
 		context: &apiContext{

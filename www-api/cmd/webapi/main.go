@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"net/http"
 	"os"
 	"www-api/src/api"
@@ -19,21 +18,15 @@ func main() {
 }
 
 func run() error {
-	log := logrus.New()
-	log.SetOutput(os.Stdout)
-
-	log.Infoln("Application initializing...")
-
-	cfg := config.Config{
-		Log: log,
-	}
+	cfg := config.LoadConfig()
+	cfg.Log.Infoln("Configuration loaded successfully")
 
 	apiRouter := api.NewRouter(cfg)
 	handler := apiRouter.Handler()
 	http.Handle("/", handler)
 
 	port := 8080
-	log.Infof("Listening on port %d", port)
+	cfg.Log.Infof("Listening on port %d", port)
 
 	return http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
 }
