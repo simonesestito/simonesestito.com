@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/schema"
 	"net/http"
 	"www-api/src/config"
+	"www-api/src/service"
 )
 
 type Router interface {
@@ -33,5 +34,12 @@ func NewRouter(cfg *config.Config) Router {
 			UrlValuesDecoder: schema.NewDecoder(),
 		},
 	}
+
+	// Create and inject other dependencies
+	httpClient := service.NewHttpClient()
+	telegramService := service.NewTelegramService(cfg.TelegramBotToken, cfg.TelegramChatId, httpClient)
+	r.context.emailService = service.NewEmailService(cfg.ApiDomain, telegramService)
+	r.context.captchaService = service.NewCaptchaService(cfg.CaptchaSecretKey, httpClient)
+
 	return r
 }

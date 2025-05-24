@@ -13,5 +13,6 @@ type apiContext struct {
 	UrlValuesDecoder *schema.Decoder     // Decoder for decoding URL values, like query parameters
 
 	// Services and other dependencies here
-	emailService service.EmailService
+	emailService   service.EmailService
+	captchaService service.CaptchaService
 }

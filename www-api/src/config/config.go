@@ -13,7 +13,7 @@ type Config struct {
 	// Environment variables configuration
 	CaptchaSecretKey string
 	TelegramBotToken string
-	TelegramChatId   int64
+	TelegramChatId   uint64
 	ApiDomain        string
 }
 

@@ -15,9 +15,22 @@ func (r *router) sendEmail(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	// TODO: Handle the captcha validation
+	isCaptchaValid, err := r.context.captchaService.IsCaptchaValid(sendEmailRequest.ClientCaptcha)
+	if err != nil {
+		httpErr = errors.NewServerError(err)
+		r.context.Log.Errorf("sendEmail: error validating captcha: %v", httpErr.InternalError())
+		http.Error(res, httpErr.ErrorCode(), httpErr.StatusCode())
+		return
+	}
 
-	err := r.context.emailService.ReceiveEmail(sendEmailRequest)
+	if !isCaptchaValid {
+		httpErr = errors.NewInvalidCaptcha()
+		r.context.Log.Warnf("sendEmail: invalid captcha")
+		http.Error(res, httpErr.ErrorCode(), httpErr.StatusCode())
+		return
+	}
+
+	err = r.context.emailService.ReceiveEmail(sendEmailRequest)
 	if err != nil {
 		httpErr = errors.NewServerError(err)
 		r.context.Log.Errorf("sendEmail: error sending email: %v", httpErr.InternalError())
