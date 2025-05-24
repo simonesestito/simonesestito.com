@@ -8,9 +8,10 @@ import (
 	"github.com/gorilla/schema"
 	"io"
 	"net/http"
+	httpErrors "www-api/src/api/errors"
 )
 
-func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Validate, out interface{}) (displayError string, err error) {
+func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Validate, out interface{}) httpErrors.HTTPError {
 	// Read the request body, as a JSON object
 	// It takes the request body and decodes it into the provided struct.
 	//
@@ -21,9 +22,8 @@ func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Va
 
 	// Check the content type
 	if r.Header.Get("Content-Type") != "application/json" {
-		displayError = "Content-Type is not application/json"
-		err = fmt.Errorf("%s", displayError)
-		return
+		err := fmt.Errorf("%s", "Content-Type is not application/json")
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
 	// Enforce a maximum size for the request body
@@ -32,10 +32,9 @@ func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Va
 	// Decode the request body into the provided struct
 	decoder := json.NewDecoder(r.Body)
 	decoder.DisallowUnknownFields() // Disallow unknown fields in the JSON
-	err = decoder.Decode(out)
+	err := decoder.Decode(out)
 	if err != nil {
-		displayError = "Malformed JSON body"
-		return
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
 	// Call decode again, using a pointer to an empty anonymous struct as
@@ -44,21 +43,19 @@ func readJsonBody(r *http.Request, w http.ResponseWriter, validate *validator.Va
 	// we know that there is additional data in the request body.
 	err = decoder.Decode(&struct{}{})
 	if !errors.Is(err, io.EOF) {
-		displayError = "Request body must only contain a single JSON object"
-		err = fmt.Errorf("%s: %w", displayError, err)
-		return
+		err = fmt.Errorf("%s: %w", "Request body must only contain a single JSON object", err)
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
 	err = validateStruct(validate, out)
 	if err != nil {
-		displayError = "Invalid JSON body"
-		return
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
-	return "", nil
+	return nil
 }
 
-func readGetQueryParameters(r *http.Request, decoder *schema.Decoder, validate *validator.Validate, out interface{}) (displayError string, err error) {
+func readGetQueryParameters(r *http.Request, decoder *schema.Decoder, validate *validator.Validate, out interface{}) httpErrors.HTTPError {
 	// Read the GET query parameters from the request and decode them into the provided struct.
 	// It returns the request body as a string and an error if any.
 	// The string is the error message that can be used to send a response to the client.
@@ -68,19 +65,17 @@ func readGetQueryParameters(r *http.Request, decoder *schema.Decoder, validate *
 
 	// Decode the request body into the provided struct
 	query := r.URL.Query()
-	err = decoder.Decode(out, query)
+	err := decoder.Decode(out, query)
 	if err != nil {
-		displayError = "Invalid query parameters"
-		return
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
 	err = validateStruct(validate, out)
 	if err != nil {
-		displayError = "Invalid query parameters"
-		return
+		return httpErrors.NewInvalidBodyInput(err)
 	}
 
-	return "", nil
+	return nil
 }
 
 func validateStruct(validate *validator.Validate, out interface{}) error {

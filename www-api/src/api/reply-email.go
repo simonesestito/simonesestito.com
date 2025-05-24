@@ -8,10 +8,10 @@ import (
 
 func (r *router) replyToEmail(res http.ResponseWriter, req *http.Request) {
 	var replyEmailRequest model.ReplyEmailRequest
-	displayError, err := readGetQueryParameters(req, r.context.UrlValuesDecoder, r.context.JsonValidator, &replyEmailRequest)
+	err := readGetQueryParameters(req, r.context.UrlValuesDecoder, r.context.JsonValidator, &replyEmailRequest)
 	if err != nil {
-		r.context.Log.Warnf("replyToEmail: error reading params: %v", err)
-		http.Error(res, displayError, http.StatusBadRequest)
+		r.context.Log.Warnf("replyToEmail: error reading params: %v", err.InternalError())
+		http.Error(res, err.ErrorCode(), err.StatusCode())
 		return
 	}
 
