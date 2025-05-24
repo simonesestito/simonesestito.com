@@ -1,6 +1,8 @@
 services:
   api:
-    image: 'simonesestito/www-api.simonesestito.com:latest'
+    image: 'www-api.simonesestito.com:latest'
+    build:
+      context: functions
     ports:
       - "127.0.0.1:${DOCKER_HOST_PROXY_PORT:-8080}:8080"
     env_file:
